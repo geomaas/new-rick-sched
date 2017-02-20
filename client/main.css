@@ -1,0 +1,23 @@
+/* CSS declarations go here */
+.week-box{
+  width: 100%;
+  display: flex;
+}
+.day-box{
+  width: 100%;
+}
+.shift-box{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.day-shift{
+  align-self: center;
+  width: 50%;
+  background-color: lightblue;
+}
+.night-shift{
+  align-self: center;
+  width: 50%;
+  background-color: darkblue;
+}

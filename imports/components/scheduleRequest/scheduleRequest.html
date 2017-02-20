@@ -1,0 +1,35 @@
+<header>
+    <h1>Rickshaw Schedule</h1>
+</header>
+<login-buttons></login-buttons>
+
+<div class="week-box">
+    <div class="day-box">
+        <h1>monday</h1>
+        <div class="shift-box">
+            <div class="day-shift">
+                <button ng-click="$ctrl.addRequests($ctrl.shifts.monOne)" type="button" name="button">add shift</button>
+                <h1>day shift</h1>
+                <ol>
+                    <li ng-repeat="request in $ctrl.monOne">
+                      <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monOne)" >&times;</button>
+
+                        {{request.username}}
+                    </li>
+                </ol>
+
+            </div>
+            <div class="night-shift">
+              <button ng-click="$ctrl.addRequests($ctrl.shifts.monTwo)" type="button" name="button">add shift</button>
+                <h1>night shift</h1>
+                <ol>
+                    <li ng-repeat="request in $ctrl.monTwo">
+                      <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monTwo)" >&times;</button>
+
+                        {{request.username}}
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
