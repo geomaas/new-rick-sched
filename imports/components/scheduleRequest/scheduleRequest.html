@@ -1,6 +1,7 @@
 <header>
     <h1>Rickshaw Schedule</h1>
 </header>
+<login></login>
 <login-buttons></login-buttons>
 
 <div class="week-box">
@@ -12,7 +13,7 @@
                 <h1>day shift</h1>
                 <ol>
                     <li ng-repeat="request in $ctrl.monOne">
-                      <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monOne)" >&times;</button>
+                      <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monOne)"ng-show="$ctrl.currentUser.username == request.username" >&times;</button>
 
                         {{request.username}}
                     </li>
