@@ -1,5 +1,7 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import uiRouter from 'angular-ui-router';
+
 import {Requests, MonOne, MonTwo, TueOne, TueTwo, WedOne, WedTwo, ThuOne, ThuTwo, FriOne, FriTwo, SatOne, SatTwo, SunOne, SunTwo} from '../../api/requests.js';
 
 import template from './scheduleRequest.html';
@@ -24,6 +26,7 @@ class ScheduleRequestCtrl {
           sunOne: SunOne,
           sunTwo: SunTwo,
         }
+
         this.helpers({
             monOne:()=>{return MonOne.find({});},
             monTwo:()=>{return MonTwo.find({});},
@@ -70,9 +73,20 @@ class ScheduleRequestCtrl {
 }
 
 export default angular.module('scheduleRequest', [
-        angularMeteor
+        angularMeteor,
+        uiRouter
     ])
     .component('scheduleRequest', {
-        templateUrl: 'imports/components/scheduleRequest/scheduleRequest.html',
+        templateUrl: template,
         controller: ['$scope', ScheduleRequestCtrl]
+    })
+    .config(config);
+
+function config($stateProvider, $urlRouterProvider) {
+  // 'ngInject';
+  $stateProvider
+    .state('scheduleRequest', {
+      url: '/scheduleRequest',
+      template: '<schedule-request></schedule-request>'
     });
+}

@@ -1,11 +1,19 @@
 <head>
-  <title>Rickshaw Schedule</title>
+    <title>Rickshaw Schedule</title>
+    <base href="/">
 </head>
 
-<body>
-  <!-- <login></login> -->
-  <div class="container" ng-app="schedule-app">
-    <schedule-request></schedule-request>
-    <main ng-view></main>
-  </div>
+<body ng-app="schedule-app">
+    <a ui-sref="login">login</a>
+    <a ui-sref="scheduleRequest">Schedule Request</a>
+    <a ui-sref="contactList">Contact List</a>
+
+    <div class="container">
+        <div class="ui-view">
+
+        </div>
+    </div>
+    <!-- <login></login>
+  <contact-list> </contact-list>
+    <schedule-request></schedule-request> -->
 </body>
