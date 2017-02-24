@@ -13,7 +13,7 @@ angular.module('schedule-app', [
   scheduleRequest.name,
   login.name,
   contactList.name,
-  'accounts.ui'
+  // 'accounts.ui'
 ]).config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
     $locationProvider.html5Mode(true);

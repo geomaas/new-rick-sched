@@ -2,11 +2,12 @@
     <h1>Rickshaw Schedule</h1>
 </header>
 <!-- <login></login> -->
-<login-buttons></login-buttons>
+<!-- <login-buttons></login-buttons> -->
 
 <div class="week-box">
+  <!--- MONDAY   ----->
     <div class="day-box">
-        <h1>monday</h1>
+        <h1>Monday</h1>
         <div class="shift-box">
             <div class="day-shift">
                 <button ng-click="$ctrl.addRequests($ctrl.shifts.monOne)" type="button" name="button">add shift</button>
@@ -14,19 +15,173 @@
                 <ol>
                     <li ng-repeat="request in $ctrl.monOne">
                       <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monOne)"ng-show="$ctrl.currentUser.username == request.username" >&times;</button>
-
                         {{request.username}}
                     </li>
                 </ol>
-
             </div>
             <div class="night-shift">
               <button ng-click="$ctrl.addRequests($ctrl.shifts.monTwo)" type="button" name="button">add shift</button>
                 <h1>night shift</h1>
                 <ol>
                     <li ng-repeat="request in $ctrl.monTwo">
-                      <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monTwo)" >&times;</button>
+                      <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monTwo)"ng-show="$ctrl.currentUser.username == request.username" >&times;</button>
+                        {{request.username}}
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- TUESDAY -->
+    <div class="day-box">
+        <h1>Tuesday</h1>
+        <div class="shift-box">
+            <div class="day-shift">
+                <button ng-click="$ctrl.addRequests($ctrl.shifts.tueOne)" type="button" name="button">add shift</button>
+                <h1>day shift</h1>
+                <ol>
+                    <li ng-repeat="request in $ctrl.tueOne">
+                      <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.tueOne)"ng-show="$ctrl.currentUser.username == request.username" >&times;</button>
+                        {{request.username}}
+                    </li>
+                </ol>
+            </div>
+            <div class="night-shift">
+              <button ng-click="$ctrl.addRequests($ctrl.shifts.tueTwo)" type="button" name="button">add shift</button>
+                <h1>night shift</h1>
+                <ol>
+                    <li ng-repeat="request in $ctrl.tueTwo">
+                      <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.tueTwo)"ng-show="$ctrl.currentUser.username == request.username" >&times;</button>
 
+                        {{request.username}}
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- WEDNESDAY -->
+    <div class="day-box">
+        <h1>Wednesday</h1>
+        <div class="shift-box">
+            <div class="day-shift">
+                <button ng-click="$ctrl.addRequests($ctrl.shifts.wedOne)" type="button" name="button">add shift</button>
+                <h1>day shift</h1>
+                <ol>
+                    <li ng-repeat="request in $ctrl.wedOne">
+                      <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.wedOne)"ng-show="$ctrl.currentUser.username == request.username" >&times;</button>
+                        {{request.username}}
+                    </li>
+                </ol>
+            </div>
+            <div class="night-shift">
+              <button ng-click="$ctrl.addRequests($ctrl.shifts.wedTwo)" type="button" name="button">add shift</button>
+                <h1>night shift</h1>
+                <ol>
+                    <li ng-repeat="request in $ctrl.wedTwo">
+                      <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.wedTwo)"ng-show="$ctrl.currentUser.username == request.username" >&times;</button>
+                        {{request.username}}
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- THURSDAY -->
+    <div class="day-box">
+        <h1>Thursday</h1>
+        <div class="shift-box">
+            <div class="day-shift">
+                <button ng-click="$ctrl.addRequests($ctrl.shifts.thuOne)" type="button" name="button">add shift</button>
+                <h1>day shift</h1>
+                <ol>
+                    <li ng-repeat="request in $ctrl.thuOne">
+                      <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.thuOne)"ng-show="$ctrl.currentUser.username == request.username" >&times;</button>
+                        {{request.username}}
+                    </li>
+                </ol>
+            </div>
+            <div class="night-shift">
+              <button ng-click="$ctrl.addRequests($ctrl.shifts.thuTwo)" type="button" name="button">add shift</button>
+                <h1>night shift</h1>
+                <ol>
+                    <li ng-repeat="request in $ctrl.thuTwo">
+                      <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.thuTwo)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
+                        {{request.username}}
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- FRIDAY -->
+    <div class="day-box">
+        <h1>Friday</h1>
+        <div class="shift-box">
+            <div class="day-shift">
+                <button ng-click="$ctrl.addRequests($ctrl.shifts.friOne)" type="button" name="button">add shift</button>
+                <h1>day shift</h1>
+                <ol>
+                    <li ng-repeat="request in $ctrl.friOne">
+                      <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.friOne)"ng-show="$ctrl.currentUser.username == request.username" >&times;</button>
+                        {{request.username}}
+                    </li>
+                </ol>
+            </div>
+            <div class="night-shift">
+              <button ng-click="$ctrl.addRequests($ctrl.shifts.friTwo)" type="button" name="button">add shift</button>
+                <h1>night shift</h1>
+                <ol>
+                    <li ng-repeat="request in $ctrl.friTwo">
+                      <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.friTwo)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
+                        {{request.username}}
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- SATURDAY -->
+    <div class="day-box">
+        <h1>Saturday</h1>
+        <div class="shift-box">
+            <div class="day-shift">
+                <button ng-click="$ctrl.addRequests($ctrl.shifts.satOne)" type="button" name="button">add shift</button>
+                <h1>day shift</h1>
+                <ol>
+                    <li ng-repeat="request in $ctrl.satOne">
+                      <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.satOne)"ng-show="$ctrl.currentUser.username == request.username" >&times;</button>
+                        {{request.username}}
+                    </li>
+                </ol>
+            </div>
+            <div class="night-shift">
+              <button ng-click="$ctrl.addRequests($ctrl.shifts.satTwo)" type="button" name="button">add shift</button>
+                <h1>night shift</h1>
+                <ol>
+                    <li ng-repeat="request in $ctrl.satTwo">
+                      <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.satTwo)" ng-show="$ctrl.currentUser.username == request.username" >&times;</button>
+                        {{request.username}}
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- SUNDAY -->
+    <div class="day-box">
+        <h1>Sunday</h1>
+        <div class="shift-box">
+            <div class="day-shift">
+                <button ng-click="$ctrl.addRequests($ctrl.shifts.sunOne)" type="button" name="button">add shift</button>
+                <h1>day shift</h1>
+                <ol>
+                    <li ng-repeat="request in $ctrl.sunOne">
+                      <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.sunOne)"ng-show="$ctrl.currentUser.username == request.username" >&times;</button>
+                        {{request.username}}
+                    </li>
+                </ol>
+            </div>
+            <div class="night-shift">
+              <button ng-click="$ctrl.addRequests($ctrl.shifts.sunTwo)" type="button" name="button">add shift</button>
+                <h1>night shift</h1>
+                <ol>
+                    <li ng-repeat="request in $ctrl.sunTwo">
+                      <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.sunTwo)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                         {{request.username}}
                     </li>
                 </ol>

@@ -1,16 +1,19 @@
+
+  <h1>{{$ctrl.currentUser}}</h1>
   <h2>Login</h2>
   <form>
-    <input type="user" name="username" value="" placeholder="Name">
-    <input type="password" name="signupPassword" placeholder="Password">
-    <input type="submit" value="Signup">
+    <input ng-model="$ctrl.username" type="user" name="username" value="" placeholder="Name">
+    <input ng-model="$ctrl.password"type="password" name="signupPassword" placeholder="Password">
+    <input ng-click="$ctrl.loginUser($ctrl.username, $ctrl.password)" type="submit" value="Login">
   </form>
 
   <h2>Signup</h2>
   <form>
-    <input type="user" name="username" value="" placeholder="Name">
-    <input type="email" name="loginEmail" placeholder="Email">
-    <input type="password" name="loginPassword" placeholder="Password">
-    <input type="radio" name="company" value="rickshaw">Rickshaw<br>
-    <input type="radio" name="company" value="pedicab">Pedicab<br>
-    <input type="submit" value="Login">
+    <input ng-model="$ctrl.signup.username" type="username" name="username" value="" placeholder="Name">
+    <input ng-model="$ctrl.signup.email" type="email" name="loginEmail" placeholder="Email">
+    <input ng-model="$ctrl.signup.password" type="password" name="loginPassword" placeholder="Password">
+    <input ng-model="$ctrl.signup.phone" type="tel" name="phoneNumber" placeholder="Phone Number">
+    <input ng-model="$ctrl.signup.company" type="radio" name="company" value="rickshaw">Rickshaw<br>
+    <input ng-model="$ctrl.signup.company" type="radio" name="company" value="pedicab">Pedicab<br>
+    <input ng-click="$ctrl.signupUser($ctrl.signup)" type="submit" value="Signup">
   </form>
