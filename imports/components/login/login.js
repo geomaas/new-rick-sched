@@ -54,7 +54,7 @@ class LoginCtrl {
     }
 
     logOutUser(){
-      console.log('logginge out');
+      console.log('logging out');
       Meteor.logout();
     }
 

@@ -25,7 +25,6 @@
                 <ol>
                     <li ng-repeat="request in $ctrl.monTwo">
                         {{request.username}}
-
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monTwo)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                     </li>
                 </ol>

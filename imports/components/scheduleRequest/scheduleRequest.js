@@ -72,7 +72,9 @@ class ScheduleRequestCtrl {
     }
     removeRequest(request, shift) {
         // console.log(request,'delete');
-        shift.remove(request._id);
+        // console.log(request, shift);
+        // shift.remove(request._id);
+        Meteor.call('shift.remove', request._id, shift._name);
     }
 }
 
@@ -87,7 +89,6 @@ export default angular.module('scheduleRequest', [
     .config(config);
 
 function config($stateProvider, $urlRouterProvider) {
-  // 'ngInject';
   $stateProvider
     .state('scheduleRequest', {
       url: '/scheduleRequest',

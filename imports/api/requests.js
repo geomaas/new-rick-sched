@@ -1,4 +1,7 @@
+import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
+import { check } from 'meteor/check';
+
 
 export const Requests = new Mongo.Collection('requests');
 
@@ -25,6 +28,15 @@ export const SunTwo = new Mongo.Collection('suntwo');
 
 
 Meteor.methods({
-  
+  'shift.remove'(request, shift){
+    check(request, String);
+    check(shift, String);
+    let upShift = function capitalizeFirstLetter(shift) {
+    return shift.charAt(0).toUpperCase() + shift.slice(1);
+}
+    console.log(request, upShift(shift));
+    upShift(shift).remove(request);
+
+  },
 
 })
