@@ -1,0 +1,48 @@
+.login-page {
+    display: flex;
+    flex-direction: row;
+
+    .login {
+        width: 50vw;
+        background-color: lightblue;
+        text-align: center;
+
+        .input-info {
+            display: block;
+            width: 75%;
+            margin: 1% auto;
+            padding: 2%;
+        }
+
+        .login-button {
+            width: 80%;
+            padding: 3%;
+            margin: 1% auto;
+            font-size: 1rem;
+        }
+    }
+
+    .signup {
+        width: 50vw;
+        text-align: center;
+        background-color: lightgreen;
+
+        .input-info {
+            display: block;
+            width: 75%;
+            margin: 1% auto;
+            padding: 2%;
+        }
+
+        .company {
+            display: inline-block;
+        }
+
+        .login-button {
+            width: 80%;
+            padding: 3%;
+            margin: 1%auto;
+            font-size: 1rem;
+        }
+    }
+}

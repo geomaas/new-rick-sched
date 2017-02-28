@@ -11,7 +11,12 @@ class LoginCtrl {
 
         this.signup = {
 
-        }
+        },
+        this.helpers({
+          currentUser(){
+            return Meteor.user();
+          }
+        })
     }
     signupUser(user) {
       console.log(user);
@@ -20,6 +25,7 @@ class LoginCtrl {
         email: user.email,
         password: user.password,
         profile:{
+          isAdmin: false,
           company: user.company,
           phone: user.number,
           avg: 1,
@@ -42,18 +48,22 @@ class LoginCtrl {
           console.log(err);
         }else {
           alert("signed in")
-          $state.go('/scheduleRequest')
+          // $state.go('/scheduleRequest')
         }
       });
     }
-    currentUser(){
-      return Meteor.user();
+
+    logOutUser(){
+      console.log('logginge out');
+      Meteor.logout();
     }
+
 }
 
 export default angular.module('login', [
         angularMeteor,
-        uiRouter
+        uiRouter,
+
 
     ])
     .component('login', {

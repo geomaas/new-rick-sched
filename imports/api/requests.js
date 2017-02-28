@@ -22,3 +22,9 @@ export const SatTwo = new Mongo.Collection('sattwo');
 
 export const SunOne = new Mongo.Collection('sunOne');
 export const SunTwo = new Mongo.Collection('suntwo');
+
+
+Meteor.methods({
+  
+
+})
