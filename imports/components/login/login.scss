@@ -1,48 +1,83 @@
-.login-page {
-    display: flex;
-    flex-direction: row;
+@media only screen and (max-device-width: 767px) {
+    .login-page {
+        display: flex;
+        flex-direction: column;
 
-    .login {
-        width: 50vw;
-        background-color: lightblue;
-        text-align: center;
+        .login,
+        .signup {
+            width: 80vw;
+            text-align: center;
+            align-self: center;
+            margin: 3% auto;
+            background-color: lightgreen;
 
-        .input-info {
-            display: block;
-            width: 75%;
-            margin: 1% auto;
-            padding: 2%;
-        }
+            .input-info {
+                display: block;
+                width: 75%;
+                margin: 1% auto;
+                padding: 2%;
+            }
 
-        .login-button {
-            width: 80%;
-            padding: 3%;
-            margin: 1% auto;
-            font-size: 1rem;
+            .company {
+                display: inline-block;
+            }
+
+            .login-button {
+                width: 80%;
+                padding: 3%;
+                margin: 1%auto;
+                font-size: 1rem;
+            }
         }
     }
+}
+@media only screen and (min-device-width: 768px) {
+    .login-page {
+        display: flex;
+        flex-direction: row;
 
-    .signup {
-        width: 50vw;
-        text-align: center;
-        background-color: lightgreen;
+        .login {
+            width: 50vw;
+            background-color: lightblue;
+            text-align: center;
 
-        .input-info {
-            display: block;
-            width: 75%;
-            margin: 1% auto;
-            padding: 2%;
+            .input-info {
+                display: block;
+                width: 75%;
+                margin: 1% auto;
+                padding: 2%;
+            }
+
+            .login-button {
+                width: 80%;
+                padding: 3%;
+                margin: 1% auto;
+                font-size: 1rem;
+            }
         }
 
-        .company {
-            display: inline-block;
-        }
+        .signup {
+            width: 50vw;
+            text-align: center;
+            background-color: lightgreen;
 
-        .login-button {
-            width: 80%;
-            padding: 3%;
-            margin: 1%auto;
-            font-size: 1rem;
+            .input-info {
+                display: block;
+                width: 75%;
+                margin: 1% auto;
+                padding: 2%;
+            }
+
+            .company {
+                display: inline-block;
+            }
+
+            .login-button {
+                width: 80%;
+                padding: 3%;
+                margin: 1%auto;
+                font-size: 1rem;
+            }
         }
     }
 }

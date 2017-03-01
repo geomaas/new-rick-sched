@@ -55,14 +55,16 @@ Meteor.methods({
         // console.log('----------------------- shift insert server call');
         // console.log(shift);
         if (!Meteor.userId()) {
-            throw new Meteor.Error('Sign in to add shift');
+            // throw new Meteor.Error('Sign in to add shift');
+            alert('sign in to make a request')
         } else if (!Collections[shift].findOne({
                 username: Meteor.user().username
             })) {
             Collections[shift].insert({
                 createdAt: new Date,
                 owner: Meteor.userId(),
-                username: Meteor.user().username
+                username: Meteor.user().username,
+                company: Meteor.user().profile.company,
             });
         }else {
           alert("already added that shift")

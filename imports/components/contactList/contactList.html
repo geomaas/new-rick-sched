@@ -1,16 +1,43 @@
-<h1>Contact List</h1>
+<div class="contacts-page">
+    <h1>Contact Lists</h1>
+    <div class="contacts-container">
 
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Cell Number</th>
-    <th>email</th>
-  </tr>
-</thead>
-  <tr ng-repeat='user in $ctrl.users'>
-    <td>{{user.username}}</td>
-    <td>{{user.profile.phone}}</td>
-    <td>{{user}}</td>
-  </tr>
-</table>
+        <div class="table-container">
+            <h2>Rickshaw Contacts</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Cell Number</th>
+                        <th>email</th>
+                        <!-- <th>delete user</th> -->
+                    </tr>
+                </thead>
+                <tr ng-repeat='user in $ctrl.users | filter: {profile:{company: rickshaw }}'>
+                    <td>{{user.username}}</td>
+                    <td>{{user.profile.phone}}</td>
+                    <td>{{user}}</td>
+                    <!-- <td><button ng-click="$ctrl.deleteUser(user)" type="button" class="btn btn-primary">&times;</button> -->
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <h2>Pedicab Contacts</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Cell Number</th>
+                        <th>email</th>
+                    </tr>
+                </thead>
+                <tr ng-repeat='user in $ctrl.users | filter: {profile:{company:pedicab}}'>
+                    <td>{{user.username}}</td>
+                    <td>{{user.profile.phone}}</td>
+                    <!-- <td>{{user}}</td> -->
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

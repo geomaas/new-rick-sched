@@ -1,23 +1,25 @@
-<h1>User: {{$ctrl.currentUser.username}} <button ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h1>
+<h1>User: {{$ctrl.currentUser.username}} <button class="btn btn-primary logout-button" ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h1>
 <div class="login-page">
     <div class="login">
         <h2>Login</h2>
         <form>
             <input class="input-info" ng-model="$ctrl.username" type="user" name="username" value="" placeholder="Name">
             <input class="input-info" ng-model="$ctrl.password" type="password" name="signupPassword" placeholder="Password">
-            <input class="login-button" ng-click="$ctrl.loginUser($ctrl.username, $ctrl.password)" type="submit" value="Login">
+            <button type="button" class="btn btn-primary login-button" ng-click="$ctrl.loginUser($ctrl.username, $ctrl.password)">Login</button>
+            <button type="button" class="btn btn-secondary login-button" ng-click="$ctrl.toggle()" name="button">Signup</button>
         </form>
     </div>
-    <div class="signup">
-        <h2>Signup</h2>
+    <div class="signup" ng-hide='$ctrl.hide'>
+        <h2>Signup </h2>
         <form>
             <input class="input-info" ng-model="$ctrl.signup.username" type="username" name="username" value="" placeholder="Name">
             <input class="input-info" ng-model="$ctrl.signup.email" type="email" name="loginEmail" placeholder="Email">
             <input class="input-info" ng-model="$ctrl.signup.password" type="password" name="loginPassword" placeholder="Password">
             <input class="input-info" ng-model="$ctrl.signup.phone" type="tel" name="phoneNumber" placeholder="Phone Number">
-            <input class="company"ng-model="$ctrl.signup.company" type="radio" name="company" value="rickshaw">Rickshaw<br>
+            <input class="company" ng-model="$ctrl.signup.company" type="radio" name="company" value="rickshaw">Rickshaw<br>
             <input class="company" ng-model="$ctrl.signup.company" type="radio" name="company" value="pedicab">Pedicab<br>
-            <input class="login-button" ng-click="$ctrl.signupUser($ctrl.signup)" type="submit" value="Signup">
+            <button type="button" class="btn btn-primary login-button" ng-click="$ctrl.signupUser($ctrl.signup)">Sign Up</button>
+
         </form>
     </div>
 </div>

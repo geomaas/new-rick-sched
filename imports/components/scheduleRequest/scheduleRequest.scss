@@ -1,6 +1,7 @@
 body {
     margin: 0;
 }
+/////////////////////small screen///////////////
 @media only screen and (max-device-width: 767px) {
     .week-box {
         width: 100vw;
@@ -9,7 +10,8 @@ body {
         flex-direction: column;
 
         .day-box {
-          text-align: center;
+            text-align: center;
+
             .shift-box {
                 height: 90vh;
                 background-color: yellow;
@@ -19,13 +21,20 @@ body {
                 h1 {
                     margin: 0;
                 }
-                button{
-                  width: 100%;
-                  background-color: yellow;
+
+                .add-shift {
+                    width: 100%;
+                    padding: 5%;
+                    font-size: 3rem;
+                    background-color: blue;
                 }
+
                 .day-shift {
                     width: 100%;
                     background-color: lightblue;
+                    ol{
+                      font-size: 1rem;
+                    }
                 }
 
                 .night-shift {
@@ -37,18 +46,23 @@ body {
         }
     }
 }
+//////////////////// large screen///////////////
 @media only screen and (min-device-width: 768px) {
     .week-box {
         width: 100vw;
         background-color: lightgreen;
         display: flex;
         justify-content: space-around;
-        .day-box{
-          width: 14%;
-          h1{
-            text-align: center;
-          }
+
+        .day-box {
+            width: 14%;
+
+            h1 {
+                text-align: center;
+                font-size: 2.5rem;
+            }
         }
+
         .shift-box {
             display: flex;
             flex-direction: column;
@@ -59,18 +73,19 @@ body {
                 text-align: center;
             }
 
+            .add-shift {
+                width: 100%;
+                background-color: white;
+                color: #333333;
+            }
+
+            .delete {}
+
             .day-shift {
                 height: 30vh;
                 background-color: lightblue;
                 margin-bottom: 5px;
                 overflow: scroll;
-                // .delete{
-                //   float: right;
-                // }
-                // button {
-                //   width: 100%;
-                //   font-size: 1rem;
-                // }
             }
 
             .night-shift {

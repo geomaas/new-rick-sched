@@ -8,9 +8,8 @@ import template from './login.html';
 class LoginCtrl {
     constructor($scope) {
         $scope.viewModel(this);
-
+        this.hide = true,
         this.signup = {
-
         },
         this.helpers({
           currentUser(){
@@ -22,12 +21,12 @@ class LoginCtrl {
       console.log(user);
       Accounts.createUser({
         username: user.username,
-        email: user.email,
         password: user.password,
         profile:{
           isAdmin: false,
           company: user.company,
           phone: user.phone,
+          email: user.email,
           avg: 1,
           createdAt: new Date
         }
@@ -42,7 +41,7 @@ class LoginCtrl {
     }
 
     loginUser(username, password){
-      console.log(username, password);
+      // console.log(username, password);
       Meteor.loginWithPassword(username, password, function(err){
         if(err){
           console.log(err);
@@ -56,6 +55,10 @@ class LoginCtrl {
     logOutUser(){
       console.log('logging out');
       Meteor.logout();
+    }
+
+    toggle() {
+      this.hide = this.hide === false ? true: false;
     }
 
 }

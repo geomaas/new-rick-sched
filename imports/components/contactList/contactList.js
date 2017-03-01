@@ -10,10 +10,19 @@ class ContactListCtrl {
         $scope.viewModel(this);
 
         this.helpers({
-          users(){
-            return Meteor.users.find({});
-          }
+            users() {
+                return Meteor.users.find({});
+            }
         })
+    }
+    logOutUser() {
+        console.log('logging out');
+        Meteor.logout();
+    }
+    deleteUser(user) {
+      console.log('delete user', user);
+      Meteor.users.remove({_id:user._id}) 
+
     }
 }
 
@@ -28,10 +37,10 @@ export default angular.module('contactList', [
     .config(config);
 
 function config($stateProvider, $urlRouterProvider) {
-  // 'ngInject';
-  $stateProvider
-    .state('contactList', {
-      url: '/contactList',
-      template: '<contact-list></contact-list>'
-    });
+    // 'ngInject';
+    $stateProvider
+        .state('contactList', {
+            url: '/contactList',
+            template: '<contact-list></contact-list>'
+        });
 }

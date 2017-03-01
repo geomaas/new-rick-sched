@@ -58,9 +58,16 @@ class ScheduleRequestCtrl {
 
         })
     }
+    logOutUser(){
+      console.log('logging out');
+      Meteor.logout();
+    }
     addRequests(shift) {
-      console.log('------------------------ client side add request call');
-      console.log(shift);
+
+      /*---------------- cleared out code is for client side operation and testing--------------*/
+
+      // console.log('------------------------ client side add request call');
+      // console.log(shift);
       //   if(!shift.findOne({username: Meteor.user().username})) {
       //   shift.insert({
       //       createdAt: new Date,
@@ -73,6 +80,9 @@ class ScheduleRequestCtrl {
       Meteor.call('shift.insert', shift._name);
     }
     removeRequest(request, shift) {
+      
+      /*---------------- cleared out code is for client side operation and testing--------------*/
+
         // console.log('-------------------client call');
         // console.log(request, shift._name);
         // shift.remove(request._id);
