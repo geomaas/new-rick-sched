@@ -1,4 +1,16 @@
 <h1>Contact List</h1>
-<ul>
-  <li ng-repeat="user in $ctrl.users">{{user.username}}---{{user.profile.company}}</li>
-</ul>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Cell Number</th>
+    <th>email</th>
+  </tr>
+</thead>
+  <tr ng-repeat='user in $ctrl.users'>
+    <td>{{user.username}}</td>
+    <td>{{user.profile.phone}}</td>
+    <td>{{user}}</td>
+  </tr>
+</table>

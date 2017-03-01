@@ -37,7 +37,7 @@ body {
         }
     }
 }
-@media only screen and (min-device-width: 767px) {
+@media only screen and (min-device-width: 768px) {
     .week-box {
         width: 100vw;
         background-color: lightgreen;
@@ -57,7 +57,6 @@ body {
             h1 {
                 margin: 0;
                 text-align: center;
-                background-color: #333333;
             }
 
             .day-shift {

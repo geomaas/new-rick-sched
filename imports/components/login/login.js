@@ -27,7 +27,7 @@ class LoginCtrl {
         profile:{
           isAdmin: false,
           company: user.company,
-          phone: user.number,
+          phone: user.phone,
           avg: 1,
           createdAt: new Date
         }

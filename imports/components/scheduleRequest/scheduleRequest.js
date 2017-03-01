@@ -59,20 +59,22 @@ class ScheduleRequestCtrl {
         })
     }
     addRequests(shift) {
-        // console.log(shift.findOne({username: Meteor.user().username}), 'add request clicked');
-        if(!shift.findOne({username: Meteor.user().username})) {
-        shift.insert({
-            createdAt: new Date,
-            owner: Meteor.userId(),
-            username: Meteor.user().username
-        });
-      }else{
-        alert("already added that shift")
-      }
+      console.log('------------------------ client side add request call');
+      console.log(shift);
+      //   if(!shift.findOne({username: Meteor.user().username})) {
+      //   shift.insert({
+      //       createdAt: new Date,
+      //       owner: Meteor.userId(),
+      //       username: Meteor.user().username
+      //   });
+      // }else{
+      //   alert("already added that shift")
+      // }
+      Meteor.call('shift.insert', shift._name);
     }
     removeRequest(request, shift) {
-        // console.log(request,'delete');
-        // console.log(request, shift);
+        // console.log('-------------------client call');
+        // console.log(request, shift._name);
         // shift.remove(request._id);
         Meteor.call('shift.remove', request._id, shift._name);
     }
