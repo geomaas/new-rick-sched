@@ -6,8 +6,10 @@ import { Accounts } from 'meteor/accounts-base'
 import template from './login.html';
 
 class LoginCtrl {
-    constructor($scope) {
+    constructor($scope, $state) {
+      'ngInject';
         $scope.viewModel(this);
+        this.$state = $state;
         this.hide = true,
         this.signup = {
         },
@@ -47,7 +49,7 @@ class LoginCtrl {
           console.log(err);
         }else {
           alert("signed in")
-          // $state.go('/scheduleRequest')
+          $state.go('/scheduleRequest')
         }
       });
     }
@@ -71,12 +73,12 @@ export default angular.module('login', [
     ])
     .component('login', {
         templateUrl: 'imports/components/login/login.html',
-        controller: ['$scope', LoginCtrl]
+        controller: ['$scope', '$state', LoginCtrl]
     })
     .config(config);
 
 function config($stateProvider, $urlRouterProvider) {
-  // 'ngInject';
+  'ngInject';
   $stateProvider
     .state('login', {
       url: '/login',

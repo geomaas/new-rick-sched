@@ -1,4 +1,4 @@
-<h1>User: {{$ctrl.currentUser.username}} <button class="btn btn-primary logout-button" ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h1>
+<h1>User: {{$ctrl.currentUser.username}} <button ng-show="$ctrl.currentUser" class="btn btn-primary logout-button" ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h1>
 <div class="login-page">
     <div class="login">
         <h2>Login</h2>
@@ -16,8 +16,14 @@
             <input class="input-info" ng-model="$ctrl.signup.email" type="email" name="loginEmail" placeholder="Email">
             <input class="input-info" ng-model="$ctrl.signup.password" type="password" name="loginPassword" placeholder="Password">
             <input class="input-info" ng-model="$ctrl.signup.phone" type="tel" name="phoneNumber" placeholder="Phone Number">
-            <input class="company" ng-model="$ctrl.signup.company" type="radio" name="company" value="rickshaw">Rickshaw<br>
-            <input class="company" ng-model="$ctrl.signup.company" type="radio" name="company" value="pedicab">Pedicab<br>
+            <!-- <input class="company radio-inline" ng-model="$ctrl.signup.company" type="radio" name="company" value="rickshaw">Rickshaw<br> -->
+            <!-- <input class="company radio-inline" ng-model="$ctrl.signup.company" type="radio" name="company" value="pedicab">Pedicab<br> -->
+            <label class="radio-inline">
+              <input ng-model="$ctrl.signup.company" type="radio" name="company" value="rickshaw">Rickshaw
+            </label>
+            <label class="radio-inline">
+              <input ng-model="$ctrl.signup.company" type="radio" name="company" value="pedicab">Pedicab
+            </label>
             <button type="button" class="btn btn-primary login-button" ng-click="$ctrl.signupUser($ctrl.signup)">Sign Up</button>
 
         </form>
