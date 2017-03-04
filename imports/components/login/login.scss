@@ -35,25 +35,28 @@
 @media only screen and (min-device-width: 768px) {
     .login-page {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        justify-content: center;
 
         .login {
             width: 50vw;
             background-color: lightblue;
             text-align: center;
+            align-self: center;
 
             .input-info {
                 display: block;
                 width: 75%;
                 margin: 1% auto;
                 padding: 2%;
+                border-radius: 5px;
             }
 
             .login-button {
                 width: 80%;
                 padding: 3%;
                 margin: 1% auto;
-                font-size: 1rem;
+                font-size: 2rem;
             }
         }
 
@@ -61,6 +64,7 @@
             width: 50vw;
             text-align: center;
             background-color: lightgreen;
+            align-self: center;
 
             .input-info {
                 display: block;

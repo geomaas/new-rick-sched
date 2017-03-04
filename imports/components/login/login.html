@@ -13,11 +13,10 @@
         <h2>Signup </h2>
         <form>
             <input class="input-info" ng-model="$ctrl.signup.username" type="username" name="username" value="" placeholder="Name">
-            <input class="input-info" ng-model="$ctrl.signup.email" type="email" name="loginEmail" placeholder="Email">
             <input class="input-info" ng-model="$ctrl.signup.password" type="password" name="loginPassword" placeholder="Password">
+            <input class="input-info" ng-model="$ctrl.signup.passwordTwo" type="password" name="loginPasswordCheck" placeholder="Password Check">
+            <input class="input-info" ng-model="$ctrl.signup.email" type="email" name="loginEmail" placeholder="Email">
             <input class="input-info" ng-model="$ctrl.signup.phone" type="tel" name="phoneNumber" placeholder="Phone Number">
-            <!-- <input class="company radio-inline" ng-model="$ctrl.signup.company" type="radio" name="company" value="rickshaw">Rickshaw<br> -->
-            <!-- <input class="company radio-inline" ng-model="$ctrl.signup.company" type="radio" name="company" value="pedicab">Pedicab<br> -->
             <label class="radio-inline">
               <input ng-model="$ctrl.signup.company" type="radio" name="company" value="rickshaw">Rickshaw
             </label>

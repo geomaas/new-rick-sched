@@ -1,8 +1,9 @@
 <header>
-    <h1>Rickshaw Schedule</h1>
 </header>
 <!-- <login></login> -->
 <!-- <login-buttons></login-buttons> -->
+<h1 ng-show="$ctrl.currentUser.profile.company == 'pedicab'">Pedicab Schedule</h1>
+<h1 ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">Rickshaw Schedule</h1>
 <h1>User: {{$ctrl.currentUser.username}} <button  class="btn btn-primary logut-button"ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h1>
 <div class="week-box">
     <!--- MONDAY   ----->
@@ -13,11 +14,12 @@
                 <button class="add-shift" ng-click="$ctrl.addRequests($ctrl.shifts.monOne)" type="button" name="button">add shift</button>
                 <h1>Day Shift</h1>
                 <ol>
-                    <li ng-repeat="request in $ctrl.monOne">
+                    <li ng-repeat="request in $ctrl.monOne" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{request.username}}
+                        {{request.company.company}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monOne)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                     </li>
-                    <li ng-repeat="request in $ctrl.monOne" ng-show="$ctrl.currentUser.profile.company == pedicab">
+                    <li ng-repeat="request in $ctrl.monOne" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{request.username}}
                         {{}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monOne)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
