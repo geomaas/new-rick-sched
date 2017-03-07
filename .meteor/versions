@@ -70,6 +70,7 @@ reload@1.1.11
 retry@1.0.9
 reywood:bootstrap3-sass@3.3.5_3
 routepolicy@1.0.12
+s2corp:angular-drag-and-drop-lists@1.3.0
 service-configuration@1.0.11
 sha@1.0.9
 shell-server@0.2.2

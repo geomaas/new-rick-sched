@@ -3,44 +3,88 @@ body {
 }
 /////////////////////small screen///////////////
 @media only screen and (max-device-width: 767px) {
+    .label-box {
+        width: 85vw;
+        margin: 2% auto;
+        border-radius: 10px;
+        display: flex;
+        background-color: white;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            font-size: 6rem;
+        }
+
+        h2 {
+            font-size: 5rem;
+        }
+    }
+
     .week-box {
         width: 100vw;
-        background-color: lightgreen;
         display: flex;
         flex-direction: column;
 
         .day-box {
             text-align: center;
 
+            h1 {
+                font-size: 6rem;
+            }
+
             .shift-box {
-                height: 90vh;
-                background-color: yellow;
+                width: 100vw;
                 display: flex;
                 flex-direction: row;
+                justify-content: center;
+                border-radius: 5px;
 
                 h1 {
-                    margin: 0;
+                    margin: 2%;
                 }
 
                 .add-shift {
-                    width: 100%;
-                    padding: 5%;
                     font-size: 3rem;
-                    background-color: blue;
+                    margin: 2%;
                 }
 
                 .day-shift {
-                    width: 100%;
-                    background-color: lightblue;
-                    ol{
-                      font-size: 1rem;
+                    width: 45vw;
+                    height: 50vh;
+                    margin: auto;
+                    border-radius: 10px;
+                    background-color: #828282;
+
+                    overflow: scroll;
+
+                    .list-group {
+                        list-style: decimal inside;
+                    }
+
+                    .list-group-item {
+                        display: list-item;
+                        font-size: 3rem;
                     }
                 }
 
                 .night-shift {
-                    color: white;
-                    width: 100%;
-                    background-color: darkblue;
+                    width: 45vw;
+                    height: 50vh;
+                    margin: auto;
+                    background-color: pink;
+                    border-radius: 10px;
+                    overflow: scroll;
+
+                    .list-group {
+                        list-style: decimal inside;
+                    }
+
+                    .list-group-item {
+                        display: list-item;
+                        font-size: 3rem;
+                    }
                 }
             }
         }
@@ -75,6 +119,7 @@ body {
 
             .add-shift {
                 width: 100%;
+                margin: 1% auto;
                 background-color: white;
                 color: #333333;
             }
