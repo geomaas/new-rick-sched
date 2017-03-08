@@ -16,7 +16,7 @@
                 <tr ng-repeat='user in $ctrl.users | filter: {profile:{company: rickshaw }}'>
                     <td>{{user.username}}</td>
                     <td>{{user.profile.phone}}</td>
-                    <td>{{user.profile.email}}</td>
+                    <td>{{user.profile.email}} {{user}}</td>
                     <!-- <td><button ng-click="$ctrl.deleteUser(user)" type="button" class="btn btn-primary">&times;</button> -->
                     </td>
                 </tr>

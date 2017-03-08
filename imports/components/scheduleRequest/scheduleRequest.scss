@@ -1,5 +1,14 @@
+$gray-blue: rgba(131,172,189, 1);
+$aqua: rgba(155,203,190, 1);
+$white: rgba(249,252,254, 1);
+$navy: rgba(45,80,108, 1);
+$gray: rgba(119,123,126, 1);
+
 body {
     margin: 0;
+}
+.btn{
+  background-color: $navy;
 }
 /////////////////////small screen///////////////
 @media only screen and (max-device-width: 767px) {
@@ -8,18 +17,23 @@ body {
         margin: 2% auto;
         border-radius: 10px;
         display: flex;
-        background-color: white;
+        background: linear-gradient(to right, rgba(119,123,126, .9), rgba(119,123,126, .6)), url('gears.jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
         flex-direction: column;
         justify-content: center;
         align-items: center;
 
         h1 {
             font-size: 6rem;
+            color: #333333;
         }
 
         h2 {
             font-size: 5rem;
         }
+    
     }
 
     .week-box {
@@ -42,7 +56,7 @@ body {
                 border-radius: 5px;
 
                 h1 {
-                    margin: 2%;
+                    margin: 3%;
                 }
 
                 .add-shift {
@@ -55,9 +69,15 @@ body {
                     height: 50vh;
                     margin: auto;
                     border-radius: 10px;
-                    background-color: #828282;
-
+                    background: linear-gradient(to bottom, rgba(155, 203, 190, .8), rgba(155, 203, 190, .5)), url('crank_arm.jpg');
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    border: 3px $gray solid;
                     overflow: scroll;
+                    h1{
+                      font-size: 5rem;
+                    }
 
                     .list-group {
                         list-style: decimal inside;
@@ -73,10 +93,16 @@ body {
                     width: 45vw;
                     height: 50vh;
                     margin: auto;
-                    background-color: pink;
+                    background: linear-gradient(to bottom, rgba(131, 172, 189, .8), rgba(131, 172, 189, .5)), url('brake_rotate.jpg');
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
                     border-radius: 10px;
+                    border: 3px $gray solid;
                     overflow: scroll;
-
+                    h1{
+                      font-size: 5rem;
+                    }
                     .list-group {
                         list-style: decimal inside;
                     }
@@ -92,9 +118,30 @@ body {
 }
 //////////////////// large screen///////////////
 @media only screen and (min-device-width: 768px) {
+  .label-box {
+      width: 85vw;
+      margin: 2% auto;
+      border-radius: 10px;
+      display: flex;
+      background: linear-gradient(to right, rgba(119,123,126, .9), rgba(119,123,126, .6)), url('gears.jpg');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      h1 {
+          font-size: 6rem;
+          color: #333333;
+      }
+
+      h2 {
+          font-size: 5rem;
+      }
+  }
     .week-box {
         width: 100vw;
-        background-color: lightgreen;
         display: flex;
         justify-content: space-around;
 
@@ -128,15 +175,23 @@ body {
 
             .day-shift {
                 height: 30vh;
-                background-color: lightblue;
-                margin-bottom: 5px;
+                border-radius: 5px;
+                background: linear-gradient(to bottom, rgba(155, 203, 190, .8), rgba(155, 203, 190, .5)), url('crank_arm.jpg');
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                border: 1px $gray solid;
                 overflow: scroll;
             }
 
             .night-shift {
                 height: 50vh;
-                color: white;
-                background-color: darkblue;
+                background: linear-gradient(to bottom, rgba(131, 172, 189, .8), rgba(131, 172, 189, .5)), url('brake_rotate.jpg');
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                border-radius: 5px;
+                border: 1px $gray solid;
                 overflow: scroll;
             }
         }

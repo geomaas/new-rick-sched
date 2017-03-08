@@ -24,7 +24,7 @@ class LoginCtrl {
             })
     }
     signupUser(user) {
-        // console.log(user);
+        console.log(user);
         if (user.password != user.passwordTwo) {
             alert('Passwords do not match!')
         } else {
@@ -42,7 +42,7 @@ class LoginCtrl {
             }, function(err) {
                 if (err) {
                     alert("you messed up")
-                    console.log(err);
+                    // console.log(err);
                 } else {
                     alert('succes on user creation!')
                 }

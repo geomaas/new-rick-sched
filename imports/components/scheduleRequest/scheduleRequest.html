@@ -5,7 +5,7 @@
 <div class="label-box">
     <h1 ng-show="$ctrl.currentUser.profile.company == 'pedicab'">Pedicab Schedule</h1>
     <h1 ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">Rickshaw Schedule</h1>
-    <h2>User: {{$ctrl.currentUser.username}} <button ng-show="$ctrl.currentUser" class="btn btn-primary logut-button"ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h2>
+    <h2>{{$ctrl.currentUser.username}} <button ng-show="$ctrl.currentUser" class="btn btn-primary logut-button"ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h2>
 </div>
 
 <div class="week-box">
@@ -34,6 +34,7 @@
                     <li class="list-group-item" ng-repeat="request in $ctrl.monTwo">
                         {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monTwo)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
+                        <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                 </ol>
             </div>
@@ -80,7 +81,7 @@
                 </ol>
             </div>
             <div class="night-shift">
-              <h1>Night Shift</h1>
+                <h1>Night Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.wedTwo)" type="button" name="button">Add Shift</button>
                 <ol class="list-group">
                     <li class="list-group-item" ng-repeat="request in $ctrl.wedTwo">
@@ -96,7 +97,7 @@
         <h1>Thursday</h1>
         <div class="shift-box">
             <div class="day-shift">
-              <h1>Day Shift</h1>
+                <h1>Day Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.thuOne)" type="button" name="button">Add Shift</button>
                 <ol class="list-group">
                     <li class="list-group-item" ng-repeat="request in $ctrl.thuOne">
@@ -105,7 +106,7 @@
                 </ol>
             </div>
             <div class="night-shift">
-              <h1>Night Shift</h1>
+                <h1>Night Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.thuTwo)" type="button" name="button">Add Shift</button>
                 <ol class="list-group">
                     <li class="list-group-item" ng-repeat="request in $ctrl.thuTwo">
@@ -121,7 +122,7 @@
         <h1>Friday</h1>
         <div class="shift-box">
             <div class="day-shift">
-              <h1>Day Shift</h1>
+                <h1>Day Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.friOne)" type="button" name="button">Add Shift</button>
                 <ol class="list-group">
                     <li class="list-group-item" ng-repeat="request in $ctrl.friOne">
@@ -131,7 +132,7 @@
                 </ol>
             </div>
             <div class="night-shift">
-              <h1>Night Shift</h1>
+                <h1>Night Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.friTwo)" type="button" name="button">Add Shift</button>
                 <ol class="list-group">
                     <li class="list-group-item" ng-repeat="request in $ctrl.friTwo">
@@ -147,7 +148,7 @@
         <h1>Saturday</h1>
         <div class="shift-box">
             <div class="day-shift">
-              <h1>Day Shift</h1>
+                <h1>Day Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.satOne)" type="button" name="button">Add Shift</button>
                 <ol class="list-group">
                     <li class="list-group-item" ng-repeat="request in $ctrl.satOne">
@@ -157,7 +158,7 @@
                 </ol>
             </div>
             <div class="night-shift">
-              <h1>Night Shift</h1>
+                <h1>Night Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.satTwo)" type="button" name="button">Add Shift</button>
                 <ol class="list-group">
                     <li class="list-group-item" ng-repeat="request in $ctrl.satTwo">
@@ -172,7 +173,7 @@
         <h1>Sunday</h1>
         <div class="shift-box">
             <div class="day-shift">
-              <h1>Day Shift</h1>
+                <h1>Day Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.sunOne)" type="button" name="button">Add Shift</button>
                 <ol class="list-group">
                     <li class="list-group-item" ng-repeat="request in $ctrl.sunOne">
@@ -182,7 +183,7 @@
                 </ol>
             </div>
             <div class="night-shift">
-              <h1>Night Shift</h1>
+                <h1>Night Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.sunTwo)" type="button" name="button">Add Shift</button>
                 <ol class="list-group">
                     <li class="list-group-item" ng-repeat="request in $ctrl.sunTwo">

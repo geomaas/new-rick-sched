@@ -3,25 +3,28 @@ $aqua: rgba(155,203,190, 1);
 $white: rgba(249,252,254, 1);
 $navy: rgba(45,80,108, 1);
 $gray: rgba(119,123,126, 1);
-
 @media only screen and (max-device-width: 767px) {
     .login-page {
         display: flex;
         flex-direction: column;
-        h2{
-          font-size: 6rem;
-          color: $white;
-          margin: 3%;
+
+        h2 {
+            font-size: 6rem;
+            color: $white;
+            margin: 3%;
         }
+
         img {
-          width: 35vw;
-          align-self: center;
-          background-color: $white;
-          border-radius: 100%;
+            width: 50vw;
+            align-self: center;
+            background-color: $white;
+            border-radius: 100%;
         }
-        h1{
-          align-self: center;
+
+        h1 {
+            align-self: center;
         }
+
         .login,
         .signup {
             width: 90vw;
@@ -49,14 +52,24 @@ $gray: rgba(119,123,126, 1);
 
             .login-button {
                 background-color: $gray-blue;
-                width: 80%;
+                width: 50%;
                 padding: 2%;
-                margin: 3% auto;
+                margin: 2% auto;
                 font-size: 5rem;
             }
+
             .btn-secondary {
-              background-color: $aqua;
-              color: $white;
+                background-color: $aqua;
+                color: $white;
+            }
+
+            .btn-group {
+                align-self: center;
+                .btn-radio > input[type=radio] {
+                    position: absolute;
+                    clip: rect(0, 0, 0, 0);
+                    pointer-events: none;
+                }
             }
         }
     }
