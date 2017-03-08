@@ -1,5 +1,6 @@
-<h1>User: {{$ctrl.currentUser.username}} <button ng-show="$ctrl.currentUser" class="btn btn-primary logout-button" ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h1>
 <div class="login-page">
+  <img src="rickshaw_schedule_logo.png" alt="">
+  <h1>Hi {{$ctrl.currentUser.username}}! <button ng-show="$ctrl.currentUser" class="btn btn-primary logout-button" ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h1>
     <div class="login">
         <h2>Login</h2>
         <form>
@@ -17,11 +18,11 @@
             <input class="input-info" ng-model="$ctrl.signup.passwordTwo" type="password" name="loginPasswordCheck" placeholder="Password Check">
             <input class="input-info" ng-model="$ctrl.signup.email" type="email" name="loginEmail" placeholder="Email">
             <input class="input-info" ng-model="$ctrl.signup.phone" type="tel" name="phoneNumber" placeholder="Phone Number">
-            <label class="radio-inline">
-              <input ng-model="$ctrl.signup.company" type="radio" name="company" value="rickshaw">Rickshaw
+            <label class="radio">
+              <input ng-model="$ctrl.signup.company" type="radio" name="company" value="rickshaw" style="height:35px; width:35px; vertical-align: middle;"><h2>Rickshaw</h2>
             </label>
-            <label class="radio-inline">
-              <input ng-model="$ctrl.signup.company" type="radio" name="company" value="pedicab">Pedicab
+            <label class="radio">
+              <input ng-model="$ctrl.signup.company" type="radio" name="company" value="pedicab" style="height:35px; width:35px; vertical-align: middle;"><h2>Pedicab</h2>
             </label>
             <button type="button" class="btn btn-primary login-button" ng-click="$ctrl.signupUser($ctrl.signup)">Sign Up</button>
 
