@@ -1,7 +1,7 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
-import scheduleRequest from '../imports/components/scheduleRequest/scheduleRequest.js';
+import scheduleRequest from '../imports/components/scheduleRequest/scheduleRequest';
 import login from '../imports/components/login/login.js';
 import contactList from '../imports/components/contactList/contactList.js'
 import '../imports/startup/accounts-config.js';
@@ -13,7 +13,6 @@ angular.module('schedule-app', [
   scheduleRequest.name,
   login.name,
   contactList.name,
-  // 'accounts.ui'
 ]).config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
     $locationProvider.html5Mode(true);

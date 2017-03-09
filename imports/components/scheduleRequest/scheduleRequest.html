@@ -8,26 +8,14 @@
     <h2>{{$ctrl.currentUser.username}} <button ng-show="$ctrl.currentUser" class="btn btn-primary logut-button"ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h2>
 </div>
 <div class="week-button-container">
-    <div class="week-button">
-        <h1>M</h1>
-    </div>
-    <div class="week-button">
-        <h1>Tu</h1>
-    </div>
-    <div class="week-button">
-        <h1>W</h1>
-    </div>
-    <div class="week-button">
-        <h1>Th</h1>
-    </div>
-    <div class="week-button">
-        <h1>F</h1>
-    </div>
-    <div class="week-button">
-        <h1>Sa</h1>
-    </div>
-    <div class="week-button">
-        <h1>Su</h1>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button ng-click="$ctrl.toContact()" type="button" class="btn btn-secondary">M</button>
+        <button type="button" class="btn btn-secondary">T</button>
+        <button type="button" class="btn btn-secondary">Right</button>
+        <button type="button" class="btn btn-secondary">Right</button>
+        <button type="button" class="btn btn-secondary">Right</button>
+        <button type="button" class="btn btn-secondary">Right</button>
+        <button type="button" class="btn btn-secondary">Right</button>
     </div>
 
 </div>

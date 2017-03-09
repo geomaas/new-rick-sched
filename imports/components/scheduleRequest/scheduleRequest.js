@@ -10,6 +10,8 @@ class ScheduleRequestCtrl {
     constructor($scope, $state) {
         $scope.viewModel(this);
 
+        this.$state = $state;
+
         this.shifts = {
           monOne: MonOne,
           monTwo: MonTwo,
@@ -88,6 +90,10 @@ class ScheduleRequestCtrl {
         // shift.remove(request._id);
         Meteor.call('shift.remove', request._id, shift._name);
     }
+    toContact(){
+      console.log('testing state change');
+      this.$state.go("contactList")
+    }
 }
 
 export default angular.module('scheduleRequest', [
@@ -96,7 +102,7 @@ export default angular.module('scheduleRequest', [
     ])
     .component('scheduleRequest', {
         templateUrl: template,
-        controller: ['$scope', ScheduleRequestCtrl]
+        controller: ['$scope','$state', ScheduleRequestCtrl]
     })
     .config(config);
 

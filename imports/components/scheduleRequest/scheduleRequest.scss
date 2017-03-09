@@ -9,6 +9,7 @@ body {
 }
 .btn{
   background-color: $navy;
+  color: $white;
 }
 /////////////////////small screen///////////////
 @media only screen and (max-device-width: 767px) {
@@ -37,22 +38,18 @@ body {
     .week-button-container{
       display: flex;
       width: 100%;
-      flex-direction: row;
       justify-content: space-around;
-      .week-button{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 8vw;
-        align-self: center;
-        background-color: $navy;
-        color: $white;
-        border-radius: 100%;
-        h1{
-          align-self: center;
-          border-radius: 100%;
-        }
-      }
+      // .week-button{
+      //   display: flex;
+      //   justify-content: center;
+      //   align-items: center;
+      //   width: 8vw;
+      //   align-self: center;
+      //   background-color: $navy;
+      //   color: $white;
+      //   border-radius: 100%;
+      //
+      // }
     }
     .week-box {
         width: 100vw;

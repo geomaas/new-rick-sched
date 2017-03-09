@@ -4,11 +4,11 @@ import uiRouter from 'angular-ui-router';
 import {
     Accounts
 } from 'meteor/accounts-base'
-//
+
 import template from './login.html';
 
 class LoginCtrl {
-    constructor($scope, $state) {
+    constructor($scope, $state,) {
         'ngInject';
         $scope.viewModel(this);
 
@@ -52,12 +52,16 @@ class LoginCtrl {
 
     loginUser(username, password) {
         // console.log(username, password);
+        that = this;
         Meteor.loginWithPassword(username, password, function(err) {
             if (err) {
                 console.log(err);
             } else {
                 alert("signed in");
-                this.$state.go('/scheduleRequest');
+
+                    that.$state.go("scheduleRequest");
+
+
             }
         });
     }
@@ -76,11 +80,9 @@ class LoginCtrl {
 export default angular.module('login', [
         angularMeteor,
         uiRouter,
-
-
     ])
     .component('login', {
-        templateUrl: 'imports/components/login/login.html',
+        templateUrl: template,
         controller: ['$scope', '$state', LoginCtrl]
     })
     .config(config);

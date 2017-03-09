@@ -1,14 +1,14 @@
 <div class="login-page">
     <img src="rickshaw_schedule_logo.png" alt="">
     <h1>Hi {{$ctrl.currentUser.username}}! <button ng-show="$ctrl.currentUser" class="btn btn-primary logout-button" ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h1>
-    <div class="login">
+    <div class="login" ng-hide='!$ctrl.hide'>
         <h2>Login</h2>
         <form>
             <input class="input-info" ng-model="$ctrl.username" type="user" name="username" value="" placeholder="Name">
             <input class="input-info" ng-model="$ctrl.password" type="password" name="signupPassword" placeholder="Password">
             <div class="button-container">
               <button type="button" class="btn btn-primary login-button" ng-click="$ctrl.loginUser($ctrl.username, $ctrl.password)">Login</button>
-              <button type="button" class="btn btn-secondary login-button" ng-click="$ctrl.toggle()" name="button">Signup</button>
+              <button type="button" class="btn btn-secondary login-button" ng-click="$ctrl.toggle()" name="button">Sign Up</button>
             </div>
         </form>
     </div>
