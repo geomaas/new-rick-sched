@@ -50,11 +50,18 @@ $gray: rgba(119,123,126, 1);
                 font-size: 5rem;
             }
 
+            .button-container {
+                width: 90%;
+                margin: auto;
+                display: flex;
+                flex-direction: row;
+            }
+
             .login-button {
                 background-color: $gray-blue;
-                width: 50%;
+                width: 48%;
                 padding: 2%;
-                margin: 2% auto;
+                margin: 5% auto;
                 font-size: 5rem;
             }
 
@@ -65,6 +72,7 @@ $gray: rgba(119,123,126, 1);
 
             .btn-group {
                 align-self: center;
+
                 .btn-radio > input[type=radio] {
                     position: absolute;
                     clip: rect(0, 0, 0, 0);

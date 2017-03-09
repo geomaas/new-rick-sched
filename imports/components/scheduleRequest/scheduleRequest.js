@@ -7,7 +7,7 @@ import {Requests, MonOne, MonTwo, TueOne, TueTwo, WedOne, WedTwo, ThuOne, ThuTwo
 import template from './scheduleRequest.html';
 
 class ScheduleRequestCtrl {
-    constructor($scope) {
+    constructor($scope, $state) {
         $scope.viewModel(this);
 
         this.shifts = {
@@ -80,7 +80,7 @@ class ScheduleRequestCtrl {
       Meteor.call('shift.insert', shift._name);
     }
     removeRequest(request, shift) {
-      
+
       /*---------------- cleared out code is for client side operation and testing--------------*/
 
         // console.log('-------------------client call');

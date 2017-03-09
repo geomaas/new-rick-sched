@@ -6,8 +6,10 @@
         <form>
             <input class="input-info" ng-model="$ctrl.username" type="user" name="username" value="" placeholder="Name">
             <input class="input-info" ng-model="$ctrl.password" type="password" name="signupPassword" placeholder="Password">
-            <button type="button" class="btn btn-primary login-button" ng-click="$ctrl.loginUser($ctrl.username, $ctrl.password)">Login</button>
-            <button type="button" class="btn btn-secondary login-button" ng-click="$ctrl.toggle()" name="button">Signup</button>
+            <div class="button-container">
+              <button type="button" class="btn btn-primary login-button" ng-click="$ctrl.loginUser($ctrl.username, $ctrl.password)">Login</button>
+              <button type="button" class="btn btn-secondary login-button" ng-click="$ctrl.toggle()" name="button">Signup</button>
+            </div>
         </form>
     </div>
     <div class="signup" ng-hide='$ctrl.hide'>

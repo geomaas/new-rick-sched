@@ -56,8 +56,8 @@ class LoginCtrl {
             if (err) {
                 console.log(err);
             } else {
-                alert("signed in")
-                $state.go('/scheduleRequest')
+                alert("signed in");
+                this.$state.go('/scheduleRequest');
             }
         });
     }
