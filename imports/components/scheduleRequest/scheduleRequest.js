@@ -12,6 +12,8 @@ class ScheduleRequestCtrl {
 
         this.$state = $state;
 
+        this.day = 1;
+
         this.shifts = {
           monOne: MonOne,
           monTwo: MonTwo,
@@ -63,6 +65,7 @@ class ScheduleRequestCtrl {
     logOutUser(){
       console.log('logging out');
       Meteor.logout();
+      this.$state.go("login");
     }
     addRequests(shift) {
 
@@ -90,10 +93,7 @@ class ScheduleRequestCtrl {
         // shift.remove(request._id);
         Meteor.call('shift.remove', request._id, shift._name);
     }
-    toContact(){
-      console.log('testing state change');
-      this.$state.go("contactList")
-    }
+
 }
 
 export default angular.module('scheduleRequest', [

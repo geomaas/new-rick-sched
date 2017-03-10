@@ -1,12 +1,14 @@
+// site colors/////
 $gray-blue: rgba(131,172,189, 1);
 $aqua: rgba(155,203,190, 1);
 $white: rgba(249,252,254, 1);
 $navy: rgba(45,80,108, 1);
-$gray: rgba(119,123,126, 1);
+$gray: rgba(119,123,126, 1); //////////////////
 @media only screen and (max-device-width: 767px) {
     .login-page {
         display: flex;
         flex-direction: column;
+        justify-content: space-around;
 
         h2 {
             font-size: 6rem;
@@ -59,7 +61,7 @@ $gray: rgba(119,123,126, 1);
 
             .login-button {
                 background-color: $gray-blue;
-                width:48%;
+                width: 48%;
                 padding: 2%;
                 margin: 5% auto;
                 font-size: 5rem;
@@ -71,13 +73,23 @@ $gray: rgba(119,123,126, 1);
             }
 
             .btn-group {
+                display: flex;
+                justify-content: center;
                 align-self: center;
+                width: 100%;
 
-                .btn-radio > input[type=radio] {
-                    position: absolute;
-                    clip: rect(0, 0, 0, 0);
-                    pointer-events: none;
+                .btn {
+                    background-color: $aqua;
                 }
+            }
+            .radio{
+              color: $white;
+              font-size: 5rem;
+              margin-left: 1%;
+            }
+            input[type='radio'] {
+                transform: scale(3);
+                margin-top: 3%;
             }
         }
     }
