@@ -60,14 +60,19 @@ Meteor.methods({
         } else if (!Collections[shift].findOne({
                 username: Meteor.user().username
             })) {
+
+            let requestCount = Collections[shift].find().count();
+            let order = requestCount + 1;
+            
             Collections[shift].insert({
                 createdAt: new Date,
                 owner: Meteor.userId(),
                 username: Meteor.user().username,
                 company: Meteor.user().profile.company,
+                order: order,
             });
-        }else {
-          alert("already added that shift")
+        } else {
+            alert("already added that shift")
         }
     },
     'shift.remove' (request, shift) {

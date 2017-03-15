@@ -8,28 +8,31 @@
     <h2>{{$ctrl.currentUser.username}} <button ng-show="$ctrl.currentUser" class="btn btn-primary logut-button"ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h2>
 </div>
 <div class="week-button-container">
-        <button ng-click="$ctrl.day = 1" type="button" class="btn btn-secondary">M</button>
-        <button ng-click="$ctrl.day = 2" type="button" class="btn btn-secondary">T</button>
-        <button ng-click="$ctrl.day = 3" type="button" class="btn btn-secondary">W</button>
-        <button ng-click="$ctrl.day = 4" type="button" class="btn btn-secondary">T</button>
-        <button ng-click="$ctrl.day = 5" type="button" class="btn btn-secondary">F</button>
-        <button ng-click="$ctrl.day = 6" type="button" class="btn btn-secondary">S</button>
-        <button ng-click="$ctrl.day = 7" type="button" class="btn btn-secondary">S</button>
+    <button ng-click="$ctrl.day = 1" type="button" class="btn btn-secondary">M</button>
+    <button ng-click="$ctrl.day = 2" type="button" class="btn btn-secondary">T</button>
+    <button ng-click="$ctrl.day = 3" type="button" class="btn btn-secondary">W</button>
+    <button ng-click="$ctrl.day = 4" type="button" class="btn btn-secondary">T</button>
+    <button ng-click="$ctrl.day = 5" type="button" class="btn btn-secondary">F</button>
+    <button ng-click="$ctrl.day = 6" type="button" class="btn btn-secondary">S</button>
+    <button ng-click="$ctrl.day = 7" type="button" class="btn btn-secondary">S</button>
 </div>
 
 <div class="week-box">
     <!--- MONDAY   ----->
-    <div class="day-box" ng-show="$ctrl.day == 1">
+    <div class="day-box" ng-show="$ctrl.day == 1 || $ctrl.day == 8">
         <h1>Monday</h1>
         <div class="shift-box">
             <div class="day-shift">
                 <h1>Day Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.monOne)" type="button" name="button">Add Shift</button>
-                <ol class="list-group">
+                <ol class="list-group" ng-sortable>
+                    <!-- Rickshaw List -->
                     <li class="list-group-item" ng-repeat="request in $ctrl.monOne" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monOne)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
+
                     </li>
+                    <!-- Pedicab list  -->
                     <li class="list-group-item" ng-repeat="request in $ctrl.monOne" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monOne)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
@@ -44,10 +47,20 @@
                         {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monTwo)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
+                        </br>
+                        <label class="form-check-label">
+                          <input ng-checked="request.threeShift" ng-click="$ctrl.shiftUpdate(request)" class="form-check-input toggle-checked" type="checkbox" value="" style="transform:scale(2)">
+                          3 shift
+                        </label>
                     </li>
-                    <li class="list-group-item" ng-repeat="request in $ctrl.monTwo" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+                    <li class="list-group-item" ng-repeat="request in $ctrl.monTwo" ng-show="$ctrl.currentUser.profile.company == 'pedicab'" >
                         {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monTwo)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
+                        </br>
+                        <label class="form-check-label">
+                          <input  ng-click="$ctrl.shiftUpdate($ctrl.shifts.monTwo, $ctrl.threeShift)" class="form-check-input toggle-checked" type="checkbox" style="transform:scale(2)">
+                          3 shift
+                        </label>
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                 </ol>
@@ -55,7 +68,7 @@
         </div>
     </div>
     <!-- TUESDAY -->
-    <div class="day-box" ng-show="$ctrl.day == 2">
+    <div class="day-box" ng-show="$ctrl.day == 2 || $ctrl.day == 8">
         <h1>Tuesday</h1>
         <div class="shift-box">
             <div class="day-shift">
@@ -91,7 +104,7 @@
         </div>
     </div>
     <!-- WEDNESDAY -->
-    <div class="day-box" ng-show="$ctrl.day == 3">
+    <div class="day-box" ng-show="$ctrl.day == 3 || $ctrl.day == 8">
         <h1>Wednesday</h1>
         <div class="shift-box">
             <div class="day-shift">
@@ -127,7 +140,7 @@
         </div>
     </div>
     <!-- THURSDAY -->
-    <div class="day-box" ng-show="$ctrl.day == 4">
+    <div class="day-box" ng-show="$ctrl.day == 4 || $ctrl.day == 8">
         <h1>Thursday</h1>
         <div class="shift-box">
             <div class="day-shift">
@@ -163,7 +176,7 @@
         </div>
     </div>
     <!-- FRIDAY -->
-    <div class="day-box" ng-show="$ctrl.day == 5">
+    <div class="day-box" ng-show="$ctrl.day == 5 || $ctrl.day == 8">
         <h1>Friday</h1>
         <div class="shift-box">
             <div class="day-shift">
@@ -199,7 +212,7 @@
         </div>
     </div>
     <!-- SATURDAY -->
-    <div class="day-box" ng-show="$ctrl.day == 6">
+    <div class="day-box" ng-show="$ctrl.day == 6 || $ctrl.day == 8">
         <h1>Saturday</h1>
         <div class="shift-box">
             <div class="day-shift">
@@ -233,7 +246,7 @@
         </div>
     </div>
     <!-- SUNDAY -->
-    <div class="day-box" ng-show="$ctrl.day == 7">
+    <div class="day-box" ng-show="$ctrl.day == 7 || $ctrl.day == 8">
         <h1>Sunday</h1>
         <div class="shift-box">
             <div class="day-shift">

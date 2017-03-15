@@ -23,6 +23,7 @@ class LoginCtrl {
                 }
             })
     }
+
     signupUser(user) {
         console.log(user);
         if (user.password != user.passwordTwo) {
@@ -73,6 +74,8 @@ class LoginCtrl {
     }
 
 }
+
+/*----------------export angular controller and set state below---------------------*/
 
 export default angular.module('login', [
         angularMeteor,

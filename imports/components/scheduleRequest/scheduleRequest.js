@@ -1,18 +1,28 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
+// import Sortable from 'angular-legacy-sortablejs';
 
 import {Requests, MonOne, MonTwo, TueOne, TueTwo, WedOne, WedTwo, ThuOne, ThuTwo, FriOne, FriTwo, SatOne, SatTwo, SunOne, SunTwo} from '../../api/requests.js';
 
 import template from './scheduleRequest.html';
 
 class ScheduleRequestCtrl {
-    constructor($scope, $state) {
+    constructor($scope, $state, $window) {
         $scope.viewModel(this);
 
         this.$state = $state;
+        this.$window = $window;
 
-        this.day = 1;
+        /*--------sets shift boxes to show all or one depending on screen size----------*/
+        if(this.$window.outerWidth < 768){
+          this.day = 1;
+        }else{
+          this.day = 8;
+        }
+        /*-----------------------------------*/
+
+        // this.threeShift = false;
 
         this.shifts = {
           monOne: MonOne,
@@ -32,26 +42,26 @@ class ScheduleRequestCtrl {
         }
 
         this.helpers({
-            monOne:()=>{return MonOne.find({});},
-            monTwo:()=>{return MonTwo.find({});},
+            monOne:()=>{return MonOne.find({}, {sort: {order: 1}});},
+            monTwo:()=>{return MonTwo.find({}, {sort: {order: 1}});},
 
-            tueOne:()=>{return TueOne.find({});},
-            tueTwo:()=>{return TueTwo.find({});},
+            tueOne:()=>{return TueOne.find({}, {sort: {order: 1}});},
+            tueTwo:()=>{return TueTwo.find({}, {sort: {order: 1}});},
 
-            wedOne:()=>{return WedOne.find({});},
-            wedTwo:()=>{return WedTwo.find({});},
+            wedOne:()=>{return WedOne.find({}, {sort: {order: 1}});},
+            wedTwo:()=>{return WedTwo.find({}, {sort: {order: 1}});},
 
-            thuOne:()=>{return ThuOne.find({});},
-            thuTwo:()=>{return ThuTwo.find({});},
+            thuOne:()=>{return ThuOne.find({}, {sort: {order: 1}});},
+            thuTwo:()=>{return ThuTwo.find({}, {sort: {order: 1}});},
 
-            friOne:()=>{return FriOne.find({});},
-            friTwo:()=>{return FriTwo.find({});},
+            friOne:()=>{return FriOne.find({}, {sort: {order: 1}});},
+            friTwo:()=>{return FriTwo.find({}, {sort: {order: 1}});},
 
-            satOne:()=>{return SatOne.find({});},
-            satTwo:()=>{return SatTwo.find({});},
+            satOne:()=>{return SatOne.find({}, {sort: {order: 1}});},
+            satTwo:()=>{return SatTwo.find({}, {sort: {order: 1}});},
 
-            sunOne:()=>{return SunOne.find({});},
-            sunTwo:()=>{return SunTwo.find({});},
+            sunOne:()=>{return SunOne.find({}, {sort: {order: 1}});},
+            sunTwo:()=>{return SunTwo.find({}, {sort: {order: 1}});},
 
             requests() {
                 return Requests.find({});
@@ -67,8 +77,7 @@ class ScheduleRequestCtrl {
       Meteor.logout();
       this.$state.go("login");
     }
-    addRequests(shift) {
-
+    addRequests(shift, threeShift) {
       /*---------------- cleared out code is for client side operation and testing--------------*/
 
       // console.log('------------------------ client side add request call');
@@ -94,6 +103,14 @@ class ScheduleRequestCtrl {
         Meteor.call('shift.remove', request._id, shift._name);
     }
 
+    shiftUpdate(shift, threeShift) {
+      console.log("check", this.threeShift);
+      // shift.update(request._id, {
+      //   $set: {
+      //     threeShift: threeShift,
+      //   }
+      // })
+    }
 }
 
 export default angular.module('scheduleRequest', [
@@ -102,7 +119,7 @@ export default angular.module('scheduleRequest', [
     ])
     .component('scheduleRequest', {
         templateUrl: template,
-        controller: ['$scope','$state', ScheduleRequestCtrl]
+        controller: ['$scope','$state','$window', ScheduleRequestCtrl]
     })
     .config(config);
 
