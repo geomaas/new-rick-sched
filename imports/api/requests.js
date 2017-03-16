@@ -8,9 +8,6 @@ import {
     check
 } from 'meteor/check';
 
-
-export const Requests = new Mongo.Collection('requests');
-
 export const MonOne = new Mongo.Collection('monOne');
 export const MonTwo = new Mongo.Collection('monTwo');
 
@@ -32,6 +29,10 @@ export const SatTwo = new Mongo.Collection('satTwo');
 export const SunOne = new Mongo.Collection('sunOne');
 export const SunTwo = new Mongo.Collection('sunTwo');
 
+export const Requests = new Mongo.Collection('requests');
+// export const PedicabRequests = new Mongo.Collection('pedicabRequests');
+
+/*---name variables for shift insert call----*/
 const Collections = {
     'monOne': MonOne,
     'monTwo': MonTwo,
@@ -48,6 +49,7 @@ const Collections = {
     'sunOne': SunOne,
     'sunTwo': SunTwo,
 }
+/*-------------------------------------------*/
 
 Meteor.methods({
     'shift.insert' (shift) {
@@ -63,7 +65,7 @@ Meteor.methods({
 
             let requestCount = Collections[shift].find().count();
             let order = requestCount + 1;
-            
+
             Collections[shift].insert({
                 createdAt: new Date,
                 owner: Meteor.userId(),
@@ -82,6 +84,18 @@ Meteor.methods({
         // console.log(request, shift, Collections[shift]);
         Collections[shift].remove(request);
 
+    },
+    'shift.update' (request, shift) {
+      check(request.checked, Boolean);
+      check(request._id, String);
+      check(shift, String);
+      // console.log('------------------server call of update shift');
+      // console.log(request.checked, request, shift);
+      Collections[shift].update(request._id, {
+        $set: {
+          checked: !request.checked
+        },
+      });
     },
 
 })

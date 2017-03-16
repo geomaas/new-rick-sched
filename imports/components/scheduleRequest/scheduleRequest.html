@@ -6,6 +6,11 @@
     <h1 ng-show="$ctrl.currentUser.profile.company == 'pedicab'">Pedicab Schedule</h1>
     <h1 ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">Rickshaw Schedule</h1>
     <h2>{{$ctrl.currentUser.username}} <button ng-show="$ctrl.currentUser" class="btn btn-primary logut-button"ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h2>
+    <div class="finalize-schedule">
+      <h2>Manager</h2>
+      <input type="date" name="" value="">
+      <button type="button" class="btn btn-primary" name="button" ng-click="$ctrl.finalizeSchedule($ctrl.helpers)">Finalize schedule</button>
+    </div>
 </div>
 <div class="week-button-container">
     <button ng-click="$ctrl.day = 1" type="button" class="btn btn-secondary">M</button>
@@ -43,23 +48,21 @@
                 <h1>Night Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.monTwo)" type="button" name="button">Add Shift</button>
                 <ol class="list-group">
-                    <li class="list-group-item" ng-repeat="request in $ctrl.monTwo" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+                    <!-- <li class="list-group-item" ng-repeat="request in $ctrl.monTwo | orderBy: 'checked'" ng-class="{'checked': request.checked}">
                         {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monTwo)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                         </br>
-                        <label class="form-check-label">
-                          <input ng-checked="request.threeShift" ng-click="$ctrl.shiftUpdate(request)" class="form-check-input toggle-checked" type="checkbox" value="" style="transform:scale(2)">
-                          3 shift
+                        <label>
+                          <input type="checkbox" ng-checked="request.checked" ng-click="$ctrl.shiftUpdateThreeShift(request, $ctrl.shifts.monTwo)" class="toggle-checked" style="transform: scale(2)"/> 3 shift
                         </label>
-                    </li>
-                    <li class="list-group-item" ng-repeat="request in $ctrl.monTwo" ng-show="$ctrl.currentUser.profile.company == 'pedicab'" >
+                    </li> -->
+                    <li class="list-group-item" ng-repeat="request in $ctrl.monTwo | orderBy: 'checked'" ng-show="$ctrl.currentUser.profile.company == 'pedicab'" ng-class="{'checked': request.checked}" >
                         {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monTwo)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                         </br>
-                        <label class="form-check-label">
-                          <input  ng-click="$ctrl.shiftUpdate($ctrl.shifts.monTwo, $ctrl.threeShift)" class="form-check-input toggle-checked" type="checkbox" style="transform:scale(2)">
-                          3 shift
+                        <label>
+                          <input type="checkbox" ng-checked="request.checked" ng-click="$ctrl.shiftUpdateThreeShift(request, $ctrl.shifts.monTwo)" class="toggle-checked" style="transform: scale(2)"/> 3 shift
                         </label>
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>

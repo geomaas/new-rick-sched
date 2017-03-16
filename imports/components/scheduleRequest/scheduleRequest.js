@@ -1,7 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
-// import Sortable from 'angular-legacy-sortablejs';
 
 import {Requests, MonOne, MonTwo, TueOne, TueTwo, WedOne, WedTwo, ThuOne, ThuTwo, FriOne, FriTwo, SatOne, SatTwo, SunOne, SunTwo} from '../../api/requests.js';
 
@@ -22,8 +21,7 @@ class ScheduleRequestCtrl {
         }
         /*-----------------------------------*/
 
-        // this.threeShift = false;
-
+        /*-------shift name variables reference----------*/
         this.shifts = {
           monOne: MonOne,
           monTwo: MonTwo,
@@ -40,6 +38,7 @@ class ScheduleRequestCtrl {
           sunOne: SunOne,
           sunTwo: SunTwo,
         }
+        /*------------------------------*/
 
         this.helpers({
             monOne:()=>{return MonOne.find({}, {sort: {order: 1}});},
@@ -63,9 +62,9 @@ class ScheduleRequestCtrl {
             sunOne:()=>{return SunOne.find({}, {sort: {order: 1}});},
             sunTwo:()=>{return SunTwo.find({}, {sort: {order: 1}});},
 
-            requests() {
-                return Requests.find({});
-            },
+            requests:()=>{return Requests.find({})},
+            // pedicabRequests:()=>{return PedicabRequests.find({})},
+
             currentUser() {
                 return Meteor.user();
             },
@@ -103,13 +102,18 @@ class ScheduleRequestCtrl {
         Meteor.call('shift.remove', request._id, shift._name);
     }
 
-    shiftUpdate(shift, threeShift) {
-      console.log("check", this.threeShift);
+    shiftUpdateThreeShift(request, shift) {
+      // console.log("check", request.checked, shift);
       // shift.update(request._id, {
       //   $set: {
-      //     threeShift: threeShift,
-      //   }
-      // })
+      //     checked: !request.checked
+      //   },
+      // });
+      Meteor.call('shift.update', request, shift._name);
+    }
+
+    finalizeSchedule(shifts) {
+      console.log('test call angular for each');
     }
 }
 
