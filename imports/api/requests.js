@@ -30,7 +30,6 @@ export const SunOne = new Mongo.Collection('sunOne');
 export const SunTwo = new Mongo.Collection('sunTwo');
 
 export const Requests = new Mongo.Collection('requests');
-// export const PedicabRequests = new Mongo.Collection('pedicabRequests');
 
 /*---name variables for shift insert call----*/
 const Collections = {
@@ -52,10 +51,10 @@ const Collections = {
 /*-------------------------------------------*/
 
 Meteor.methods({
+  /*-------------------------------------------------------*/
     'shift.insert' (shift) {
         check(shift, String);
-        // console.log('----------------------- shift insert server call');
-        // console.log(shift);
+
         if (!Meteor.userId()) {
             // throw new Meteor.Error('Sign in to add shift');
             alert('sign in to make a request')
@@ -77,25 +76,25 @@ Meteor.methods({
             alert("already added that shift")
         }
     },
+    /*-------------------------------------------------------*/
     'shift.remove' (request, shift) {
         check(request, String);
         check(shift, String);
-        // console.log('------------------server call of remove shift');
-        // console.log(request, shift, Collections[shift]);
-        Collections[shift].remove(request);
 
+        Collections[shift].remove(request);
     },
+    /*-------------------------------------------------------*/
     'shift.update' (request, shift) {
       check(request.checked, Boolean);
       check(request._id, String);
       check(shift, String);
-      // console.log('------------------server call of update shift');
-      // console.log(request.checked, request, shift);
+
       Collections[shift].update(request._id, {
         $set: {
           checked: !request.checked
         },
       });
     },
+    /*-------------------------------------------------------*/
 
 })

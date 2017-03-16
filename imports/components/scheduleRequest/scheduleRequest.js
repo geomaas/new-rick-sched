@@ -20,7 +20,7 @@ class ScheduleRequestCtrl {
           this.day = 8;
         }
         /*-----------------------------------*/
-
+        this.weekStart = new Date;
         /*-------shift name variables reference----------*/
         this.shifts = {
           monOne: MonOne,
@@ -37,6 +37,7 @@ class ScheduleRequestCtrl {
           satTwo: SatTwo,
           sunOne: SunOne,
           sunTwo: SunTwo,
+          requests: Requests,
         }
         /*------------------------------*/
 
@@ -76,7 +77,7 @@ class ScheduleRequestCtrl {
       Meteor.logout();
       this.$state.go("login");
     }
-    addRequests(shift, threeShift) {
+    addRequests(shift) {
       /*---------------- cleared out code is for client side operation and testing--------------*/
 
       // console.log('------------------------ client side add request call');
@@ -112,8 +113,22 @@ class ScheduleRequestCtrl {
       Meteor.call('shift.update', request, shift._name);
     }
 
-    finalizeSchedule(shifts) {
-      console.log('test call angular for each');
+    finalizeSchedule(a, b, c, weekStart) {
+      // console.log('test call angular for each', a, b);
+      let aArr = angular.copy(a);
+      let bArr = angular.copy(b);
+      console.log(c, weekStart);
+      // Requests.insert({
+      //   createdAt: new Date,
+      //   weekStart: weekStart,
+      //   monOne: aArr,
+      //   monTwo: bArr,
+      //
+      // });
+    }
+    deleteSchedule(){
+      console.log('delete schedule');
+      Requests.remove("DbJsYaeyiMN5PiZ9c");
     }
 }
 

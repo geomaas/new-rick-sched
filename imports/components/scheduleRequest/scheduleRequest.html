@@ -8,8 +8,9 @@
     <h2>{{$ctrl.currentUser.username}} <button ng-show="$ctrl.currentUser" class="btn btn-primary logut-button"ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h2>
     <div class="finalize-schedule">
       <h2>Manager</h2>
-      <input type="date" name="" value="">
-      <button type="button" class="btn btn-primary" name="button" ng-click="$ctrl.finalizeSchedule($ctrl.helpers)">Finalize schedule</button>
+      <input ng-model="$ctrl.weekStart" type="date" name="" value="">
+      <button type="button" class="btn btn-primary" name="button" ng-click="$ctrl.finalizeSchedule($ctrl.monOne, $ctrl.monTwo, $ctrl.requests, $ctrl.weekStart)">Finalize schedule</button>
+      <button type="button" class="btn btn-primary" name="button" ng-click="$ctrl.deleteSchedule()">delete schedule</button>
     </div>
 </div>
 <div class="week-button-container">
