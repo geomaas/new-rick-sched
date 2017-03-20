@@ -4,10 +4,10 @@
     <h1 ng-show="$ctrl.currentUser.profile.company == 'pedicab'">Finalized Pedicab Schedule</h1>
     <h1 ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">Finalized Rickshaw Schedule</h1>
     <h2>{{$ctrl.currentUser.username}} <button ng-show="$ctrl.currentUser" class="btn btn-primary logut-button"ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h2>
-    <div class="finalize-schedule">
+    <!-- <div class="finalize-schedule">
       <h2>Manager</h2>
       <button type="button" class="btn btn-primary" name="button" ng-click="$ctrl.deleteSchedule()">delete schedule</button>
-    </div>
+    </div> -->
 </div>
 <div class="week-button-container">
     <button ng-click="$ctrl.day = 1" type="button" class="btn btn-secondary">M</button>
@@ -21,6 +21,7 @@
 </div>
 
 <div class="week-box">
+  <button type="button" class="btn btn-primary" name="button" ng-click="$ctrl.deleteSchedule()">delete schedule</button>
     <!--- MONDAY   ----->
     <div class="day-box" ng-show="$ctrl.day == 1 || $ctrl.day == 8">
         <h1>Monday</h1>
@@ -62,11 +63,9 @@
                 <ol class="list-group">
                     <li class="list-group-item" ng-repeat="request in $ctrl.tueOne" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{request.username}}
-                        <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.tueOne)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                     </li>
                     <li class="list-group-item" ng-repeat="request in $ctrl.tueOne" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{request.username}}
-                        <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.tueOne)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                     </li>
                 </ol>
             </div>
@@ -75,12 +74,10 @@
                 <ol class="list-group">
                     <li class="list-group-item" ng-repeat="request in $ctrl.tueTwo" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{request.username}}
-                        <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.tueTwo)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                     <li class="list-group-item" ng-repeat="request in $ctrl.tueTwo" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{request.username}}
-                        <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.tueTwo)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                 </ol>
@@ -96,11 +93,9 @@
                 <ol class="list-group">
                     <li class="list-group-item" ng-repeat="request in $ctrl.wedOne" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{request.username}}
-                        <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.wedOne)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                     </li>
                     <li class="list-group-item" ng-repeat="request in $ctrl.wedOne" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{request.username}}
-                        <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.wedOne)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                     </li>
                 </ol>
             </div>
@@ -109,12 +104,10 @@
                 <ol class="list-group">
                     <li class="list-group-item" ng-repeat="request in $ctrl.wedTwo" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{request.username}}
-                        <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.wedTwo)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                     <li class="list-group-item" ng-repeat="request in $ctrl.wedTwo" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{request.username}}
-                        <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.wedTwo)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                 </ol>
@@ -130,11 +123,9 @@
                 <ol class="list-group">
                     <li class="list-group-item" ng-repeat="request in $ctrl.thuOne" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{request.username}}
-                        <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.thuOne)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                     </li>
                     <li class="list-group-item" ng-repeat="request in $ctrl.thuOne" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{request.username}}
-                        <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.thuOne)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                     </li>
                 </ol>
             </div>
@@ -143,12 +134,10 @@
                 <ol class="list-group">
                     <li class="list-group-item" ng-repeat="request in $ctrl.thuTwo" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{request.username}}
-                        <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.thuTwo)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                     <li class="list-group-item" ng-repeat="request in $ctrl.thuTwo" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{request.username}}
-                        <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.thuTwo)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                 </ol>
@@ -164,11 +153,9 @@
                 <ol class="list-group">
                     <li class="list-group-item" ng-repeat="request in $ctrl.friOne" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{request.username}}
-                        <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.friOne)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                     </li>
                     <li class="list-group-item" ng-repeat="request in $ctrl.friOne" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{request.username}}
-                        <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.friOne)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                     </li>
                 </ol>
             </div>
@@ -177,12 +164,10 @@
                 <ol class="list-group">
                     <li class="list-group-item" ng-repeat="request in $ctrl.friTwo" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{request.username}}
-                        <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.friTwo)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                     <li class="list-group-item" ng-repeat="request in $ctrl.friTwo" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{request.username}}
-                        <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.friTwo)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                 </ol>
@@ -198,11 +183,9 @@
                 <ol class="list-group">
                     <li class="list-group-item" ng-repeat="request in $ctrl.satOne" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{request.username}}
-                        <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.satOne)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                     </li>
                     <li class="list-group-item" ng-repeat="request in $ctrl.satOne" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{request.username}}
-                        <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.satOne)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                     </li>
                 </ol>
             </div>
@@ -211,11 +194,9 @@
                 <ol class="list-group">
                     <li class="list-group-item" ng-repeat="request in $ctrl.satTwo" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{request.username}}
-                        <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.satTwo)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                     </li>
                     <li class="list-group-item" ng-repeat="request in $ctrl.satTwo" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{request.username}}
-                        <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.satTwo)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                     </li>
                 </ol>
             </div>
@@ -230,11 +211,9 @@
                 <ol class="list-group">
                     <li class="list-group-item" ng-repeat="request in $ctrl.sunOne" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{request.username}}
-                        <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.sunOne)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                     </li>
                     <li class="list-group-item" ng-repeat="request in $ctrl.sunOne" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{request.username}}
-                        <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.sunOne)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                     </li>
                 </ol>
             </div>
@@ -243,11 +222,9 @@
                 <ol class="list-group">
                     <li class="list-group-item" ng-repeat="request in $ctrl.sunTwo" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{request.username}}
-                        <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.sunTwo)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                     </li>
                     <li class="list-group-item" ng-repeat="request in $ctrl.sunTwo" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{request.username}}
-                        <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.sunTwo)" ng-show="$ctrl.currentUser.username == request.username">&times;</button>
                     </li>
                 </ol>
             </div>

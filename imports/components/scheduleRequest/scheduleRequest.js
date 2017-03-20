@@ -134,7 +134,6 @@ class ScheduleRequestCtrl {
           //   sunOne: angular.copy(this.sunOne),
           //   sunTwo: angular.copy(this.sunTwo),
           // });
-          console.log('check if dates match to stop insert')
         }else {
           alert("Schedule already submitted!")
         }
