@@ -1,12 +1,8 @@
-import {
-    Meteor
-} from 'meteor/meteor';
-import {
-    Mongo
-} from 'meteor/mongo';
-import {
-    check
-} from 'meteor/check';
+import { Meteor } from 'meteor/meteor';
+import { Mongo } from 'meteor/mongo';
+import { check } from 'meteor/check';
+// import SimpleSchema from 'simpl-schema';
+// import RequestSchema  from './requestSchema.js';
 
 export const MonOne = new Mongo.Collection('monOne');
 export const MonTwo = new Mongo.Collection('monTwo');
@@ -30,6 +26,8 @@ export const SunOne = new Mongo.Collection('sunOne');
 export const SunTwo = new Mongo.Collection('sunTwo');
 
 export const Requests = new Mongo.Collection('requests');
+
+// Requests.attachSchema(RequestSchema);
 
 /*---name variables for shift insert call----*/
 const Collections = {
@@ -96,5 +94,10 @@ Meteor.methods({
       });
     },
     /*-------------------------------------------------------*/
+    'schedule.insert'() {
+      
+    }
+    /*-------------------------------------------------------*/
+
 
 })

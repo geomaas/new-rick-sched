@@ -42,26 +42,26 @@ class ScheduleRequestCtrl {
         /*------------------------------*/
 
         this.helpers({
-            monOne:()=>{return MonOne.find({}, {sort: {order: 1}});},
-            monTwo:()=>{return MonTwo.find({}, {sort: {order: 1}});},
+            monOne:()=>{return MonOne.find({})},
+            monTwo:()=>{return MonTwo.find({})},
 
-            tueOne:()=>{return TueOne.find({}, {sort: {order: 1}});},
-            tueTwo:()=>{return TueTwo.find({}, {sort: {order: 1}});},
+            tueOne:()=>{return TueOne.find({})},
+            tueTwo:()=>{return TueTwo.find({})},
 
-            wedOne:()=>{return WedOne.find({}, {sort: {order: 1}});},
-            wedTwo:()=>{return WedTwo.find({}, {sort: {order: 1}});},
+            wedOne:()=>{return WedOne.find({})},
+            wedTwo:()=>{return WedTwo.find({})},
 
-            thuOne:()=>{return ThuOne.find({}, {sort: {order: 1}});},
-            thuTwo:()=>{return ThuTwo.find({}, {sort: {order: 1}});},
+            thuOne:()=>{return ThuOne.find({})},
+            thuTwo:()=>{return ThuTwo.find({})},
 
-            friOne:()=>{return FriOne.find({}, {sort: {order: 1}});},
-            friTwo:()=>{return FriTwo.find({}, {sort: {order: 1}});},
+            friOne:()=>{return FriOne.find({})},
+            friTwo:()=>{return FriTwo.find({})},
 
-            satOne:()=>{return SatOne.find({}, {sort: {order: 1}});},
-            satTwo:()=>{return SatTwo.find({}, {sort: {order: 1}});},
+            satOne:()=>{return SatOne.find({})},
+            satTwo:()=>{return SatTwo.find({})},
 
-            sunOne:()=>{return SunOne.find({}, {sort: {order: 1}});},
-            sunTwo:()=>{return SunTwo.find({}, {sort: {order: 1}});},
+            sunOne:()=>{return SunOne.find({})},
+            sunTwo:()=>{return SunTwo.find({})},
 
             requests:()=>{return Requests.find({})},
             // pedicabRequests:()=>{return PedicabRequests.find({})},
@@ -113,22 +113,35 @@ class ScheduleRequestCtrl {
       Meteor.call('shift.update', request, shift._name);
     }
 
-    finalizeSchedule(a, b, c, weekStart) {
-      // console.log('test call angular for each', a, b);
-      let aArr = angular.copy(a);
-      let bArr = angular.copy(b);
-      console.log(c, weekStart);
-      // Requests.insert({
-      //   createdAt: new Date,
-      //   weekStart: weekStart,
-      //   monOne: aArr,
-      //   monTwo: bArr,
-      //
-      // });
+    finalizeSchedule(weekStart) {
+      console.log(weekStart, this.monOne, this.requests);
+        if(!Requests.findOne({weekStart: weekStart})) {
+          // Requests.insert({
+          //   createdAt: new Date,
+          //   weekStart: weekStart,
+          //   monOne: angular.copy(this.monOne),
+          //   monTwo: angular.copy(this.monTwo),
+          //   tueOne: angular.copy(this.tueOne),
+          //   tueTwo: angular.copy(this.tueTwo),
+          //   wedOne: angular.copy(this.wedOne),
+          //   wedTwo: angular.copy(this.wedTwo),
+          //   thuOne: angular.copy(this.thuOne),
+          //   thuTwo: angular.copy(this.thuTwo),
+          //   friOne: angular.copy(this.friOne),
+          //   friTwo: angular.copy(this.friTwo),
+          //   satOne: angular.copy(this.satOne),
+          //   satTwo: angular.copy(this.satTwo),
+          //   sunOne: angular.copy(this.sunOne),
+          //   sunTwo: angular.copy(this.sunTwo),
+          // });
+          console.log('check if dates match to stop insert')
+        }else {
+          alert("Schedule already submitted!")
+        }
     }
     deleteSchedule(){
       console.log('delete schedule');
-      Requests.remove("DbJsYaeyiMN5PiZ9c");
+      Requests.remove("hrqeib8F6gxMhJx5N");
     }
 }
 
