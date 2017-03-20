@@ -27,3 +27,4 @@ twbs:bootstrap
 insecure
 rubaxa:sortable
 aldeed:simple-schema
+momentjs:moment

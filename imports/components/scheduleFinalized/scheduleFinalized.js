@@ -13,7 +13,7 @@ class ScheduleFinalizedCtrl {
         this.$window = $window;
 
         /*--------sets shift boxes to show all or one depending on screen size----------*/
-        if (this.$window.outerWidth < 768) {
+        if (this.$window.outerWidth < 1000) {
             this.day = 1;
         } else {
             this.day = 8;
@@ -23,7 +23,7 @@ class ScheduleFinalizedCtrl {
 
         this.helpers({
             requests: () => {
-                return Requests.find({})
+                return Requests.find({}, {sort: {weekStart: -1}})
             },
             currentUser() {
                 return Meteor.user();
@@ -37,9 +37,9 @@ class ScheduleFinalizedCtrl {
         this.$state.go("login");
     }
 
-    deleteSchedule() {
-        console.log('delete schedule');
-        Requests.remove("hrqeib8F6gxMhJx5N");
+    deleteSchedule(id) {
+        console.log('delete schedule', id);
+        Requests.remove(id);
     }
 }
 

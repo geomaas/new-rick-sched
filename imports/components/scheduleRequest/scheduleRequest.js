@@ -10,11 +10,11 @@ class ScheduleRequestCtrl {
     constructor($scope, $state, $window) {
         $scope.viewModel(this);
 
-        this.$state = $state;
+        this.$state = $state; 
         this.$window = $window;
 
         /*--------sets shift boxes to show all or one depending on screen size----------*/
-        if(this.$window.outerWidth < 768){
+        if(this.$window.outerWidth < 1000){
           this.day = 1;
         }else{
           this.day = 8;
@@ -114,26 +114,26 @@ class ScheduleRequestCtrl {
     }
 
     finalizeSchedule(weekStart) {
-      console.log(weekStart, this.monOne, this.requests);
+      console.log(this.requests);
         if(!Requests.findOne({weekStart: weekStart})) {
-          // Requests.insert({
-          //   createdAt: new Date,
-          //   weekStart: weekStart,
-          //   monOne: angular.copy(this.monOne),
-          //   monTwo: angular.copy(this.monTwo),
-          //   tueOne: angular.copy(this.tueOne),
-          //   tueTwo: angular.copy(this.tueTwo),
-          //   wedOne: angular.copy(this.wedOne),
-          //   wedTwo: angular.copy(this.wedTwo),
-          //   thuOne: angular.copy(this.thuOne),
-          //   thuTwo: angular.copy(this.thuTwo),
-          //   friOne: angular.copy(this.friOne),
-          //   friTwo: angular.copy(this.friTwo),
-          //   satOne: angular.copy(this.satOne),
-          //   satTwo: angular.copy(this.satTwo),
-          //   sunOne: angular.copy(this.sunOne),
-          //   sunTwo: angular.copy(this.sunTwo),
-          // });
+          Requests.insert({
+            createdAt: new Date,
+            weekStart: weekStart,
+            monOne: angular.copy(this.monOne),
+            monTwo: angular.copy(this.monTwo),
+            tueOne: angular.copy(this.tueOne),
+            tueTwo: angular.copy(this.tueTwo),
+            wedOne: angular.copy(this.wedOne),
+            wedTwo: angular.copy(this.wedTwo),
+            thuOne: angular.copy(this.thuOne),
+            thuTwo: angular.copy(this.thuTwo),
+            friOne: angular.copy(this.friOne),
+            friTwo: angular.copy(this.friTwo),
+            satOne: angular.copy(this.satOne),
+            satTwo: angular.copy(this.satTwo),
+            sunOne: angular.copy(this.sunOne),
+            sunTwo: angular.copy(this.sunTwo),
+          });
         }else {
           alert("Schedule already submitted!")
         }
