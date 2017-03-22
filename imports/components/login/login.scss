@@ -3,8 +3,8 @@ $gray-blue: rgba(131,172,189, 1);
 $aqua: rgba(155,203,190, 1);
 $white: rgba(249,252,254, 1);
 $navy: rgba(45,80,108, 1);
-$gray: rgba(119,123,126, 1); //////////////////
-@media only screen and (max-device-width: 767px) {
+$gray: rgba(119,123,126, 1); 
+@media only screen and (max-device-width: 1023px) {
     .login-page {
         display: flex;
         flex-direction: column;
@@ -94,7 +94,7 @@ $gray: rgba(119,123,126, 1); //////////////////
         }
     }
 }
-@media only screen and (min-device-width: 768px) {
+@media only screen and (min-device-width: 1024px) {
     .login-page {
         display: flex;
         flex-direction: column;

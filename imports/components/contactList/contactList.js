@@ -12,7 +12,10 @@ class ContactListCtrl {
         this.helpers({
             users() {
                 return Meteor.users.find({});
-            }
+            },
+            currentUser() {
+                return Meteor.user();
+            },
         })
     }
     logOutUser() {
@@ -20,9 +23,9 @@ class ContactListCtrl {
         Meteor.logout();
     }
     deleteUser(user) {
-      console.log('delete user', user);
-      Meteor.users.remove({_id:user._id}) 
-
+      if(confirm('Are you sure you want to delete this rider?')){
+      Meteor.call('user.remove', user._id);
+      }
     }
 }
 

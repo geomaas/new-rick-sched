@@ -10,11 +10,11 @@ class ScheduleRequestCtrl {
     constructor($scope, $state, $window) {
         $scope.viewModel(this);
 
-        this.$state = $state; 
+        this.$state = $state;
         this.$window = $window;
 
         /*--------sets shift boxes to show all or one depending on screen size----------*/
-        if(this.$window.outerWidth < 1000){
+        if(this.$window.outerWidth < 1024){
           this.day = 1;
         }else{
           this.day = 8;
@@ -104,7 +104,8 @@ class ScheduleRequestCtrl {
     }
 
     shiftUpdateThreeShift(request, shift) {
-      // console.log("check", request.checked, shift);
+      // console.log("client side check update", request.checked, shift._name);
+      // console.log("------------------------------------");
       // shift.update(request._id, {
       //   $set: {
       //     checked: !request.checked
@@ -114,23 +115,29 @@ class ScheduleRequestCtrl {
     }
 
     finalizeSchedule(weekStart) {
-      console.log(this.requests);
-        if(!Requests.findOne({weekStart: weekStart})) {
+      console.log(moment(weekStart).format('l'));
+        if(!Requests.findOne({weekStart: moment(weekStart).format('l')})) {
           Requests.insert({
             createdAt: new Date,
-            weekStart: weekStart,
+            weekStart: moment(weekStart).format('l'),
             monOne: angular.copy(this.monOne),
             monTwo: angular.copy(this.monTwo),
+            tueDate: moment(weekStart).add(1, 'days').format('l'),
             tueOne: angular.copy(this.tueOne),
             tueTwo: angular.copy(this.tueTwo),
+            wedDate: moment(weekStart).add(2, 'days').format('l'),
             wedOne: angular.copy(this.wedOne),
             wedTwo: angular.copy(this.wedTwo),
+            thuDate: moment(weekStart).add(3, 'days').format('l'),
             thuOne: angular.copy(this.thuOne),
             thuTwo: angular.copy(this.thuTwo),
+            friDate: moment(weekStart).add(4, 'days').format('l'),
             friOne: angular.copy(this.friOne),
             friTwo: angular.copy(this.friTwo),
+            satDate: moment(weekStart).add(5, 'days').format('l'),
             satOne: angular.copy(this.satOne),
             satTwo: angular.copy(this.satTwo),
+            sunDate: moment(weekStart).add(6, 'days').format('l'),
             sunOne: angular.copy(this.sunOne),
             sunTwo: angular.copy(this.sunTwo),
           });

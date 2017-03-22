@@ -21,10 +21,11 @@
 </div>
 
 <div class="week-box" ng-repeat="week in $ctrl.requests">
-    <button type="button" class="btn btn-primary" name="button" ng-click="$ctrl.deleteSchedule(week._id)">delete schedule</button>
+    <button type="button" class="btn btn-primary" name="button" ng-click="$ctrl.deleteSchedule(week._id)" ng-show="$ctrl.currentUser.profile.isAdmin == true">delete schedule</button>
     <!--- MONDAY   ----->
     <div class="day-box" ng-show="$ctrl.day == 1 || $ctrl.day == 8">
-        <h1>Monday {{week.weekStart}}</h1>
+        <h1>Monday</h1>
+        <h1>{{week.weekStart}}</h1>
         <div class="shift-box">
             <div class="day-shift">
                 <h1>Day Shift</h1>
@@ -59,6 +60,7 @@
     <!-- TUESDAY -->
     <div class="day-box" ng-show="$ctrl.day == 2 || $ctrl.day == 8">
         <h1>Tuesday</h1>
+        <h1>{{week.tueDate}}</h1>
         <div class="shift-box">
             <div class="day-shift">
                 <h1>Day Shift</h1>
@@ -93,6 +95,7 @@
     <!-- WEDNESDAY -->
     <div class="day-box" ng-show="$ctrl.day == 3 || $ctrl.day == 8">
         <h1>Wednesday</h1>
+        <h1>{{week.wedDate}}</h1>
         <div class="shift-box">
             <div class="day-shift">
                 <h1>Day Shift</h1>
@@ -127,6 +130,7 @@
     <!-- THURSDAY -->
     <div class="day-box" ng-show="$ctrl.day == 4 || $ctrl.day == 8">
         <h1>Thursday</h1>
+        <h1>{{week.thuDate}}</h1>
         <div class="shift-box">
             <div class="day-shift">
                 <h1>Day Shift</h1>
@@ -161,6 +165,7 @@
     <!-- FRIDAY -->
     <div class="day-box" ng-show="$ctrl.day == 5 || $ctrl.day == 8">
         <h1>Friday</h1>
+        <h1>{{week.friDate}}</h1>
         <div class="shift-box">
             <div class="day-shift">
                 <h1>Day Shift</h1>
@@ -195,6 +200,7 @@
     <!-- SATURDAY -->
     <div class="day-box" ng-show="$ctrl.day == 6 || $ctrl.day == 8">
         <h1>Saturday</h1>
+        <h1>{{week.satDate}}</h1>
         <div class="shift-box">
             <div class="day-shift">
                 <h1>Day Shift</h1>
@@ -227,6 +233,7 @@
     <!-- SUNDAY -->
     <div class="day-box" ng-show="$ctrl.day == 7 || $ctrl.day == 8">
         <h1>Sunday</h1>
+        <h1>{{week.sunDate}}</h1>
         <div class="shift-box">
             <div class="day-shift">
                 <h1>Day Shift</h1>

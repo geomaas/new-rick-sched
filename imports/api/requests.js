@@ -1,6 +1,12 @@
-import { Meteor } from 'meteor/meteor';
-import { Mongo } from 'meteor/mongo';
-import { check } from 'meteor/check';
+import {
+    Meteor
+} from 'meteor/meteor';
+import {
+    Mongo
+} from 'meteor/mongo';
+import {
+    check
+} from 'meteor/check';
 // import SimpleSchema from 'simpl-schema';
 // import RequestSchema  from './requestSchema.js';
 
@@ -49,7 +55,7 @@ const Collections = {
 /*-------------------------------------------*/
 
 Meteor.methods({
-  /*-------------------------------------------------------*/
+    /*-------------------------------------------------------*/
     'shift.insert' (shift) {
         check(shift, String);
 
@@ -69,9 +75,10 @@ Meteor.methods({
                 username: Meteor.user().username,
                 company: Meteor.user().profile.company,
                 order: order,
+                checked: false,
             });
         } else {
-            alert("already added that shift")
+            alert("already added that shift!")
         }
     },
     /*-------------------------------------------------------*/
@@ -83,21 +90,27 @@ Meteor.methods({
     },
     /*-------------------------------------------------------*/
     'shift.update' (request, shift) {
-      check(request.checked, Boolean);
-      check(request._id, String);
-      check(shift, String);
-
-      Collections[shift].update(request._id, {
-        $set: {
-          checked: !request.checked
-        },
-      });
+        check(request.checked, Boolean);
+        check(request._id, String);
+        check(shift, String);
+        // console.log('server side check update', request.checked, shift);
+        // console.log('-------------------------------------');
+        Collections[shift].update(request._id, {
+            $set: {
+                checked: !request.checked
+            },
+        });
     },
     /*-------------------------------------------------------*/
-    'schedule.insert'() {
+    'schedule.insert' () {
+
+    },
+    /*-------------------------------------------------------*/
+    'user.remove' (id) {
+        check(id, String);
+        Meteor.users.remove(id);
 
     }
     /*-------------------------------------------------------*/
-
 
 })

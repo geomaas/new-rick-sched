@@ -1,9 +1,12 @@
 <div class="contacts-page">
-    <h1>Contact Lists</h1>
+    <div class="label-box">
+      <h1>Contact Lists</h1>
+      <h2>{{$ctrl.currentUser.username}} <button ng-show="$ctrl.currentUser" class="btn btn-primary logut-button"ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h2>
+    </div>
     <div class="contacts-container">
 
         <div class="table-container">
-            <h2>Rickshaw Contacts</h2>
+            <h1>Rickshaw Contacts</h1>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -13,17 +16,17 @@
                         <!-- <th>delete user</th> -->
                     </tr>
                 </thead>
-                <tr ng-repeat='user in $ctrl.users | filter: {profile:{company: rickshaw }}'>
+                <tr ng-repeat="user in $ctrl.users | filter: {profile: {company: 'rickshaw'}} | filter: username == 'AdminRick'">
                     <td>{{user.username}}</td>
-                    <td>{{user.profile.phone}}</td>
-                    <td>{{user.profile.email}} {{user}}</td>
-                    <!-- <td><button ng-click="$ctrl.deleteUser(user)" type="button" class="btn btn-primary">&times;</button> -->
+                    <td><a href="tel:{{user.profile.phone}}">{{user.profile.phone}}</a></td>
+                    <td><a href="mailto:{{user.profile.email}}">{{user.profile.email}}</a></td>
+                    <td><button ng-click="$ctrl.deleteUser(user)" type="button" class="btn btn-primary" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </td>
                 </tr>
             </table>
         </div>
         <div class="table-container">
-            <h2>Pedicab Contacts</h2>
+            <h1>Pedicab Contacts</h1>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -32,11 +35,11 @@
                         <th>email</th>
                     </tr>
                 </thead>
-                <tr ng-repeat='user in $ctrl.users | filter: {profile:{company: pedicab}}'>
+                <tr ng-repeat="user in $ctrl.users | filter: {profile: {company: 'pedicab'}} | filter: username == 'AdminPedi'">
                     <td>{{user.username}}</td>
                     <td>{{user.profile.phone}}</td>
                     <td>{{user.profile.email}}</td>
-                    <!-- <td>{{user}}</td> -->
+                    <td><button ng-click="$ctrl.deleteUser(user)" type="button" class="btn btn-primary" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                 </tr>
             </table>
         </div>

@@ -13,7 +13,7 @@ class ScheduleFinalizedCtrl {
         this.$window = $window;
 
         /*--------sets shift boxes to show all or one depending on screen size----------*/
-        if (this.$window.outerWidth < 1000) {
+        if (this.$window.outerWidth < 1024) {
             this.day = 1;
         } else {
             this.day = 8;

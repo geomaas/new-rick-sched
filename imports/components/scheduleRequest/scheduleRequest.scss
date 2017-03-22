@@ -13,11 +13,12 @@ body {
     color: $white;
 }
 /////////////////////small screen///////////////
-@media only screen and (max-device-width: 767px) {
+@media only screen and (max-device-width: 1023px) {
     .label-box {
-        width: 85vw;
+        width: 90vw;
         margin: 2% auto;
         border-radius: 10px;
+        border: 3px $gray solid;
         display: flex;
         background: linear-gradient(to right, rgba(119,123,126, .9), rgba(119,123,126, .6)), url('gears.jpg');
         background-position: center;
@@ -138,7 +139,7 @@ body {
     }
 }
 //////////////////// large screen///////////////
-@media only screen and (min-device-width: 768px) {
+@media only screen and (min-device-width: 1024px) {
     .label-box {
         width: 85vw;
         margin: 2% auto;

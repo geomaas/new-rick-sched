@@ -25,7 +25,6 @@ class LoginCtrl {
     }
 
     signupUser(user) {
-        console.log(user);
         if (user.password != user.passwordTwo) {
             alert('Passwords do not match!')
         } else {
