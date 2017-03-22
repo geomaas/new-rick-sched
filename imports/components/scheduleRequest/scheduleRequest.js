@@ -64,13 +64,9 @@ class ScheduleRequestCtrl {
             sunTwo:()=>{return SunTwo.find({})},
 
             requests:()=>{return Requests.find({})},
-            // pedicabRequests:()=>{return PedicabRequests.find({})},
 
-            currentUser() {
-                return Meteor.user();
-            },
-
-        })
+            currentUser:()=>{return Meteor.user();},
+        });
     }
     logOutUser(){
       console.log('logging out');
@@ -144,10 +140,6 @@ class ScheduleRequestCtrl {
         }else {
           alert("Schedule already submitted!")
         }
-    }
-    deleteSchedule(){
-      console.log('delete schedule');
-      Requests.remove("hrqeib8F6gxMhJx5N");
     }
 }
 

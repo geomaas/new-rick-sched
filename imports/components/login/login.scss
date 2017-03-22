@@ -3,7 +3,7 @@ $gray-blue: rgba(131,172,189, 1);
 $aqua: rgba(155,203,190, 1);
 $white: rgba(249,252,254, 1);
 $navy: rgba(45,80,108, 1);
-$gray: rgba(119,123,126, 1); 
+$gray: rgba(119,123,126, 1);
 @media only screen and (max-device-width: 1023px) {
     .login-page {
         display: flex;
@@ -99,6 +99,12 @@ $gray: rgba(119,123,126, 1);
         display: flex;
         flex-direction: column;
         justify-content: center;
+        img {
+            width: 50vw;
+            align-self: center;
+            background-color: $white;
+            border-radius: 100%;
+        }
 
         .login {
             width: 50vw;

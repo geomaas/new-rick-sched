@@ -8,23 +8,23 @@ import {
 import template from './login.html';
 
 class LoginCtrl {
-    constructor($scope, $state,) {
+    constructor($scope, $state, ) {
         'ngInject';
         $scope.viewModel(this);
 
         this.$state = $state;
 
-        this.hide = true,
+        this.hide = true;
 
-            this.signup = {},
-            this.helpers({
-                currentUser() {
-                    return Meteor.user();
-                }
-            })
+        this.signup = {};
+
+        this.helpers({
+            currentUser:()=>{return Meteor.user();}
+        });
     }
 
     signupUser(user) {
+      that = this;
         if (user.password != user.passwordTwo) {
             alert('Passwords do not match!')
         } else {
@@ -42,9 +42,10 @@ class LoginCtrl {
             }, function(err) {
                 if (err) {
                     alert("you messed up")
-                    // console.log(err);
+                    // console.log(err)
                 } else {
-                    alert('succes on user creation!')
+                    alert('succes on user creation!');
+                    that.loginUser(user.username, user.password);
                 }
             });
         }
