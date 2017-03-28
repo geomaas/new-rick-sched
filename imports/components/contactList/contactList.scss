@@ -1,5 +1,8 @@
 .contacts-container {
-    background-color: $aqua;
+    background: linear-gradient(to bottom, rgba(155, 203, 190, .9), rgba(155, 203, 190, .4)), url('bike_seat.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     width: 90vw;
     margin: auto;
     display: flex;

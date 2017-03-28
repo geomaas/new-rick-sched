@@ -1,0 +1,28 @@
+<div class="label-box">
+    <h1 ng-show="$ctrl.currentUser.profile.company == 'pedicab'">Pedicab Schedule</h1>
+    <h1 ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">Rickshaw Schedule</h1>
+    <h2>{{$ctrl.currentUser.username}} <button ng-show="$ctrl.currentUser" class="btn btn-primary logout-button"ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h2>
+</div>
+<div class="reservations-page">
+  <button class="btn btn-primary reso-submit" type="button" name="button" ng-click="$ctrl.toggle()">Make New Resrvation</button>
+    <div class="reservations-input" ng-hide="$ctrl.hide">
+      <h1>Reservation Input</h1>
+        <form >
+          <input class="input-info" type="text" name="" value="" placeholder="Reso Name">
+          <input class="input-info" type="text" name="" value="" placeholder="Reso Location">
+          <!-- <div class="reso-numbers"> -->
+            <input class="input-info" type="date" name="" value="" placeholder="Reso Date">
+            <input class="input-info" type="time" name="" value="" placeholder="12:00 PM">
+            <input class="input-info" type="number" name="" value="" placeholder="Total Guests">
+          <!-- </div> -->
+          <textarea class="input-info" name="name" rows="8" cols="80" placeholder="specific notes"></textarea>
+
+        </form>
+        <button class="btn btn-primary reso-submit" type="button" name="button">Submit Reservation</button>
+
+    </div>
+
+    <div class="reservations-list">
+
+    </div>
+</div>

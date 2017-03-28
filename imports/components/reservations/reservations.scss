@@ -1,0 +1,54 @@
+.reservations-page {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+
+    .reso-submit {
+        margin: 4% auto;
+        font-size: 4rem;
+    }
+
+    .reservations-input {
+        background: linear-gradient(to bottom, rgba(155, 203, 190, .8), rgba(155, 203, 190, .4)), url('tire_diagram.jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 90vw;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-self: center;
+        border-radius: 10px;
+        border: 3px $gray solid;
+
+        h1 {
+            align-self: center;
+            font-size: 5rem;
+        }
+
+        .input-info {
+            align-self: center;
+            display: block;
+            width: 90%;
+            margin: 2% auto;
+            padding: 2%;
+            border-radius: 5px;
+            font-size: 3.5rem;
+        }
+        // .reso-numbers {
+        //     display: flex;
+        //     justify-content: space-between;
+        //     flex-direction: row;
+        //     width: 90%;
+        //
+        //     .input-info {
+        //         width: 25%;
+        //         justify-content: space-between;
+        //         margin: 0% auto;
+        //     }
+        // }
+    }
+
+    .reservations-list {}
+}

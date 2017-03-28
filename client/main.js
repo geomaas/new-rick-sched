@@ -5,8 +5,9 @@ import scheduleRequest from '../imports/components/scheduleRequest/scheduleReque
 import login from '../imports/components/login/login.js';
 import scheduleFinalized from '../imports/components/scheduleFinalized/scheduleFinalized';
 import contactList from '../imports/components/contactList/contactList.js'
+import reservations from '../imports/components/reservations/reservations.js'
 // import '../imports/startup/accounts-config.js';
-import {Requests, MonOne, MonTwo, TueOne, TueTwo, WedOne, WedTwo, ThuOne, ThuTwo, FriOne, FriTwo, SatOne, SatTwo, SunOne, SunTwo} from '../imports/api/requests.js';
+import {Requests, Reservations, MonOne, MonTwo, TueOne, TueTwo, WedOne, WedTwo, ThuOne, ThuTwo, FriOne, FriTwo, SatOne, SatTwo, SunOne, SunTwo} from '../imports/api/requests.js';
 
 angular.module('schedule-app', [
   angularMeteor,
@@ -15,6 +16,7 @@ angular.module('schedule-app', [
   login.name,
   scheduleFinalized.name,
   contactList.name,
+  reservations.name,
 ]).config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
     $locationProvider.html5Mode(true);

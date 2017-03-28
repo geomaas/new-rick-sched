@@ -32,6 +32,7 @@ export const SunOne = new Mongo.Collection('sunOne');
 export const SunTwo = new Mongo.Collection('sunTwo');
 
 export const Requests = new Mongo.Collection('requests');
+export const Reservations = new Mongo.Collection('reservations');
 
 // Requests.attachSchema(RequestSchema);
 
