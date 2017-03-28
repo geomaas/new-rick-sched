@@ -53,7 +53,11 @@ const Collections = {
     'sunTwo': SunTwo,
 }
 /*-------------------------------------------*/
-
+Meteor.users.deny({
+  update: function() {
+    return true;
+  }
+});
 Meteor.methods({
     /*-------------------------------------------------------*/
     'shift.insert' (shift) {
@@ -102,8 +106,15 @@ Meteor.methods({
         });
     },
     /*-------------------------------------------------------*/
-    'schedule.insert' () {
-
+    'schedule.insert' (weekStart, scheduleFinal) {
+      // check(scheduleFinal, Object);
+      if (!Requests.findOne({
+              weekStart: moment(weekStart).format('l')
+          })) {
+            console.log('server side check of finalized schedule object', weekStart, schedulefinal);
+            console.log('------------------------------------');
+          // Requests.insert(scheduleFinal);
+        }
     },
     /*-------------------------------------------------------*/
     'user.remove' (id) {

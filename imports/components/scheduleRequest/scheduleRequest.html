@@ -3,10 +3,12 @@
 <div class="label-box">
     <h1 ng-show="$ctrl.currentUser.profile.company == 'pedicab'">Pedicab Schedule</h1>
     <h1 ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">Rickshaw Schedule</h1>
-    <h2>{{$ctrl.currentUser.username}} <button ng-show="$ctrl.currentUser" class="btn btn-primary logut-button"ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h2>
+    <h2>{{$ctrl.currentUser.username}} <button ng-show="$ctrl.currentUser" class="btn btn-primary logout-button"ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h2>
     <div class="finalize-schedule" ng-show="$ctrl.currentUser.profile.isAdmin == true">
-      <input ng-model="$ctrl.weekStart" type="date" name="" value="">
-      <button type="button" class="btn btn-primary" name="button" ng-click="$ctrl.finalizeSchedule($ctrl.weekStart)">Finalize schedule</button>
+      <h2>Week Start:
+        <span><input ng-model="$ctrl.weekStart" class="date-input" type="date" name="" value=""></span>
+      </h2>
+      <button type="button" class="btn btn-primary finalize-button" name="button" ng-click="$ctrl.finalizeSchedule($ctrl.weekStart)">Finalize schedule</button>
     </div>
 </div>
 <div class="week-button-container">
@@ -27,7 +29,7 @@
         <div class="shift-box">
             <div class="day-shift">
                 <h1>Day Shift</h1>
-                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.monOne)" type="button" name="button">Add Shift</button>
+                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.monOne)" type="button" name="button">Request Shift</button>
                 <ol class="list-group">
                     <!-- Rickshaw List -->
                     <li class="list-group-item" ng-repeat="request in $ctrl.monOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
@@ -44,7 +46,7 @@
             </div>
             <div class="night-shift">
                 <h1>Night Shift</h1>
-                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.monTwo)" type="button" name="button">Add Shift</button>
+                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.monTwo)" type="button" name="button">Request Shift</button>
                 <ol class="list-group">
                   <!-- Rickshaw List -->
                     <li class="list-group-item" ng-repeat="request in $ctrl.monTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
@@ -76,7 +78,7 @@
         <div class="shift-box">
             <div class="day-shift">
                 <h1>Day Shift</h1>
-                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.tueOne)" type="button" name="button">Add Shift</button>
+                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.tueOne)" type="button" name="button">Request Shift</button>
                 <ol class="list-group">
                     <li class="list-group-item" ng-repeat="request in $ctrl.tueOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{request.username}}
@@ -90,7 +92,7 @@
             </div>
             <div class="night-shift">
                 <h1>Night Shift</h1>
-                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.tueTwo)" type="button" name="button">Add Shift</button>
+                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.tueTwo)" type="button" name="button">Request Shift</button>
                 <ol class="list-group">
                     <li class="list-group-item" ng-repeat="request in $ctrl.tueTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{request.username}}
@@ -120,7 +122,7 @@
         <div class="shift-box">
             <div class="day-shift">
                 <h1>Day Shift</h1>
-                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.wedOne)" type="button" name="button">Add Shift</button>
+                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.wedOne)" type="button" name="button">Request Shift</button>
                 <ol class="list-group">
                   <!-- rickshaw list -->
                     <li class="list-group-item" ng-repeat="request in $ctrl.wedOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
@@ -136,7 +138,7 @@
             </div>
             <div class="night-shift">
                 <h1>Night Shift</h1>
-                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.wedTwo)" type="button" name="button">Add Shift</button>
+                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.wedTwo)" type="button" name="button">Request Shift</button>
                 <ol class="list-group">
                   <!-- rickshaw list -->
                     <li class="list-group-item" ng-repeat="request in $ctrl.wedTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
@@ -168,7 +170,7 @@
         <div class="shift-box">
             <div class="day-shift">
                 <h1>Day Shift</h1>
-                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.thuOne)" type="button" name="button">Add Shift</button>
+                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.thuOne)" type="button" name="button">Request Shift</button>
                 <ol class="list-group">
                   <!-- rickshaw list -->
                     <li class="list-group-item" ng-repeat="request in $ctrl.thuOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
@@ -184,7 +186,7 @@
             </div>
             <div class="night-shift">
                 <h1>Night Shift</h1>
-                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.thuTwo)" type="button" name="button">Add Shift</button>
+                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.thuTwo)" type="button" name="button">Request Shift</button>
                 <ol class="list-group">
                   <!-- rickshaw list -->
                     <li class="list-group-item" ng-repeat="request in $ctrl.thuTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
@@ -216,7 +218,7 @@
         <div class="shift-box">
             <div class="day-shift">
                 <h1>Day Shift</h1>
-                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.friOne)" type="button" name="button">Add Shift</button>
+                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.friOne)" type="button" name="button">Request Shift</button>
                 <ol class="list-group">
                   <!-- rickshaw list -->
                     <li class="list-group-item" ng-repeat="request in $ctrl.friOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
@@ -232,7 +234,7 @@
             </div>
             <div class="night-shift">
                 <h1>Night Shift</h1>
-                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.friTwo)" type="button" name="button">Add Shift</button>
+                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.friTwo)" type="button" name="button">Request Shift</button>
                 <ol class="list-group">
                   <!-- rickshaw list -->
                     <li class="list-group-item" ng-repeat="request in $ctrl.friTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
@@ -264,7 +266,7 @@
         <div class="shift-box">
             <div class="day-shift">
                 <h1>Day Shift</h1>
-                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.satOne)" type="button" name="button">Add Shift</button>
+                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.satOne)" type="button" name="button">Request Shift</button>
                 <ol class="list-group">
                   <!-- rickshaw list -->
                     <li class="list-group-item" ng-repeat="request in $ctrl.satOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
@@ -280,7 +282,7 @@
             </div>
             <div class="night-shift">
                 <h1>Night Shift</h1>
-                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.satTwo)" type="button" name="button">Add Shift</button>
+                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.satTwo)" type="button" name="button">Request Shift</button>
                 <ol class="list-group">
                   <!-- rickshaw list -->
                     <li class="list-group-item" ng-repeat="request in $ctrl.satTwo | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
@@ -302,7 +304,7 @@
         <div class="shift-box">
             <div class="day-shift">
                 <h1>Day Shift</h1>
-                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.sunOne)" type="button" name="button">Add Shift</button>
+                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.sunOne)" type="button" name="button">Request Shift</button>
                 <ol class="list-group">
                   <!-- rickshaw list -->
                     <li class="list-group-item" ng-repeat="request in $ctrl.sunOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
@@ -318,7 +320,7 @@
             </div>
             <div class="night-shift">
                 <h1>Night Shift</h1>
-                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.sunTwo)" type="button" name="button">Add Shift</button>
+                <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.sunTwo)" type="button" name="button">Request Shift</button>
                 <ol class="list-group">
                   <!-- rickshaw list -->
                     <li class="list-group-item" ng-repeat="request in $ctrl.sunTwo | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">

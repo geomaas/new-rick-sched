@@ -3,11 +3,7 @@
 <div class="label-box">
     <h1 ng-show="$ctrl.currentUser.profile.company == 'pedicab'">Finalized Pedicab Schedule</h1>
     <h1 ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">Finalized Rickshaw Schedule</h1>
-    <h2>{{$ctrl.currentUser.username}} <button ng-show="$ctrl.currentUser" class="btn btn-primary logut-button"ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h2>
-    <!-- <div class="finalize-schedule">
-      <h2>Manager</h2>
-      <button type="button" class="btn btn-primary" name="button" ng-click="$ctrl.deleteSchedule()">delete schedule</button>
-    </div> -->
+    <h2>{{$ctrl.currentUser.username}} <button ng-show="$ctrl.currentUser" class="btn btn-primary logout-button"ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h2>
 </div>
 <div class="week-button-container">
     <button ng-click="$ctrl.day = 1" type="button" class="btn btn-secondary">M</button>
@@ -20,8 +16,8 @@
     <button ng-click="$ctrl.day = 8" type="button" class="btn btn-secondary">All</button>
 </div>
 
-<div class="week-box" ng-repeat="week in $ctrl.requests">
-    <button type="button" class="btn btn-primary" name="button" ng-click="$ctrl.deleteSchedule(week._id)" ng-show="$ctrl.currentUser.profile.isAdmin == true">delete schedule</button>
+<div class="week-box" dir-paginate="week in $ctrl.requests | itemsPerPage: $ctrl.perPage">
+    <button type="button" class="btn btn-primary delete-schedule" name="button" ng-click="$ctrl.deleteSchedule(week._id)" ng-show="$ctrl.currentUser.profile.isAdmin == true">delete schedule</button>
     <!--- MONDAY   ----->
     <div class="day-box" ng-show="$ctrl.day == 1 || $ctrl.day == 8">
         <h1>Monday</h1>
@@ -264,3 +260,4 @@
         </div>
     </div>
 </div>
+<dir-pagination-controls on-page-change="$ctrl.pageChanged(newPageNumber)" class="pagination-style"></dir-pagination-controls>

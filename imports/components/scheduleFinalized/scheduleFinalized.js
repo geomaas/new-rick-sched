@@ -1,6 +1,7 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
+import utilsPagination from 'angular-utils-pagination';
 import { Requests } from '../../api/requests.js';
 
 import template from './scheduleFinalized.html';
@@ -18,8 +19,11 @@ class ScheduleFinalizedCtrl {
         } else {
             this.day = 8;
         }
-        /*-----------------------------------*/
+        /*-----------------pagination params------------------*/
+        this.perPage = 1;
+        this.page = 1;
 
+        /*-----------------------------------*/
 
         this.helpers({
             requests: () => {
@@ -31,6 +35,10 @@ class ScheduleFinalizedCtrl {
 
         })
     }
+    pageChanged(newPage) {
+      this.page = newPage;
+    }
+
     logOutUser() {
         console.log('logging out');
         Meteor.logout();
@@ -38,14 +46,18 @@ class ScheduleFinalizedCtrl {
     }
 
     deleteSchedule(id) {
-        console.log('delete schedule', id);
+      if (confirm("Are you sure?")) {
+        console.log('deleted schedule');
         Requests.remove(id);
+      }
     }
 }
 
 export default angular.module('scheduleFinalized', [
         angularMeteor,
-        uiRouter
+        uiRouter,
+        utilsPagination,
+
     ])
     .component('scheduleFinalized', {
         templateUrl: template,
