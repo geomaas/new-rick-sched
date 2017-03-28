@@ -19,14 +19,14 @@
             <input class="input-info" ng-model="$ctrl.signup.username" type="username" name="username" value="" placeholder="Name">
             <input class="input-info" ng-model="$ctrl.signup.password" type="password" name="loginPassword" placeholder="Password">
             <input class="input-info" ng-model="$ctrl.signup.passwordTwo" type="password" name="loginPasswordCheck" placeholder="Re-type Password">
-            <input class="input-info" ng-model="$ctrl.signup.email" type="email" name="loginEmail" placeholder="Email">
-            <input class="input-info" ng-model="$ctrl.signup.phone" type="tel" name="phoneNumber" placeholder="Phone Number">
+            <input class="input-info" ng-model="$ctrl.signup.email" type="tel" name="loginEmail" placeholder="Email">
+            <input class="input-info" ng-model="$ctrl.signup.phone" type="number" name="phoneNumber" placeholder="Phone Number">
             <div class="radio-container">
                 <label class="radio">
-              <input ng-model="$ctrl.signup.company" type="radio" name="company" value="rickshaw">Rickshaw
+              <input ng-model="$ctrl.signup.company" type="radio" name="company" value="rickshaw" required>Rickshaw
             </label>
                 <label class="radio">
-              <input ng-model="$ctrl.signup.company" type="radio" name="company" value="pedicab">Pedicab
+              <input ng-model="$ctrl.signup.company" type="radio" name="company" value="pedicab" required>Pedicab
             </label>
             </div>
             <button type="button" class="btn btn-primary login-button" ng-click="$ctrl.signupUser($ctrl.signup)">Sign Up</button>

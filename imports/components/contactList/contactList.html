@@ -37,8 +37,8 @@
                 </thead>
                 <tr ng-repeat="user in $ctrl.users | filter: {profile: {company: 'pedicab'}} | filter: username == 'AdminPedi'">
                     <td>{{user.username}}</td>
-                    <td>{{user.profile.phone}}</td>
-                    <td>{{user.profile.email}}</td>
+                    <td><a href="tel:{{user.profile.phone}}">{{user.profile.phone}}</a></td>
+                    <td><a href="mailto:{{user.profile.email}}">{{user.profile.email}}</a></td>
                     <td><button ng-click="$ctrl.deleteUser(user)" type="button" class="btn btn-primary" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                 </tr>
             </table>

@@ -27,7 +27,10 @@ class LoginCtrl {
       that = this;
         if (user.password != user.passwordTwo) {
             alert('Passwords do not match!')
-        } else {
+            console.log(user.company);
+        }else if(user.email == undefined || user.phone == undefined || user.company == undefined){
+          alert('must enter email, phone number and company');
+      } else {
             Accounts.createUser({
                 username: user.username,
                 password: user.password,
