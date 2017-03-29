@@ -1,7 +1,9 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
-
+import {
+    Reservations
+} from '../../api/requests.js';
 
 import template from './reservations.html';
 
@@ -11,7 +13,16 @@ class ReservationsCtrl {
 
         this.hide = true;
 
+        this.reservation = {};
+
         this.helpers({
+            reservations: () => {
+                return Reservations.find({}, {
+                  sort: {
+                    resoDate: -1
+                  }
+                });
+            },
             users() {
                 return Meteor.users.find({});
             },
@@ -27,7 +38,30 @@ class ReservationsCtrl {
     toggle() {
         this.hide = this.hide === false ? true : false;
     }
+    createReservation(reso) {
+        console.log(reso);
+        if (!Meteor.userId()) {
+          alert('sign in to make a reservation')
+        } else {
+            Reservations.insert({
+                createdAt: new Date,
+                createdBy: Meteor.user().username,
+                resoDate: moment(reso.Date).format('l'),
+                resoTime: moment(reso.Time).format('LT'),
+                resoName: reso.Name,
+                resoLoc: reso.Location,
+                resoNumber: reso.Number,
+                resoGuests: reso.Guests,
+                resoNotes: reso.Notes
+            });
 
+            this.reservation = '';
+        }
+    }
+    deleteReservation(reso) {
+        console.log(reso._id);
+        Reservations.remove(reso._id);
+    }
 }
 
 export default angular.module('reservations', [

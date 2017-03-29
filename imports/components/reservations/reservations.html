@@ -4,25 +4,54 @@
     <h2>{{$ctrl.currentUser.username}} <button ng-show="$ctrl.currentUser" class="btn btn-primary logout-button"ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h2>
 </div>
 <div class="reservations-page">
-  <button class="btn btn-primary reso-submit" type="button" name="button" ng-click="$ctrl.toggle()">Make New Resrvation</button>
+    <button class="btn btn-primary reso-submit" type="button" name="button" ng-click="$ctrl.toggle()">Make New Resrvation</button>
     <div class="reservations-input" ng-hide="$ctrl.hide">
-      <h1>Reservation Input</h1>
-        <form >
-          <input class="input-info" type="text" name="" value="" placeholder="Reso Name">
-          <input class="input-info" type="text" name="" value="" placeholder="Reso Location">
-          <!-- <div class="reso-numbers"> -->
-            <input class="input-info" type="date" name="" value="" placeholder="Reso Date">
-            <input class="input-info" type="time" name="" value="" placeholder="12:00 PM">
-            <input class="input-info" type="number" name="" value="" placeholder="Total Guests">
-          <!-- </div> -->
-          <textarea class="input-info" name="name" rows="8" cols="80" placeholder="specific notes"></textarea>
-
+        <h1>Reservation</h1>
+        <form>
+            <input ng-model="$ctrl.reservation.Name" class="input-info" type="text" name="resoName" value="" placeholder="Reso Name">
+            <input ng-model="$ctrl.reservation.Location" class="input-info" type="text" name="resoLocation" value="" placeholder="Reso Location">
+            <input ng-model="$ctrl.reservation.Number" class="input-info" type="number" name="resoNumber" value="" placeholder="Contact Number">
+            <div class="reso-numbers">
+                <input ng-model="$ctrl.reservation.Date" class="input-numbers" type="date" name="resoDate" value="" placeholder="01/01/2017">
+                <input ng-model="$ctrl.reservation.Time" class="input-numbers" type="time" name="resoTime" value="" placeholder="12:00 PM">
+                <input ng-model="$ctrl.reservation.Guests" class="input-numbers" type="number" name="resoGuests" value="" placeholder="# of Guests">
+            </div>
+            <textarea ng-model="$ctrl.reservation.Notes" class="input-info" name="name" rows="5" cols="80" placeholder="specific notes"></textarea>
         </form>
-        <button class="btn btn-primary reso-submit" type="button" name="button">Submit Reservation</button>
+        <button ng-click="$ctrl.createReservation($ctrl.reservation)" class="btn btn-primary reso-submit" type="button" name="button">Submit Reservation</button>
 
     </div>
 
     <div class="reservations-list">
+        <h1>Upcoming Reservations</h1>
+        <div class="table-container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Reso Date</th>
+                        <th>Reso Time</th>
+                        <th>Reso Name</th>
+                        <th>Reso Location</th>
+                        <th>Reso Number</th>
+                        <th>Reso Notes</th>
+                        <th>Created By</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tr ng-repeat="reso in $ctrl.reservations">
+                    <td>{{reso.resoDate}}</td>
+                    <td>{{reso.resoTime}}</td>
+                    <td>{{reso.resoName}}</td>
+                    <td>{{reso.resoLoc}}</td>
+                    <td><a href="tel:{{reso.resoNumber}}">{{reso.resoNumber}}</a></td>
+                    <td>{{reso.resoNotes}}</td>
+                    <td>{{reso.createdBy}}</td>
+                    <td><button ng-click="$ctrl.deleteReservation(reso)" type="button" class="btn btn-primary">&times;</button></td>
+                    <div class="">
+                      {{reso.resoNotes}}
+                    </div>
+                </tr>
+            </table>
 
+        </div>
     </div>
-</div>
