@@ -1,6 +1,8 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
+import uiBootstrap from 'angular-ui-bootstrap';
+import utilsPagination from 'angular-utils-pagination';
 import {
     Reservations
 } from '../../api/requests.js';
@@ -15,12 +17,17 @@ class ReservationsCtrl {
 
         this.reservation = {};
 
+        /*------------pagination params------------*/
+        this.perPage = 5;
+        this.page = 1;
+        /*-----------------------------------*/
+
         this.helpers({
             reservations: () => {
                 return Reservations.find({}, {
-                  sort: {
-                    resoDate: -1
-                  }
+                    sort: {
+                        resoDate: -1
+                    }
                 });
             },
             users() {
@@ -31,6 +38,9 @@ class ReservationsCtrl {
             },
         })
     }
+    pageChanged(newPage) {
+      this.page = newPage;
+    }
     logOutUser() {
         console.log('logging out');
         Meteor.logout();
@@ -39,9 +49,8 @@ class ReservationsCtrl {
         this.hide = this.hide === false ? true : false;
     }
     createReservation(reso) {
-        console.log(reso);
         if (!Meteor.userId()) {
-          alert('sign in to make a reservation')
+            alert('sign in to make a reservation')
         } else {
             Reservations.insert({
                 createdAt: new Date,
@@ -52,21 +61,31 @@ class ReservationsCtrl {
                 resoLoc: reso.Location,
                 resoNumber: reso.Number,
                 resoGuests: reso.Guests,
-                resoNotes: reso.Notes
+                resoNotes: reso.Notes,
+                resoCompany: Meteor.user().profile.company,
             });
-
-            this.reservation = '';
+            /*-----clear out fields after sending reservation-----*/
+            this.reservation.Name = '';
+            this.reservation.Location = '';
+            this.reservation.Number = '';
+            this.reservation.Guests = '';
+            this.reservation.Notes = '';
+            this.reservation.Date = '';
+            this.reservation.Time = '';
         }
     }
+    
     deleteReservation(reso) {
-        console.log(reso._id);
-        Reservations.remove(reso._id);
+        // Reservations.remove(reso._id);
+        Meteor.call('reservation.remove', reso._id)
     }
 }
 
 export default angular.module('reservations', [
         angularMeteor,
-        uiRouter
+        uiRouter,
+        uiBootstrap,
+        utilsPagination,
     ])
     .component('reservations', {
         templateUrl: 'imports/components/reservations/reservations.html',

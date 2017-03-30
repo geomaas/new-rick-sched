@@ -198,6 +198,13 @@ class ScheduleRequestCtrl {
             alert("Schedule already submitted!")
         }
     }
+    deleteAllRequests() {
+      if (confirm("Are you sure you want to delete all requests?")) {
+        if (confirm("Super sure?")) {
+          Meteor.call('requests.remove');
+        }
+      }
+    }
 }
 
 export default angular.module('scheduleRequest', [

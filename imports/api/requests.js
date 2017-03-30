@@ -55,9 +55,9 @@ const Collections = {
 }
 /*-------------------------------------------*/
 Meteor.users.deny({
-  update: function() {
-    return true;
-  }
+    update: function() {
+        return true;
+    }
 });
 Meteor.methods({
     /*-------------------------------------------------------*/
@@ -107,14 +107,21 @@ Meteor.methods({
         });
     },
     /*-------------------------------------------------------*/
+    'requests.remove' () {
+        console.log('delete all requests');
+        Object.entries(Collections).forEach(([key, value]) => {
+            value.remove({});
+        });
+    },
+    /*-------------------------------------------------------*/
     'schedule.insert' (weekStart, scheduleFinal) {
-      // check(scheduleFinal, Object);
-      if (!Requests.findOne({
-              weekStart: moment(weekStart).format('l')
-          })) {
+        // check(scheduleFinal, Object);
+        if (!Requests.findOne({
+                weekStart: moment(weekStart).format('l')
+            })) {
             console.log('server side check of finalized schedule object', weekStart, schedulefinal);
             console.log('------------------------------------');
-          // Requests.insert(scheduleFinal);
+            // Requests.insert(scheduleFinal);
         }
     },
     /*-------------------------------------------------------*/
@@ -122,6 +129,11 @@ Meteor.methods({
         check(id, String);
         Meteor.users.remove(id);
 
+    },
+    /*-------------------------------------------------------*/
+    'reservation.remove' (reso) {
+      check(reso, String);
+      Reservations.remove(reso);
     }
     /*-------------------------------------------------------*/
 

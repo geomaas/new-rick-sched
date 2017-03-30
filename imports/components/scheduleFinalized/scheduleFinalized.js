@@ -2,7 +2,7 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 import utilsPagination from 'angular-utils-pagination';
-import { Requests } from '../../api/requests.js';
+import { Requests, Reservations } from '../../api/requests.js';
 
 import template from './scheduleFinalized.html';
 
@@ -29,6 +29,13 @@ class ScheduleFinalizedCtrl {
             requests: () => {
                 return Requests.find({}, {sort: {weekStart: -1}})
             },
+            reservations: () => {
+                return Reservations.find({}, {
+                    sort: {
+                        resoDate: -1
+                    }
+                });
+            },
             currentUser() {
                 return Meteor.user();
             },
@@ -50,6 +57,10 @@ class ScheduleFinalizedCtrl {
         console.log('deleted schedule');
         Requests.remove(id);
       }
+    }
+    deleteReservation(reso) {
+        // Reservations.remove(reso._id);
+        Meteor.call('reservation.remove', reso._id)
     }
 }
 

@@ -1,1 +1,32 @@
 
+.reservations-list {
+    background: linear-gradient(to left, rgba(131, 172, 189, .9), rgba(131, 172, 189, .9)), url('chain.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 90vw;
+    display: flex;
+    justify-content:space-around;
+    flex-direction:column;
+    align-self: center;
+    border-radius: 10px;
+    border: 3px $gray solid;
+    font-size: 3rem;
+    margin: 2% auto;
+    .reso-when, .reso-what {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+    .reso-why {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .reso-by {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+}

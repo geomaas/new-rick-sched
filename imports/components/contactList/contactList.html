@@ -16,7 +16,7 @@
                         <!-- <th>delete user</th> -->
                     </tr>
                 </thead>
-                <tr ng-repeat="user in $ctrl.users | filter: {profile: {company: 'rickshaw'}} | filter: username == 'AdminRick'">
+                <tr ng-repeat="user in $ctrl.users | filter: {profile: {company: 'rickshaw'}} | filter: username == 'AdminRick' | orderBy: username">
                     <td>{{user.username}}</td>
                     <td><a href="tel:{{user.profile.phone}}">{{user.profile.phone}}</a></td>
                     <td><a href="mailto:{{user.profile.email}}">{{user.profile.email}}</a></td>
@@ -35,7 +35,7 @@
                         <th>email</th>
                     </tr>
                 </thead>
-                <tr ng-repeat="user in $ctrl.users | filter: {profile: {company: 'pedicab'}} | filter: username == 'AdminPedi'">
+                <tr ng-repeat="user in $ctrl.users | filter: {profile: {company: 'pedicab'}} | filter: username == 'AdminPedi' | orderBy: username">
                     <td>{{user.username}}</td>
                     <td><a href="tel:{{user.profile.phone}}">{{user.profile.phone}}</a></td>
                     <td><a href="mailto:{{user.profile.email}}">{{user.profile.email}}</a></td>
