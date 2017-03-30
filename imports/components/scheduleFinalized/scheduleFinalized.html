@@ -27,11 +27,11 @@
                 <h1>Day Shift</h1>
                 <ol class="list-group">
                     <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-repeat="day in week.monOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{day.username}}
                     </li>
                     <!-- Pedicab list  -->
-                    <li class="list-group-item" ng-repeat="day in week.monOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{day.username}}
                     </li>
                 </ol>
@@ -40,12 +40,12 @@
                 <h1>Night Shift</h1>
                 <ol class="list-group">
                     <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-repeat="day in week.monTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{day.username}}
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                     <!-- Pedicab List -->
-                    <li class="list-group-item" ng-repeat="day in week.monTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'" >
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'" >
                         {{day.username}}
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
@@ -62,11 +62,11 @@
                 <h1>Day Shift</h1>
                 <ol class="list-group">
                     <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-repeat="day in week.monOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{day.username}}
                     </li>
                     <!-- Pedicab List -->
-                    <li class="list-group-item" ng-repeat="day in week.monOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{day.username}}
                     </li>
                 </ol>
@@ -75,12 +75,12 @@
                 <h1>Night Shift</h1>
                 <ol class="list-group">
                     <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-repeat="day in week.tueTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.tueTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{day.username}}
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                     <!-- pedicab List -->
-                    <li class="list-group-item" ng-repeat="day in week.tueTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.tueTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{day.username}}
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
@@ -97,11 +97,11 @@
                 <h1>Day Shift</h1>
                 <ol class="list-group">
                     <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-repeat="day in week.wedOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.wedOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{day.username}}
                     </li>
                     <!-- Pedicab List -->
-                    <li class="list-group-item" ng-repeat="day in week.wedOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.wedOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab">
                         {{day.username}}
                     </li>
                 </ol>
@@ -110,12 +110,12 @@
                 <h1>Night Shift</h1>
                 <ol class="list-group">
                     <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-repeat="day in week.wedTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.wedTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{day.username}}
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                     <!-- pedicab List -->
-                    <li class="list-group-item" ng-repeat="day in week.wedTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.wedTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{day.username}}
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
@@ -132,11 +132,11 @@
                 <h1>Day Shift</h1>
                 <ol class="list-group">
                     <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-repeat="day in week.thuOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.thuOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{day.username}}
                     </li>
                     <!-- pedicab List -->
-                    <li class="list-group-item" ng-repeat="day in week.thuOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.thuOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{day.username}}
                     </li>
                 </ol>
@@ -145,12 +145,12 @@
                 <h1>Night Shift</h1>
                 <ol class="list-group">
                   <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-repeat="day in week.thuTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.thuTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{day.username}}
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                     <!-- pedicab List -->
-                      <li class="list-group-item" ng-repeat="day in week.thuTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+                      <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.thuTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                           {{day.username}}
                           <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                       </li>
@@ -167,11 +167,11 @@
                 <h1>Day Shift</h1>
                 <ol class="list-group">
                     <!-- pedicab List -->
-                    <li class="list-group-item" ng-repeat="day in week.friOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.friOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{day.username}}
                     </li>
                     <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-repeat="day in week.friOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.friOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{day.username}}
                     </li>
                 </ol>
@@ -180,12 +180,12 @@
                 <h1>Night Shift</h1>
                 <ol class="list-group">
                   <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-repeat="day in week.friTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.friTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{day.username}}
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                     <!-- pedicab List -->
-                      <li class="list-group-item" ng-repeat="day in week.friTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+                      <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.friTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                           {{day.username}}
                           <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                       </li>
@@ -202,11 +202,11 @@
                 <h1>Day Shift</h1>
                 <ol class="list-group">
                     <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-repeat="day in week.satOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.satOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{day.username}}
                     </li>
                     <!-- pedicab List -->
-                    <li class="list-group-item" ng-repeat="day in week.satOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.satOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{day.username}}
                     </li>
                 </ol>
@@ -215,11 +215,11 @@
                 <h1>Night Shift</h1>
                 <ol class="list-group">
                     <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-repeat="day in week.satTwo | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.satTwo | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{day.username}}
                     </li>
                     <!-- pedicab List -->
-                    <li class="list-group-item" ng-repeat="day in week.satTwo | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.satTwo | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{day.username}}
                     </li>
                 </ol>
@@ -235,11 +235,11 @@
                 <h1>Day Shift</h1>
                 <ol class="list-group">
                     <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-repeat="day in week.sunOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.sunOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{day.username}}
                     </li>
                     <!-- pedicab List -->
-                    <li class="list-group-item" ng-repeat="day in week.sunOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.sunOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{day.username}}
                     </li>
                 </ol>
@@ -248,11 +248,11 @@
                 <h1>Night Shift</h1>
                 <ol class="list-group">
                     <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-repeat="day in week.sunTwo | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.sunTwo | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{day.username}}
                     </li>
                     <!-- pedicab List -->
-                    <li class="list-group-item" ng-repeat="day in week.sunTwo | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.sunTwo | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{day.username}}
                     </li>
                 </ol>

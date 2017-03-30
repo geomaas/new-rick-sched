@@ -115,6 +115,11 @@ class ScheduleRequestCtrl {
             },
         });
     }
+    highlightUser(request) {
+      if(request.username == Meteor.user().username) {
+        return {'background-color': 'rgba(251,184,41, 1)'};
+      }
+    }
     logOutUser() {
         console.log('logging out');
         Meteor.logout();
