@@ -187,17 +187,20 @@ class ScheduleRequestCtrl {
             sunOne: angular.copy(this.sunOne),
             sunTwo: angular.copy(this.sunTwo),
         };
-        console.log('client side schedule test',moment(weekStart).format('l'), scheduleFinal);
-        console.log('--------------------------------');
-        if (!Requests.findOne({
+        // console.log('client side schedule test',moment(weekStart).format('l'), scheduleFinal);
+        // console.log('--------------------------------');
+        if (confirm('Are both Pedicab and Rickshaw requests ready to be finalized?')) {
+          if (!Requests.findOne({
                 weekStart: moment(weekStart).format('l')
             })) {
             Requests.insert(scheduleFinal);
+            alert('Success in finalizing schedule')
             // Meteor.call('schedule.insert', weekStart, scheduleFinal)
-        } else {
+          } else {
             alert("Schedule already submitted!")
+          }
         }
-    }
+      }
     deleteAllRequests() {
       if (confirm("Are you sure you want to delete all requests?")) {
         if (confirm("Super sure?")) {
