@@ -30,7 +30,6 @@ class ScheduleFinalizedCtrl {
                 return Requests.find({}, {sort: {weekStart: -1}})
             },
             reservations: () => {
-
                 return Reservations.find({}, {
                     sort: {
                         resoDate: -1
@@ -40,8 +39,18 @@ class ScheduleFinalizedCtrl {
             currentUser() {
                 return Meteor.user();
             },
-
+            allUsers: () => {
+                return Meteor.users.find({});
+            },
         })
+    }
+    removeFromSchedule(week, shift, day) {
+      console.log(shift);
+      Meteor.call('admin.remove', week._id, shift, day)
+    }
+    adminUpdateUser(week, shift) {
+      Meteor.call('admin.update',week._id, shift, this.adminUserChoice);
+      this.adminUserChoice = "";
     }
     pageChanged(newPage) {
       this.page = newPage;

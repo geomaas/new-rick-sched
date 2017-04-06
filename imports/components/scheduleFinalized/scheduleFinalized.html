@@ -29,12 +29,17 @@
                     <!-- Rickshaw List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{day.username}}
+                        <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'monOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                     <!-- Pedicab list  -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{day.username}}
                     </li>
                 </ol>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'monOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
             </div>
             <div class="night-shift">
                 <h1>Night Shift</h1>
@@ -50,6 +55,10 @@
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                 </ol>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'monTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
             </div>
         </div>
         <!-- reservation repeat section -->
@@ -86,14 +95,18 @@
                 <h1>Day Shift</h1>
                 <ol class="list-group">
                     <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.tueOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{day.username}}
                     </li>
                     <!-- Pedicab List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.tueOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
                         {{day.username}}
                     </li>
                 </ol>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'tueOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
             </div>
             <div class="night-shift">
                 <h1>Night Shift</h1>
@@ -109,6 +122,10 @@
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                 </ol>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'tueTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
             </div>
         </div>
         <!-- reservation repeat section -->
@@ -153,6 +170,10 @@
                         {{day.username}}
                     </li>
                 </ol>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'wedOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
             </div>
             <div class="night-shift">
                 <h1>Night Shift</h1>
@@ -168,32 +189,12 @@
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                 </ol>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'wedTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
             </div>
         </div>
-        <!-- reservation repeat section -->
-        <!-- <div class="reservations-list" ng-repeat="reso in $ctrl.reservations | itemsPerPage: $ctrl.perPage | orderBy: ['resoDate','resoTime'] | filter: {resoCompany:'rickshaw'}:currentUser.profile.company">
-          <div class="reso-by">
-            <h3>Made by: {{reso.createdBy}}</h3>
-            <button ng-click="$ctrl.deleteReservation(reso)" type="button" class="btn btn-primary">&times;</button>
-          </div>
-            <div class="reso-when">
-                <h1>Date: {{reso.resoDate}}</h1>
-                <h1>Time: {{reso.resoTime}}</h1>
-            </div>
-            <div class="reso-what">
-                <h1>Name: {{reso.resoName}}</h1>
-                <h1>Phone: <a href="tel:{{reso.resoNumber}}">{{reso.resoNumber}}</a></h1>
-
-            </div>
-            <div class="reso-what">
-              <h1>#Guests: {{reso.resoGuests}}</h1>
-              <h1>Location: {{reso.resoLoc}}</h1>
-            </div>
-            <div class="reso-why">
-              <h3>Notes: {{reso.resoNotes}}</h3>
-            </div>
-        </div> -->
-        <!-- end reso repeat -->
     </div>
     <!-- THURSDAY -->
     <div class="day-box" ng-show="$ctrl.day == 4 || $ctrl.day == 8">
@@ -212,6 +213,10 @@
                         {{day.username}}
                     </li>
                 </ol>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'thuOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
             </div>
             <div class="night-shift">
                 <h1>Night Shift</h1>
@@ -227,6 +232,10 @@
                           <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                       </li>
                 </ol>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'thuTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
             </div>
         </div>
     </div>
@@ -247,6 +256,10 @@
                         {{day.username}}
                     </li>
                 </ol>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'friOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
             </div>
             <div class="night-shift">
                 <h1>Night Shift</h1>
@@ -262,6 +275,10 @@
                           <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                       </li>
                 </ol>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'friTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
             </div>
         </div>
     </div>
@@ -282,6 +299,10 @@
                         {{day.username}}
                     </li>
                 </ol>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'satOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
             </div>
             <div class="night-shift">
                 <h1>Night Shift</h1>
@@ -295,6 +316,10 @@
                         {{day.username}}
                     </li>
                 </ol>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'satTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
             </div>
         </div>
     </div>
@@ -315,6 +340,10 @@
                         {{day.username}}
                     </li>
                 </ol>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'sunOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
             </div>
             <div class="night-shift">
                 <h1>Night Shift</h1>
@@ -328,6 +357,10 @@
                         {{day.username}}
                     </li>
                 </ol>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'sunTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
             </div>
         </div>
     </div>

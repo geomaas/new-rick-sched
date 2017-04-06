@@ -12,7 +12,6 @@ body {
     background-color: $navy;
     color: $white;
 }
-
 /////////////////////small screen///////////////
 @media only screen and (max-device-width: 1023px) {
     .label-box {
@@ -37,19 +36,23 @@ body {
         h2 {
             font-size: 5rem;
         }
-        .finalize-schedule{
-          width: 100%;
-          text-align: center;
-          margin-bottom: 2%;
+
+        .finalize-schedule {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 2%;
         }
+
         .logout-button {
-          font-size: 2.5rem;
+            font-size: 2.5rem;
         }
-        .finalize-button{
-          font-size: 2.5rem;
+
+        .finalize-button {
+            font-size: 2.5rem;
         }
+
         .date-input {
-          font-size: 3rem;
+            font-size: 3rem;
         }
     }
 
@@ -58,6 +61,7 @@ body {
         margin: 2% auto;
         display: flex;
         justify-content: space-around;
+
         button {
             padding: 3%;
             font-size: 3rem;
@@ -70,12 +74,14 @@ body {
         display: flex;
         justify-content: center;
         flex-direction: column;
-        .delete-schedule{
-          width: 50vw;
-          margin: auto;
-          align-self: center;
-          font-size: 4rem;
+
+        .delete-schedule {
+            width: 50vw;
+            margin: auto;
+            align-self: center;
+            font-size: 4rem;
         }
+
         .day-box {
             text-align: center;
 
@@ -100,6 +106,8 @@ body {
                 }
 
                 .day-shift {
+                    display: flex;
+                    flex-direction: column;
                     width: 45vw;
                     height: 75vh;
                     margin: auto;
@@ -123,9 +131,26 @@ body {
                         display: list-item;
                         font-size: 3rem;
                     }
+
+                    .admin-select-box {
+                        display: flex;
+                        flex-direction: column;
+                        margin-top: auto;
+                        margin-bottom: 5%;
+                        width: 100%;
+                        background: linear-gradient(to right, rgba(119,123,126, .9), rgba(119,123,126, .6)), url('gears.jpg');
+
+                        .custom-select {
+                            font-size: 2rem;
+                            margin-top: auto;
+                            width: 100%;
+                        }
+                    }
                 }
 
                 .night-shift {
+                    display: flex;
+                    flex-direction: column;
                     width: 45vw;
                     height: 75vh;
                     margin: auto;
@@ -149,15 +174,31 @@ body {
                         display: list-item;
                         font-size: 3rem;
                     }
+
+                    .admin-select-box {
+                        display: flex;
+                        flex-direction: column;
+                        margin-top: auto;
+                        margin-bottom: 5%;
+                        width: 100%;
+                        background: linear-gradient(to right, rgba(119,123,126, .9), rgba(119,123,126, .6)), url('gears.jpg');
+
+                        .custom-select {
+                            font-size: 2rem;
+                            margin-top: auto;
+                            width: 100%;
+                        }
+                    }
                 }
             }
         }
     }
-    .pagination-style{
-      display: flex;
-      justify-content: center;
-      width: 90vw;
-      font-size: 5rem;
+
+    .pagination-style {
+        display: flex;
+        justify-content: center;
+        width: 90vw;
+        font-size: 5rem;
     }
 }
 //////////////////// large screen///////////////
@@ -183,17 +224,20 @@ body {
         h2 {
             font-size: 5rem;
         }
-        .finalize-schedule{
-          width: 100%;
-          text-align: center;
-          margin-bottom: 2%;
-          .date-input {
-            font-size: 2rem;
-          }
+
+        .finalize-schedule {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 2%;
+
+            .date-input {
+                font-size: 2rem;
+            }
         }
     }
-    .week-button-container{
-      display: none;
+
+    .week-button-container {
+        display: none;
     }
 
     .week-box {
@@ -228,6 +272,11 @@ body {
             }
 
             .delete {}
+
+            .admin-select-box {
+                width: 100%;
+                background: linear-gradient(to right, rgba(119,123,126, .9), rgba(119,123,126, .6)), url('gears.jpg');
+            }
 
             .day-shift {
                 height: 30vh;

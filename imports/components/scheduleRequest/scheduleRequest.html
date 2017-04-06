@@ -44,8 +44,8 @@
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
-                <div class="admin-select custom-select">
-                    <select ng-change="$ctrl.adminAddUser($ctrl.shifts.monOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.monOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
             </div>
@@ -76,8 +76,8 @@
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                 </ol>
-                <div class="admin-select custom-select">
-                    <select ng-change="$ctrl.adminAddUser($ctrl.shifts.monTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.monTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
             </div>
@@ -100,8 +100,8 @@
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.tueOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
-                <div class="admin-select custom-select">
-                    <select ng-change="$ctrl.adminAddUser($ctrl.shifts.tueOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.tueOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
             </div>
@@ -130,8 +130,8 @@
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                 </ol>
-                <div class="admin-select custom-select">
-                    <select ng-change="$ctrl.adminAddUser($ctrl.shifts.tueTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.tueTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
             </div>
@@ -156,8 +156,8 @@
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.wedOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
-                <div class="admin-select custom-select">
-                    <select ng-change="$ctrl.adminAddUser($ctrl.shifts.wedOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.wedOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
             </div>
@@ -188,8 +188,8 @@
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                 </ol>
-                <div class="admin-select custom-select">
-                    <select ng-change="$ctrl.adminAddUser($ctrl.shifts.wedTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.wedTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
             </div>
@@ -214,8 +214,8 @@
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.thuOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
-                <div class="admin-select custom-select">
-                    <select ng-change="$ctrl.adminAddUser($ctrl.shifts.thuOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.thuOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
             </div>
@@ -246,8 +246,8 @@
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                 </ol>
-                <div class="admin-select custom-select">
-                    <select ng-change="$ctrl.adminAddUser($ctrl.shifts.thuTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.thuTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
             </div>
@@ -272,8 +272,8 @@
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.friOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
-                <div class="admin-select custom-select">
-                    <select ng-change="$ctrl.adminAddUser($ctrl.shifts.friOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.friOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
             </div>
@@ -304,8 +304,8 @@
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                 </ol>
-                <div class="admin-select custom-select">
-                    <select ng-change="$ctrl.adminAddUser($ctrl.shifts.friTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.friTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
             </div>
@@ -332,8 +332,8 @@
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.satOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
-                <div class="admin-select custom-select">
-                    <select ng-change="$ctrl.adminAddUser($ctrl.shifts.satOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.satOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
             </div>
@@ -354,8 +354,8 @@
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.satTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
-                <div class="admin-select custom-select">
-                    <select ng-change="$ctrl.adminAddUser($ctrl.shifts.satTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.satTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
             </div>
@@ -380,8 +380,8 @@
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.sunOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
-                <div class="admin-select custom-select">
-                    <select ng-change="$ctrl.adminAddUser($ctrl.shifts.sunOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.sunOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
             </div>
@@ -400,8 +400,8 @@
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.sunTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
-                <div class="admin-select custom-select">
-                    <select ng-change="$ctrl.adminAddUser($ctrl.shifts.sunTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.sunTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
             </div>
