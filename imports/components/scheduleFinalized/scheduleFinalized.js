@@ -22,14 +22,15 @@ class ScheduleFinalizedCtrl {
         /*-----------------pagination params------------------*/
         this.perPage = 1;
         this.page = 1;
-
         /*-----------------------------------*/
 
         this.helpers({
             requests: () => {
+              console.log(Requests);
                 return Requests.find({}, {sort: {weekStart: -1}})
             },
             reservations: () => {
+
                 return Reservations.find({}, {
                     sort: {
                         resoDate: -1

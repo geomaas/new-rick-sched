@@ -139,7 +139,7 @@ Meteor.methods({
             value.remove({});
         });
     },
-    /*-------------------------------------------------------*/
+    /*------------------------not called from client yet-------------------------------*/
     'schedule.insert' (weekStart, scheduleFinal) {
         // check(scheduleFinal, Object);
         if (!Requests.findOne({
