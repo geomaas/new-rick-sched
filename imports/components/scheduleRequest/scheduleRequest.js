@@ -113,12 +113,24 @@ class ScheduleRequestCtrl {
             currentUser: () => {
                 return Meteor.user();
             },
+            allUsers: () => {
+                return Meteor.users.find({});
+            },
         });
     }
+    adminAddUser(shift) {
+        console.log('test selct function', shift, this.adminUserChoice.username);
+        if (confirm('Add this user?')) {
+            Meteor.call('admin.insert', shift._name, this.adminUserChoice)
+        }
+    }
     highlightUser(request) {
-      if(request.username == Meteor.user().username) {
-        return {'background-color': 'rgba(251,184,41, 1)'};
-      }
+        if (request.username == Meteor.user().username) {
+            return {
+                'background-color': 'rgba(251,184,41, 1)'
+            };
+        }
+        ////// highlightUser function might can possibly be removed 4/5 //////////////
     }
     logOutUser() {
         console.log('logging out');
@@ -190,23 +202,23 @@ class ScheduleRequestCtrl {
         // console.log('client side schedule test',moment(weekStart).format('l'), scheduleFinal);
         // console.log('--------------------------------');
         if (confirm('Are both Pedicab and Rickshaw requests ready to be finalized?')) {
-          if (!Requests.findOne({
-                weekStart: moment(weekStart).format('l')
-            })) {
-            Requests.insert(scheduleFinal);
-            alert('Success in finalizing schedule')
-            // Meteor.call('schedule.insert', weekStart, scheduleFinal)
-          } else {
-            alert("Schedule already submitted!")
-          }
+            if (!Requests.findOne({
+                    weekStart: moment(weekStart).format('l')
+                })) {
+                Requests.insert(scheduleFinal);
+                alert('Success in finalizing schedule')
+                // Meteor.call('schedule.insert', weekStart, scheduleFinal)
+            } else {
+                alert("Schedule already submitted!")
+            }
         }
-      }
+    }
     deleteAllRequests() {
-      if (confirm("Are you sure you want to delete all requests?")) {
-        if (confirm("Super sure?")) {
-          Meteor.call('requests.remove');
+        if (confirm("Are you sure you want to delete all requests?")) {
+            if (confirm("Super sure?")) {
+                Meteor.call('requests.remove');
+            }
         }
-      }
     }
 }
 

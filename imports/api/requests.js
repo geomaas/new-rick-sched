@@ -63,7 +63,6 @@ Meteor.methods({
     /*-------------------------------------------------------*/
     'shift.insert' (shift) {
         check(shift, String);
-
         if (!Meteor.userId()) {
             // throw new Meteor.Error('Sign in to add shift');
             alert('sign in to make a request')
@@ -79,6 +78,33 @@ Meteor.methods({
                 owner: Meteor.userId(),
                 username: Meteor.user().username,
                 company: Meteor.user().profile.company,
+                order: order,
+                checked: false,
+            });
+        } else {
+            alert("already added that shift!")
+        }
+    },
+    /*-------------------------------------------------------*/
+    'admin.insert' (shift, adminUserChoice) {
+        check(shift, String);
+        // console.log('server test admin user add', adminUserChoice);
+        // console.log('--------------------------');
+        if (!Meteor.userId()) {
+            // throw new Meteor.Error('Sign in to add shift');
+            alert('sign in to make a request')
+        } else if (!Collections[shift].findOne({
+                username: adminUserChoice.username
+            })) {
+
+            let requestCount = Collections[shift].find().count();
+            let order = requestCount + 1;
+
+            Collections[shift].insert({
+                createdAt: new Date,
+                owner: adminUserChoice._id,
+                username: adminUserChoice.username,
+                company: adminUserChoice.profile.company,
                 order: order,
                 checked: false,
             });
