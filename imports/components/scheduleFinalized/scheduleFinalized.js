@@ -45,11 +45,15 @@ class ScheduleFinalizedCtrl {
         })
     }
     removeFromSchedule(week, shift, day) {
-      console.log(shift);
-      Meteor.call('admin.remove', week._id, shift, day)
+      // console.log(shift);
+      Meteor.call('admin.remove', week._id, shift, day);
     }
     adminUpdateUser(week, shift) {
-      Meteor.call('admin.update',week._id, shift, this.adminUserChoice);
+      if (confirm('Is this rider going on the 3 shift?')) {
+        Meteor.call('admin.update3',week._id, shift, this.adminUserChoice);
+      }else {
+        Meteor.call('admin.update',week._id, shift, this.adminUserChoice);
+      }
       this.adminUserChoice = "";
     }
     pageChanged(newPage) {

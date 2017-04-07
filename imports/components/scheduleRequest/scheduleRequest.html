@@ -31,6 +31,10 @@
             <div class="day-shift">
                 <h1>Day Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.monOne)" type="button" name="button">Request Shift</button>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.monOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
                 <ol class="list-group">
                     <!-- Rickshaw List -->
                     <li class="list-group-item" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.monOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
@@ -44,14 +48,14 @@
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.monOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
-                    </select>
-                </div>
             </div>
             <div class="night-shift">
                 <h1>Night Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.monTwo)" type="button" name="button">Request Shift</button>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.monTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
                 <ol class="list-group">
                     <!-- Rickshaw List -->
                     <li class="list-group-item" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.monTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}"
@@ -76,10 +80,6 @@
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                 </ol>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.monTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
-                    </select>
-                </div>
             </div>
         </div>
     </div>
@@ -90,6 +90,10 @@
             <div class="day-shift">
                 <h1>Day Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.tueOne)" type="button" name="button">Request Shift</button>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.tueOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
                 <ol class="list-group">
                     <li class="list-group-item" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.tueOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{request.username}}
@@ -100,14 +104,14 @@
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.tueOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.tueOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
-                    </select>
-                </div>
             </div>
             <div class="night-shift">
                 <h1>Night Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.tueTwo)" type="button" name="button">Request Shift</button>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.tueTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
                 <ol class="list-group">
                     <li class="list-group-item" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.tueTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}"
                         ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
@@ -130,10 +134,6 @@
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                 </ol>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.tueTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
-                    </select>
-                </div>
             </div>
         </div>
     </div>
@@ -144,6 +144,10 @@
             <div class="day-shift">
                 <h1>Day Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.wedOne)" type="button" name="button">Request Shift</button>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.wedOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
                 <ol class="list-group">
                     <!-- rickshaw list -->
                     <li class="list-group-item" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.wedOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
@@ -156,14 +160,14 @@
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.wedOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.wedOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
-                    </select>
-                </div>
             </div>
             <div class="night-shift">
                 <h1>Night Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.wedTwo)" type="button" name="button">Request Shift</button>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.wedTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
                 <ol class="list-group">
                     <!-- rickshaw list -->
                     <li class="list-group-item" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.wedTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}"
@@ -188,10 +192,6 @@
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                 </ol>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.wedTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
-                    </select>
-                </div>
             </div>
         </div>
     </div>
@@ -202,6 +202,10 @@
             <div class="day-shift">
                 <h1>Day Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.thuOne)" type="button" name="button">Request Shift</button>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.thuOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
                 <ol class="list-group">
                     <!-- rickshaw list -->
                     <li class="list-group-item" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.thuOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
@@ -214,14 +218,14 @@
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.thuOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.thuOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
-                    </select>
-                </div>
             </div>
             <div class="night-shift">
                 <h1>Night Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.thuTwo)" type="button" name="button">Request Shift</button>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.thuTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
                 <ol class="list-group">
                     <!-- rickshaw list -->
                     <li class="list-group-item" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.thuTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}"
@@ -246,10 +250,6 @@
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                 </ol>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.thuTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
-                    </select>
-                </div>
             </div>
         </div>
     </div>
@@ -260,6 +260,10 @@
             <div class="day-shift">
                 <h1>Day Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.friOne)" type="button" name="button">Request Shift</button>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.friOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
                 <ol class="list-group">
                     <!-- rickshaw list -->
                     <li class="list-group-item" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.friOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
@@ -272,14 +276,14 @@
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.friOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.friOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
-                    </select>
-                </div>
             </div>
             <div class="night-shift">
                 <h1>Night Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.friTwo)" type="button" name="button">Request Shift</button>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.friTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
                 <ol class="list-group">
                     <!-- rickshaw list -->
                     <li class="list-group-item" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.friTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}"
@@ -304,10 +308,6 @@
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                 </ol>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.friTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
-                    </select>
-                </div>
             </div>
         </div>
     </div>
@@ -318,6 +318,10 @@
             <div class="day-shift">
                 <h1>Day Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.satOne)" type="button" name="button">Request Shift</button>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.satOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
                 <ol class="list-group">
                     <!-- rickshaw list -->
                     <li class="list-group-item" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.satOne | filter: {company:'rickshaw'}:true"
@@ -332,14 +336,14 @@
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.satOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.satOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
-                    </select>
-                </div>
             </div>
             <div class="night-shift">
                 <h1>Night Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.satTwo)" type="button" name="button">Request Shift</button>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.satTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
                 <ol class="list-group">
                     <!-- rickshaw list -->
                     <li class="list-group-item" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.satTwo | filter: {company:'rickshaw'}:true"
@@ -354,10 +358,6 @@
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.satTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.satTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
-                    </select>
-                </div>
             </div>
         </div>
     </div>
@@ -368,6 +368,10 @@
             <div class="day-shift">
                 <h1>Day Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.sunOne)" type="button" name="button">Request Shift</button>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.sunOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
                 <ol class="list-group">
                     <!-- rickshaw list -->
                     <li class="list-group-item" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.sunOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
@@ -380,14 +384,14 @@
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.sunOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.sunOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
-                    </select>
-                </div>
             </div>
             <div class="night-shift">
                 <h1>Night Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.sunTwo)" type="button" name="button">Request Shift</button>
+                <div class="admin-select-box">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.sunTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+                </div>
                 <ol class="list-group">
                     <!-- rickshaw list -->
                     <li class="list-group-item" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.sunTwo | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
@@ -400,10 +404,6 @@
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.sunTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.sunTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
-                    </select>
-                </div>
             </div>
         </div>
     </div>

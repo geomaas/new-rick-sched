@@ -156,8 +156,8 @@ Meteor.methods({
       check(week, String);
       check(shift, String);
       check(adminUserChoice, Object);
-      console.log('server side admin update', shift);
-      console.log('------------------------');
+      // console.log('server side admin update', );
+      // console.log('------------------------');
       let requestCount = Collections[shift].find().count();
       let order = requestCount + 1;
       Requests.update(week,{
@@ -174,9 +174,31 @@ Meteor.methods({
       });
     },
     /*-------------------------------------------------------*/
+    'admin.update3' (week, shift, adminUserChoice) {
+      check(week, String);
+      check(shift, String);
+      check(adminUserChoice, Object);
+      // console.log('server side admin update', );
+      // console.log('------------------------');
+      let requestCount = Collections[shift].find().count();
+      let order = requestCount + 1;
+      Requests.update(week,{
+        $push: {
+          [shift]: {
+            createdAt: new Date,
+            owner: adminUserChoice._id,
+            username: adminUserChoice.username,
+            company: adminUserChoice.profile.company,
+            order: order,
+            checked: true,
+          }
+        }
+      });
+    },
+    /*-------------------------------------------------------*/
     'admin.remove' (week, shift, day) {
-      console.log('server side test', shift);
-      console.log('---------------');
+      // console.log('server side test', shift);
+      // console.log('---------------');
       Requests.update(week,{
         $pull: {
           [shift]: {
