@@ -32,7 +32,7 @@
                 <h1>Day Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.monOne)" type="button" name="button">Request Shift</button>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.monOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.monOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -53,7 +53,7 @@
                 <h1>Night Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.monTwo)" type="button" name="button">Request Shift</button>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.monTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.monTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -91,7 +91,7 @@
                 <h1>Day Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.tueOne)" type="button" name="button">Request Shift</button>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.tueOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.tueOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -109,7 +109,7 @@
                 <h1>Night Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.tueTwo)" type="button" name="button">Request Shift</button>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.tueTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.tueTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -145,7 +145,7 @@
                 <h1>Day Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.wedOne)" type="button" name="button">Request Shift</button>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.wedOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.wedOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -165,7 +165,7 @@
                 <h1>Night Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.wedTwo)" type="button" name="button">Request Shift</button>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.wedTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.wedTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -203,7 +203,7 @@
                 <h1>Day Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.thuOne)" type="button" name="button">Request Shift</button>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.thuOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.thuOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -223,7 +223,7 @@
                 <h1>Night Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.thuTwo)" type="button" name="button">Request Shift</button>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.thuTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.thuTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -261,7 +261,7 @@
                 <h1>Day Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.friOne)" type="button" name="button">Request Shift</button>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.friOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.friOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -281,7 +281,7 @@
                 <h1>Night Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.friTwo)" type="button" name="button">Request Shift</button>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.friTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.friTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -319,7 +319,7 @@
                 <h1>Day Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.satOne)" type="button" name="button">Request Shift</button>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.satOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.satOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -341,7 +341,7 @@
                 <h1>Night Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.satTwo)" type="button" name="button">Request Shift</button>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.satTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.satTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -369,7 +369,7 @@
                 <h1>Day Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.sunOne)" type="button" name="button">Request Shift</button>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.sunOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.sunOne)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -389,7 +389,7 @@
                 <h1>Night Shift</h1>
                 <button class="add-shift btn btn-primary" ng-click="$ctrl.addRequests($ctrl.shifts.sunTwo)" type="button" name="button">Request Shift</button>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.sunTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminAddUser($ctrl.shifts.sunTwo)" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">

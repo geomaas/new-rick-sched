@@ -1,6 +1,7 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
+import uiBootstrap from 'angular-ui-bootstrap';
 import {
     Accounts
 } from 'meteor/accounts-base'
@@ -8,7 +9,7 @@ import {
 import template from './login.html';
 
 class LoginCtrl {
-    constructor($scope, $state, ) {
+    constructor($scope, $state) {
         'ngInject';
         $scope.viewModel(this);
 
@@ -83,6 +84,7 @@ class LoginCtrl {
 export default angular.module('login', [
         angularMeteor,
         uiRouter,
+        uiBootstrap,
     ])
     .component('login', {
         templateUrl: template,
