@@ -26,7 +26,7 @@
             <div class="day-shift">
                 <h1>Day Shift</h1>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'monOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'monOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -45,7 +45,7 @@
             <div class="night-shift">
                 <h1>Night Shift</h1>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'monTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'monTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -97,7 +97,7 @@
             <div class="day-shift">
                 <h1>Day Shift</h1>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'tueOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'tueOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -118,7 +118,7 @@
             <div class="night-shift">
                 <h1>Night Shift</h1>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'tueTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'tueTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -172,7 +172,7 @@
             <div class="day-shift">
                 <h1>Day Shift</h1>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'wedOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'wedOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -191,7 +191,7 @@
             <div class="night-shift">
                 <h1>Night Shift</h1>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'wedTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'wedTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -219,7 +219,7 @@
             <div class="day-shift">
                 <h1>Day Shift</h1>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'thuOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'thuOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -238,7 +238,7 @@
             <div class="night-shift">
                 <h1>Night Shift</h1>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'thuTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'thuTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -267,7 +267,7 @@
             <div class="day-shift">
                 <h1>Day Shift</h1>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'friOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'friOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -286,7 +286,7 @@
             <div class="night-shift">
                 <h1>Night Shift</h1>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'friTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'friTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -314,7 +314,7 @@
             <div class="day-shift">
                 <h1>Day Shift</h1>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'satOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'satOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -333,7 +333,7 @@
             <div class="night-shift">
                 <h1>Night Shift</h1>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'satTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'satTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -359,7 +359,7 @@
             <div class="day-shift">
                 <h1>Day Shift</h1>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'sunOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'sunOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
@@ -378,7 +378,7 @@
             <div class="night-shift">
                 <h1>Night Shift</h1>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'sunTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'sunTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">
