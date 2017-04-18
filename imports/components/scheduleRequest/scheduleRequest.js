@@ -118,6 +118,12 @@ class ScheduleRequestCtrl {
             },
         });
     }
+    adminAddUserToAll() {
+      console.log('test selct function', this.adminUserChoice.username);
+      Meteor.call('adminAddUserToAll.insert', this.adminUserChoice)
+      this.adminUserChoice = "";
+
+    }
     adminAddUser(shift) {
         // console.log('test selct function', shift, this.adminUserChoice.username);
         if (confirm('Add this user?')) {

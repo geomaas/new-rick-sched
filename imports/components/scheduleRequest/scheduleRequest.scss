@@ -201,6 +201,20 @@ body {
             }
         }
     }
+    .admin-select-box {
+        display: flex;
+        flex-direction: column;
+        margin-top: auto;
+        margin-top: 2%;
+        width: 100%;
+        background: linear-gradient(to right, rgba(119,123,126, .9), rgba(119,123,126, .6)), url('gears.jpg');
+
+        .custom-select {
+            font-size: 2rem;
+            margin-top: auto;
+            width: 100%;
+        }
+    }
 
     .pagination-style {
         display: flex;

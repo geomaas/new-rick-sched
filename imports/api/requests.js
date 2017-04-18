@@ -113,13 +113,38 @@ Meteor.methods({
     },
     /*-------------------------------------------------------*/
     'requests.remove' () {
-        console.log('server side delete all requests');
-        console.log('-------------------------------');
+        // console.log('server side delete all requests');
+        // console.log('-------------------------------');
         Object.entries(Collections).forEach(([key, value]) => {
             value.remove({});
         });
+        //resets shift count to zero on deleting all requests
+        Meteor.users.update({},{$set: {'profile.numOfShifts': 0}});
+
+    },
+    /*-------------------------------------------------------*/
+    'adminAddUserToAll.insert' (adminUserChoice) {
+      check(adminUserChoice, Object);
+
+      console.log('server side add user to all days', adminUserChoice);
+      console.log('-------------------------------');
+
+
+      Object.entries(Collections).forEach(([key, value]) => {
+          value.insert({
+            createdAt: new Date,
+            owner: adminUserChoice._id,
+            username: adminUserChoice.username,
+            company: adminUserChoice.profile.company,
+            order: 0,
+            checked: false,
+          });
+      });
+      //sets shift count to 14 when added to all shifts
+      Meteor.users.update({username: adminUserChoice.username},{$set: {'profile.numOfShifts': 14}});
     },
     /*------------------------not called from client yet-------------------------------*/
+
     // 'schedule.insert' (weekStart, scheduleFinal) {
     //     // check(scheduleFinal, Object);
     //     if (!Requests.findOne({
@@ -130,6 +155,7 @@ Meteor.methods({
     //         // Requests.insert(scheduleFinal);
     //     }
     // },
+
     /*-------------------------------------------------------*/
     'admin.insert' (shift, adminUserChoice) {
         check(shift, String);
