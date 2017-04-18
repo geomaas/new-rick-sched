@@ -81,16 +81,22 @@ Meteor.methods({
                 order: order,
                 checked: false,
             });
+            // this increments number of shifts by one for the admin to have total count of shifts
+            Meteor.users.update({_id: Meteor.userId()},{$inc: {'profile.numOfShifts': 1}});
         } else {
             alert("already added that shift!")
         }
     },
     /*-------------------------------------------------------*/
     'shift.remove' (request, shift) {
-        check(request, String);
+        check(request, Object);
         check(shift, String);
 
-        Collections[shift].remove(request);
+        Collections[shift].remove(request._id);
+
+        // this decrements number of shifts by one for the admin to have total count of shifts
+        Meteor.users.update({username: request.username},{$inc: {'profile.numOfShifts': -1}});
+
     },
     /*-------------------------------------------------------*/
     'shift.update' (request, shift) {
@@ -147,65 +153,67 @@ Meteor.methods({
                 order: order,
                 checked: false,
             });
+            // this decrements number of shifts by one for the admin to have total count of shifts
+            Meteor.users.update({username: adminUserChoice.username},{$inc: {'profile.numOfShifts': 1}});
         } else {
             alert("already added that shift!")
         }
     },
     /*-------------------------------------------------------*/
     'admin.update' (week, shift, adminUserChoice) {
-      check(week, String);
-      check(shift, String);
-      check(adminUserChoice, Object);
-      // console.log('server side admin update', );
-      // console.log('------------------------');
-      let requestCount = Collections[shift].find().count();
-      let order = requestCount + 1;
-      Requests.update(week,{
-        $push: {
-          [shift]: {
-            createdAt: new Date,
-            owner: adminUserChoice._id,
-            username: adminUserChoice.username,
-            company: adminUserChoice.profile.company,
-            order: order,
-            checked: false,
-          }
-        }
-      });
+        check(week, String);
+        check(shift, String);
+        check(adminUserChoice, Object);
+        // console.log('server side admin update', );
+        // console.log('------------------------');
+        let requestCount = Collections[shift].find().count();
+        let order = requestCount + 1;
+        Requests.update(week, {
+            $push: {
+                [shift]: {
+                    createdAt: new Date,
+                    owner: adminUserChoice._id,
+                    username: adminUserChoice.username,
+                    company: adminUserChoice.profile.company,
+                    order: order,
+                    checked: false,
+                }
+            }
+        });
     },
     /*-------------------------------------------------------*/
     'admin.update3' (week, shift, adminUserChoice) {
-      check(week, String);
-      check(shift, String);
-      check(adminUserChoice, Object);
-      // console.log('server side admin update', );
-      // console.log('------------------------');
-      let requestCount = Collections[shift].find().count();
-      let order = requestCount + 1;
-      Requests.update(week,{
-        $push: {
-          [shift]: {
-            createdAt: new Date,
-            owner: adminUserChoice._id,
-            username: adminUserChoice.username,
-            company: adminUserChoice.profile.company,
-            order: order,
-            checked: true,
-          }
-        }
-      });
+        check(week, String);
+        check(shift, String);
+        check(adminUserChoice, Object);
+        // console.log('server side admin update', );
+        // console.log('------------------------');
+        let requestCount = Collections[shift].find().count();
+        let order = requestCount + 1;
+        Requests.update(week, {
+            $push: {
+                [shift]: {
+                    createdAt: new Date,
+                    owner: adminUserChoice._id,
+                    username: adminUserChoice.username,
+                    company: adminUserChoice.profile.company,
+                    order: order,
+                    checked: true,
+                }
+            }
+        });
     },
     /*-------------------------------------------------------*/
     'admin.remove' (week, shift, day) {
-      // console.log('server side test', shift);
-      // console.log('---------------');
-      Requests.update(week,{
-        $pull: {
-          [shift]: {
-            'owner': day.owner
-          }
-        }
-      });
+        // console.log('server side test', shift);
+        // console.log('---------------');
+        Requests.update(week, {
+            $pull: {
+                [shift]: {
+                    'owner': day.owner
+                }
+            }
+        });
     },
     /*-------------------------------------------------------*/
 
@@ -215,8 +223,8 @@ Meteor.methods({
     },
     /*-------------------------------------------------------*/
     'reservation.remove' (reso) {
-      check(reso, String);
-      Reservations.remove(reso);
+        check(reso, String);
+        Reservations.remove(reso);
     }
     /*-------------------------------------------------------*/
 

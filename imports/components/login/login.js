@@ -41,7 +41,8 @@ class LoginCtrl {
                     phone: user.phone,
                     email: user.email,
                     avg: 1,
-                    createdAt: new Date
+                    createdAt: new Date,
+                    numOfShifts: 0,
                 }
             }, function(err) {
                 if (err) {

@@ -26,7 +26,6 @@ class ScheduleFinalizedCtrl {
 
         this.helpers({
             requests: () => {
-              console.log(Requests);
                 return Requests.find({}, {sort: {weekStart: -1}})
             },
             reservations: () => {

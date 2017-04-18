@@ -161,7 +161,7 @@ class ScheduleRequestCtrl {
         // console.log('-------------------client call');
         // console.log(request, shift._name);
         // shift.remove(request._id);
-        Meteor.call('shift.remove', request._id, shift._name);
+        Meteor.call('shift.remove', request, shift._name);
     }
 
     shiftUpdateThreeShift(request, shift) {

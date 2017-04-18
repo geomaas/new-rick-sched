@@ -4,13 +4,28 @@
     <h1 ng-show="$ctrl.currentUser.profile.company == 'pedicab'">Pedicab Schedule</h1>
     <h1 ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">Rickshaw Schedule</h1>
     <h2>{{$ctrl.currentUser.username}} <button ng-show="$ctrl.currentUser" class="btn btn-primary logout-button"ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h2>
-    <div class="finalize-schedule" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+    <!-- <div class="finalize-schedule" ng-show="$ctrl.currentUser.profile.isAdmin == true">
         <h2>Week Start:
         <span><input ng-model="$ctrl.weekStart" class="date-input" type="date" name="" value=""></span>
       </h2>
         <button type="button" class="btn btn-primary finalize-button" name="button" ng-click="$ctrl.finalizeSchedule($ctrl.weekStart)">Finalize schedule</button>
         <button type="button" class="btn btn-primary finalize-button" name="button" ng-click="$ctrl.deleteAllRequests()">Delete All Requests</button>
+    </div> -->
+</div>
+<div class="label-box" >
+  <div class="finalize-schedule" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+      <h2>Week Start:
+      <span><input ng-model="$ctrl.weekStart" class="date-input" type="date" name="" value=""></span>
+    </h2>
+      <button type="button" class="btn btn-primary finalize-button" name="button" ng-click="$ctrl.finalizeSchedule($ctrl.weekStart)">Finalize schedule</button>
+      <button type="button" class="btn btn-primary finalize-button" name="button" ng-click="$ctrl.deleteAllRequests()">Delete All Requests</button>
+  </div>
+  <div class="riders-box">
+    <div class="rider" ng-repeat="rider in $ctrl.allUsers">
+      {{rider.username}} - {{rider.profile.numOfShifts}} shifts
     </div>
+
+  </div>
 </div>
 <div class="week-button-container">
     <button ng-click="$ctrl.day = 1" type="button" class="btn btn-secondary">M</button>
@@ -62,7 +77,7 @@
                         ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
                         {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                        <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
+                        <!-- <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3> -->
                         </br>
                         <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
                           <input type="checkbox" ng-checked="request.checked" ng-click="$ctrl.shiftUpdateThreeShift(request, $ctrl.shifts.monTwo)" class="toggle-checked" style="transform: scale(2)"/> 3 shift
@@ -77,7 +92,7 @@
                         <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
                           <input type="checkbox" ng-checked="request.checked" ng-click="$ctrl.shiftUpdateThreeShift(request, $ctrl.shifts.monTwo)" class="toggle-checked" style="transform: scale(2)"/> 3 shift
                         </label>
-                        <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
+                        <!-- <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3> -->
                     </li>
                 </ol>
             </div>
@@ -121,7 +136,7 @@
                         <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
                         <input type="checkbox" ng-checked="request.checked" ng-click="$ctrl.shiftUpdateThreeShift(request, $ctrl.shifts.tueTwo)" class="toggle-checked" style="transform: scale(2)"/> 3 shift
                       </label>
-                        <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
+                        <!-- <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3> -->
                     </li>
                     <li class="list-group-item" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.tueTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}"
                         ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
@@ -131,7 +146,7 @@
                         <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
                         <input type="checkbox" ng-checked="request.checked" ng-click="$ctrl.shiftUpdateThreeShift(request, $ctrl.shifts.tueTwo)" class="toggle-checked" style="transform: scale(2)"/> 3 shift
                       </label>
-                        <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
+                        <!-- <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3> -->
                     </li>
                 </ol>
             </div>
@@ -178,7 +193,7 @@
                         <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
                         <input type="checkbox" ng-checked="request.checked" ng-click="$ctrl.shiftUpdateThreeShift(request, $ctrl.shifts.wedTwo)" class="toggle-checked" style="transform: scale(2)"/> 3 shift
                       </label>
-                        <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
+                        <!-- <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3> -->
                     </li>
                     <!-- pedicab list -->
                     <li class="list-group-item" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.wedTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}"
@@ -189,7 +204,7 @@
                         <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
                         <input type="checkbox" ng-checked="request.checked" ng-click="$ctrl.shiftUpdateThreeShift(request, $ctrl.shifts.wedTwo)" class="toggle-checked" style="transform: scale(2)"/> 3 shift
                       </label>
-                        <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
+                        <!-- <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3> -->
                     </li>
                 </ol>
             </div>
@@ -236,7 +251,7 @@
                         <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
                         <input type="checkbox" ng-checked="request.checked" ng-click="$ctrl.shiftUpdateThreeShift(request, $ctrl.shifts.thuTwo)" class="toggle-checked" style="transform: scale(2)"/> 3 shift
                       </label>
-                        <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
+                        <!-- <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3> -->
                     </li>
                     <!-- pedicab list -->
                     <li class="list-group-item" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.thuTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}"
@@ -247,7 +262,7 @@
                         <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
                         <input type="checkbox" ng-checked="request.checked" ng-click="$ctrl.shiftUpdateThreeShift(request, $ctrl.shifts.thuTwo)" class="toggle-checked" style="transform: scale(2)"/> 3 shift
                       </label>
-                        <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
+                        <!-- <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3> -->
                     </li>
                 </ol>
             </div>
@@ -294,7 +309,7 @@
                         <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
                         <input type="checkbox" ng-checked="request.checked" ng-click="$ctrl.shiftUpdateThreeShift(request, $ctrl.shifts.friTwo)" class="toggle-checked" style="transform: scale(2)"/> 3 shift
                       </label>
-                        <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
+                        <!-- <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3> -->
                     </li>
                     <!-- pedicab list -->
                     <li class="list-group-item" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.friTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}"
@@ -305,7 +320,7 @@
                         <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
                         <input type="checkbox" ng-checked="request.checked" ng-click="$ctrl.shiftUpdateThreeShift(request, $ctrl.shifts.friTwo)" class="toggle-checked" style="transform: scale(2)"/> 3 shift
                       </label>
-                        <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
+                        <!-- <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3> -->
                     </li>
                 </ol>
             </div>
