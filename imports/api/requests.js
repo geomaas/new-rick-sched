@@ -173,24 +173,19 @@ Meteor.methods({
       // console.log('server side add user to all days', adminUserChoice);
       // console.log('-------------------------------');
 
-      if (!MonOne.findOne({
-              username: Meteor.user().username
-          })) {
-            Object.entries(Collections).forEach(([key, value]) => {
-              value.insert({
-                createdAt: new Date,
-                owner: adminUserChoice._id,
-                username: adminUserChoice.username,
-                company: adminUserChoice.profile.company,
-                order: 0,
-                checked: false,
-              });
-            });
-            //sets shift count to 14 when added to all shifts
-            Meteor.users.update({username: adminUserChoice.username},{$set: {'profile.numOfShifts': 14}});
-          }else{
-            alert("already added to all shifts")
-        }
+
+      Object.entries(Collections).forEach(([key, value]) => {
+          value.insert({
+            createdAt: new Date,
+            owner: adminUserChoice._id,
+            username: adminUserChoice.username,
+            company: adminUserChoice.profile.company,
+            order: 0,
+            checked: false,
+          });
+      });
+      //sets shift count to 14 when added to all shifts
+      Meteor.users.update({username: adminUserChoice.username},{$set: {'profile.numOfShifts': 14}});
     },
     /*-------------------------------------------------------*/
     'admin.update' (week, shift, adminUserChoice) {

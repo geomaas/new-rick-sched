@@ -23,7 +23,7 @@
     <h2>Rider Shift Count</h2>
     <div class="riders-box">
         <div class="rider" ng-repeat="rider in $ctrl.allUsers | filter: {profile:{company:'rickshaw'}}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-            {{rider.username}} - {{rider.profile.numOfShifts}} shifts
+            <h3>{{rider.username}} - {{rider.profile.numOfShifts}}</h3>
         </div>
         <div class="rider" ng-repeat="rider in $ctrl.allUsers | filter: {profile:{company:'pedicab'}}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
             {{rider.username}} - {{rider.profile.numOfShifts}} shifts

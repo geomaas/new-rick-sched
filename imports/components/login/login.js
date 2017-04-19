@@ -49,7 +49,7 @@ class LoginCtrl {
                     alert("you messed up")
                     // console.log(err)
                 } else {
-                    alert('succes on user creation!');
+                    alert('success on user creation!');
                     that.loginUser(user.username, user.password);
                 }
             });
