@@ -26,7 +26,7 @@
             <div class="day-shift">
                 <h1>Day Shift</h1>
                 <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'monOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'monOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
                 </div>
                 <ol class="list-group">

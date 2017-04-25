@@ -12,8 +12,8 @@
         <button type="button" class="btn btn-primary finalize-button" name="button" ng-click="$ctrl.deleteAllRequests()">Delete All Requests</button>
     </div> -->
 </div>
-<div class="label-box">
-    <div class="finalize-schedule" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+<div class="label-box" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+    <div class="finalize-schedule">
         <h2>Week Start:
       <span><input ng-model="$ctrl.weekStart" class="date-input" type="date" name="" value=""></span>
     </h2>
@@ -22,13 +22,20 @@
     </div>
     <h2>Rider Shift Count</h2>
     <div class="riders-box">
-        <div class="rider" ng-repeat="rider in $ctrl.allUsers | filter: {profile:{company:'rickshaw'}}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+        <div class="rider" ng-repeat="rider in $ctrl.allUsers | filter: {profile:{company:'rickshaw'}}:true | filter: {profile:{isAdmin: false}} | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
             <h3>{{rider.username}} - {{rider.profile.numOfShifts}}</h3>
         </div>
-        <div class="rider" ng-repeat="rider in $ctrl.allUsers | filter: {profile:{company:'pedicab'}}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+        <div class="rider" ng-repeat="rider in $ctrl.allUsers | filter: {profile:{company:'pedicab'}}:true | filter: {profile:{isAdmin: false}} | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
             {{rider.username}} - {{rider.profile.numOfShifts}} shifts
         </div>
     </div>
+</div>
+<div class="admin-select-box" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+    <h1>Add User to all shifts</h1>
+    <select class="custom-select" ng-change="$ctrl.adminAddUserToAll()" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username' | filter: {profile:{company:'rickshaw'}}:true" ng-show="$ctrl.currentUser.profile.isAdmin == true && $ctrl.currentUser.profile.company == 'rickshaw'">
+    </select>
+    <select class="custom-select" ng-change="$ctrl.adminAddUserToAll()" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username' | filter: {profile:{company:'pedicab'}}:true" ng-show="$ctrl.currentUser.profile.isAdmin == true && $ctrl.currentUser.profile.company == 'pedicab'">
+    </select>
 </div>
 <div class="week-button-container">
     <button ng-click="$ctrl.day = 1" type="button" class="btn btn-secondary">M</button>
@@ -40,11 +47,7 @@
     <button ng-click="$ctrl.day = 7" type="button" class="btn btn-secondary">S</button>
     <button ng-click="$ctrl.day = 8" type="button" class="btn btn-secondary">All</button>
 </div>
-<div class="admin-select-box" ng-show="$ctrl.currentUser.profile.isAdmin == true">
-    <h1>Add User to all shifts</h1>
-    <select class="custom-select" ng-change="$ctrl.adminAddUserToAll()" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
-    </select>
-</div>
+
 <div class="week-box">
     <!--- MONDAY   ----->
     <div class="day-box" ng-show="$ctrl.day == 1 || $ctrl.day == 8">
