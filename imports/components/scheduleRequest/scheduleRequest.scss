@@ -12,6 +12,9 @@ body {
     background-color: $navy;
     color: $white;
 }
+.strike {
+  text-decoration: line-through;
+}
 /////////////////////small screen///////////////
 @media only screen and (max-device-width: 1023px) {
     .label-box {

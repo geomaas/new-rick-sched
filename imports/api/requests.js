@@ -82,6 +82,7 @@ Meteor.methods({
                 company: Meteor.user().profile.company,
                 order: order,
                 checked: false,
+                striked: false,
             });
             // this increments number of shifts by one for the admin to have total count of shifts
             Meteor.users.update({_id: Meteor.userId()},{$inc: {'profile.numOfShifts': 1}});
@@ -159,6 +160,7 @@ Meteor.methods({
                 company: adminUserChoice.profile.company,
                 order: order,
                 checked: false,
+                striked: false,
             });
             // this decrements number of shifts by one for the admin to have total count of shifts
             Meteor.users.update({username: adminUserChoice.username},{$inc: {'profile.numOfShifts': 1}});
@@ -182,6 +184,7 @@ Meteor.methods({
             company: adminUserChoice.profile.company,
             order: 0,
             checked: false,
+            striked: false,
           });
       });
       //sets shift count to 14 when added to all shifts
@@ -205,6 +208,7 @@ Meteor.methods({
                     company: adminUserChoice.profile.company,
                     order: order,
                     checked: false,
+                    striked: false,
                 }
             }
         });
@@ -227,9 +231,19 @@ Meteor.methods({
                     company: adminUserChoice.profile.company,
                     order: order,
                     checked: true,
+                    striked: false,
                 }
             }
         });
+    },
+    /*-------------------------------------------------------*/
+    'admin.strike' (request, shift, change) {
+
+      Collections[shift].update(request._id, {
+          $set: {
+              striked: change,
+          },
+      });
     },
     /*-------------------------------------------------------*/
     'admin.remove' (week, shift, day) {
@@ -244,7 +258,6 @@ Meteor.methods({
         });
     },
     /*-------------------------------------------------------*/
-
     'user.remove' (id) {
         check(id, String);
         Meteor.users.remove(id);

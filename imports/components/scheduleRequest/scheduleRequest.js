@@ -118,10 +118,17 @@ class ScheduleRequestCtrl {
             },
         });
     }
+    strike(request, shift) {
+        if (!request.striked && this.currentUser.profile.isAdmin) {
+            Meteor.call('admin.strike', request, shift._name, true);
+        }else{
+          Meteor.call('admin.strike', request, shift._name, false)
+        }
+    }
     adminAddUserToAll() {
-      // console.log('test selct function', this.adminUserChoice.username);
-      Meteor.call('adminAddUserToAll.insert', this.adminUserChoice)
-      this.adminUserChoice = "";
+        // console.log('test selct function', this.adminUserChoice.username);
+        Meteor.call('adminAddUserToAll.insert', this.adminUserChoice)
+        this.adminUserChoice = "";
 
     }
     adminAddUser(shift) {
