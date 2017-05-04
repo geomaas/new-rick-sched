@@ -6,13 +6,32 @@
 
 <body ng-app="schedule-app" >
 
-    <div class="temp-links">
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-inverse p-4">
+      <div class="temp-links">
+          <a ui-sref="login">Login |</a>
+          <a ui-sref="scheduleRequest">Requests |</a>
+          <a ui-sref="scheduleFinalized">Schedule List |</a>
+          <a ui-sref="reservations">Reservations |</a>
+          <a ui-sref="contactList">Contact List |</a>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-default bg-inverse navbar-color">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- <span class="navbar-toggler-icon" style="color: white; font-size: 5rem;">&times;</span> -->
+      <span><input class="burger-check navbar-toggler-icon" id="burger-check" type="checkbox"><label for="burger-check" class="burger"></label></span>
+    </button>
+  </nav>
+</div>
+    <!-- <div class="temp-links">
         <a ui-sref="login">Login |</a>
         <a ui-sref="scheduleRequest">Requests |</a>
         <a ui-sref="scheduleFinalized">Schedule List |</a>
         <a ui-sref="reservations">Reservations |</a>
         <a ui-sref="contactList">Contact List |</a>
-    </div>
+    </div> -->
     <div class="ui-view"></div>
     <footer>Copyright (c) 2017 Geoff Maas All Rights Reserved.</footer>
 </body>

@@ -5,6 +5,7 @@
 @import "../imports/components/reservations/reservations.scss";
 
 
+
 body {
   background: linear-gradient(to bottom, rgba(249, 252, 254, .8), rgba(249, 252, 254, .8)), url('bike-exploded-diagram.jpg');
   background-size: cover;
@@ -12,14 +13,93 @@ body {
   height: 100vh;
 
 }
+.navbar-color {
+  background-color: $navy;
+}
 .temp-links{
-  text-align: center;
+  // text-align: center;
+  background-color: white;
   a {
-    font-size: 3rem;
+    font-size: 5rem;
+    display: block;
   }
-
 }
 button {
   border-radius: 0;
   appearance: none;
+}
+.navbar-toggler {
+  margin: 25px;
+  -webkit-appearance:none;
+  border-radius: 0;
+}
+
+/*-----hamburger button courtesy -- Collapsible nav with burger menu, no JS
+A PEN BY Eduardo Bouças  --- https://codepen.io/eduardoboucas/pen/BNyKwO-----*/
+$burger--thickness: 4px;
+.burger {
+	$width: 28px;
+  color: white;
+	display: inline-block;
+  border: 0;
+	background: none;
+	outline: 0;
+	padding: 0;
+	cursor: pointer;
+
+	border-bottom: $burger--thickness solid currentColor;
+	width: $width;
+
+	transition: border-bottom 1s ease-in-out;
+	-webkit-transition: border-bottom 1s ease-in-out;
+
+	// Fix for extra space in Firefox
+	&::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
+
+	&:before {
+		content: "";
+		display: block;
+		border-bottom: $burger--thickness solid currentColor;
+		width: 100%;
+		margin-bottom: 5px;
+		transition: transform 0.5s ease-in-out;
+		-webkit-transition: -webkit-transform 0.5s ease-in-out;
+	}
+
+	&:after {
+		content: "";
+		display: block;
+		border-bottom: $burger--thickness solid currentColor;
+		width: 100%;
+		margin-bottom: 5px;
+		transition: transform 0.5s ease-in-out;
+		-webkit-transition: -webkit-transform 0.5s ease-in-out;
+	}
+}
+
+.burger-check {
+  display: none;
+}
+
+.burger-check:checked ~ .burger {
+  border-bottom: $burger--thickness solid transparent;
+  transition: border-bottom 0.8s ease-in-out;
+  -webkit-transition: border-bottom 0.8s ease-in-out;
+
+  &:before {
+    transform: rotate(-405deg) translateY(1px) translateX(-3px);
+    -webkit-transform: rotate(-405deg) translateY(1px) translateX(-3px);
+    transition: transform 0.5s ease-in-out;
+    -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  }
+
+  &:after {
+    transform: rotate(405deg) translateY(-4px) translateX(-5px);
+    -webkit-transform: rotate(405deg) translateY(-4px) translateX(-5px);
+    transition: transform 0.5s ease-in-out;
+    -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  }
 }

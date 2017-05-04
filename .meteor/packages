@@ -25,8 +25,5 @@ fourseven:scss
 insecure@1.0.7
 aldeed:simple-schema
 momentjs:moment
-huttonr:bootstrap3
-matb33:bootstrap-full
-matb33:bootstrap-glyphicons
-mrt:bootstrap-select
-enforcer:angular-ui-bootstrap
+twbs:bootstrap
+matb33:bootstrap-navbar
