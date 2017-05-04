@@ -18,16 +18,18 @@ body {
 }
 .temp-links{
   // text-align: center;
-  background-color: white;
+  padding-left: 5%;
+  background-color: $white;
   a {
     font-size: 5rem;
+    color: $navy;
     display: block;
   }
 }
-button {
-  border-radius: 0;
-  appearance: none;
-}
+// button {
+//   border-radius: 0;
+//   appearance: none;
+// }
 .navbar-toggler {
   margin: 25px;
   -webkit-appearance:none;
