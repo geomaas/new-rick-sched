@@ -149,8 +149,9 @@ body {
                     }
 
                     .list-group-item {
-                        display: list-item;
-                        font-size: 3rem;
+                        display: flex;
+                        justify-content: space-around;
+                        font-size: 4rem;
                     }
 
                     .admin-select-box {
@@ -192,8 +193,9 @@ body {
                     }
 
                     .list-group-item {
-                        display: list-item;
-                        font-size: 3rem;
+                      display: flex;
+                      justify-content: space-around;
+                      font-size: 4rem;
                     }
 
                     .admin-select-box {

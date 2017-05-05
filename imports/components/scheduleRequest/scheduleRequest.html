@@ -63,13 +63,13 @@
                 <ol class="list-group">
                     <!-- Rickshaw List -->
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.monOne)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.monOne | orderBy: 'username'| filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{request.username}}
+                      {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
 
                     </li>
                     <!-- Pedicab list  -->
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.monOne)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.monOne | orderBy: 'username'| filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{request.username}}
+                      {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
@@ -85,7 +85,7 @@
                     <!-- Rickshaw List -->
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.monTwo)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.monTwo | orderBy: ['username','checked'] | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}"
                         ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         <!-- <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3> -->
                         </br>
@@ -96,7 +96,7 @@
                     <!-- Pedicab List -->
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.monTwo)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.monTwo | orderBy: ['username','checked'] | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}"
                         ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         </br>
                         <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
@@ -121,11 +121,11 @@
                 </div>
                 <ol class="list-group">
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.tueOne)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.tueOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.tueOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.tueOne)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.tueOne | orderBy: 'username'| filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.tueOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
@@ -140,7 +140,7 @@
                 <ol class="list-group">
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.tueTwo)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.tueTwo | orderBy: ['username','checked'] | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}"
                         ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.tueTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         </br>
                         <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
@@ -150,7 +150,7 @@
                     </li>
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.tueTwo)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.tueTwo | orderBy: ['username','checked'] | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}"
                         ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.tueTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         </br>
                         <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
@@ -176,12 +176,12 @@
                 <ol class="list-group">
                     <!-- rickshaw list -->
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.wedOne)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.wedOne | orderBy: 'username'| filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.wedOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                     <!-- pedicab list -->
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.wedOne)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.wedOne | orderBy: 'username'| filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.wedOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
@@ -197,7 +197,7 @@
                     <!-- rickshaw list -->
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.wedTwo)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.wedTwo | orderBy: ['username','checked'] | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}"
                         ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.wedTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         </br>
                         <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
@@ -208,7 +208,7 @@
                     <!-- pedicab list -->
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.wedTwo)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.wedTwo | orderBy: ['username','checked'] | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}"
                         ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.wedTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         </br>
                         <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
@@ -234,12 +234,12 @@
                 <ol class="list-group">
                     <!-- rickshaw list -->
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.thuOne)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.thuOne | orderBy: 'username'| filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.thuOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                     <!-- pedicab list -->
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.thuOne)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.thuOne | orderBy: 'username'| filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.thuOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
@@ -255,7 +255,7 @@
                     <!-- rickshaw list -->
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.thuTwo)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.thuTwo | orderBy: ['username','checked'] | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}"
                         ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.thuTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         </br>
                         <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
@@ -266,7 +266,7 @@
                     <!-- pedicab list -->
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.thuTwo)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.thuTwo | orderBy: ['username','checked'] | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}"
                         ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.thuTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         </br>
                         <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
@@ -292,12 +292,12 @@
                 <ol class="list-group">
                     <!-- rickshaw list -->
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.friOne)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.friOne | orderBy: 'username'| filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.friOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                     <!-- pedicab list -->
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.friOne)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.friOne | orderBy: 'username'| filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.friOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
@@ -313,7 +313,7 @@
                     <!-- rickshaw list -->
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.friTwo)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.friTwo | orderBy: ['username','checked'] | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}"
                         ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.friTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         </br>
                         <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
@@ -324,7 +324,7 @@
                     <!-- pedicab list -->
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.friTwo)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.friTwo | orderBy: ['username','checked'] | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}"
                         ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.friTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         </br>
                         <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
@@ -351,13 +351,13 @@
                     <!-- rickshaw list -->
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.satOne)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.satOne | orderBy: 'username'| filter: {company:'rickshaw'}:true"
                         ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.satOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                     <!-- pedicab list -->
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.satOne)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.satOne | orderBy: 'username'| filter: {company:'pedicab'}:true"
                         ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.satOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
@@ -373,13 +373,13 @@
                     <!-- rickshaw list -->
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.satTwo)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.satTwo | orderBy: 'username'| filter: {company:'rickshaw'}:true"
                         ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.satTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                     <!-- pedicab list -->
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.satTwo)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.satTwo | orderBy: 'username'| filter: {company:'pedicab'}:true"
                         ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.satTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
@@ -400,12 +400,12 @@
                 <ol class="list-group">
                     <!-- rickshaw list -->
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.sunOne)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.sunOne | orderBy: 'username'| filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.sunOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                     <!-- pedicab list -->
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.sunOne)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.sunOne | orderBy: 'username'| filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.sunOne)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
@@ -420,12 +420,12 @@
                 <ol class="list-group">
                     <!-- rickshaw list -->
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.sunTwo)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.sunTwo | orderBy: 'username'| filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.sunTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                     <!-- pedicab list -->
                     <li class="list-group-item" ng-click="$ctrl.strike(request, $ctrl.shifts.sunTwo)" ng-class="{'strike': request.striked}" ng-style="{'background-color':(request.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="request in $ctrl.sunTwo | orderBy: 'username'| filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{request.username}}
+                        {{$index + 1}}. {{request.username}}
                         <button class="delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.sunTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>

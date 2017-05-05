@@ -32,12 +32,12 @@
                 <ol class="list-group">
                     <!-- Rickshaw List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'monOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                     <!-- Pedicab list  -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'monOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
@@ -51,13 +51,13 @@
                 <ol class="list-group">
                     <!-- Rickshaw List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'monTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                     <!-- Pedicab List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'monTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
@@ -104,13 +104,13 @@
                     <!-- Rickshaw List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.tueOne | filter: {company:'rickshaw'}:true"
                         ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'tueOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                     <!-- Pedicab List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.tueOne | filter: {company:'pedicab'}:true"
                         ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'tueOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
@@ -125,14 +125,14 @@
                     <!-- Rickshaw List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.tueTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true"
                         ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'tueTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                     <!-- pedicab List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.tueTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true"
                         ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'tueTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
@@ -178,12 +178,12 @@
                 <ol class="list-group">
                     <!-- Rickshaw List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.wedOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'wedOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                     <!-- Pedicab List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.wedOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab">
-                        {{day.username}}
+                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.wedOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'wedOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
@@ -197,13 +197,13 @@
                 <ol class="list-group">
                     <!-- Rickshaw List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.wedTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'wedTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                     <!-- pedicab List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.wedTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'wedTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
@@ -225,12 +225,12 @@
                 <ol class="list-group">
                     <!-- Rickshaw List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.thuOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'thuOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                     <!-- pedicab List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.thuOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'thuOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
@@ -244,13 +244,13 @@
                 <ol class="list-group">
                     <!-- Rickshaw List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.thuTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'thuTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                     <!-- pedicab List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.thuTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'thuTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
@@ -273,12 +273,12 @@
                 <ol class="list-group">
                     <!-- pedicab List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.friOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'friOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                     <!-- Rickshaw List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.friOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'friOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
@@ -292,13 +292,13 @@
                 <ol class="list-group">
                     <!-- Rickshaw List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.friTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'friTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
                     <!-- pedicab List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.friTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'friTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
                     </li>
@@ -320,12 +320,12 @@
                 <ol class="list-group">
                     <!-- Rickshaw List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.satOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'satOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                     <!-- pedicab List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.satOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'satOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
@@ -339,12 +339,12 @@
                 <ol class="list-group">
                     <!-- Rickshaw List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.satTwo | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'satTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                     <!-- pedicab List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.satTwo | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'satTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
@@ -365,12 +365,12 @@
                 <ol class="list-group">
                     <!-- Rickshaw List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.sunOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'sunOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                     <!-- pedicab List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.sunOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'sunOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
@@ -384,12 +384,12 @@
                 <ol class="list-group">
                     <!-- Rickshaw List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.sunTwo | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'sunTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                     <!-- pedicab List -->
                     <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.sunTwo | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{day.username}}
+                        {{$index + 1}}. {{day.username}}
                         <button class="delete" ng-click="$ctrl.removeFromSchedule(week, 'sunTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
                     </li>
                 </ol>
