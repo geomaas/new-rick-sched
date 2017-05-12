@@ -27,3 +27,5 @@ aldeed:simple-schema
 momentjs:moment
 twbs:bootstrap
 matb33:bootstrap-navbar
+johnantoni:meteor-normalize
+jnissi:ng-annotate
