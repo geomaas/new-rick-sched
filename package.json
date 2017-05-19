@@ -10,7 +10,6 @@
     "angular-ui-router": "^0.4.2",
     "angular-utils-pagination": "^0.11.1",
     "babel-runtime": "^6.18.0",
-    "bcrypt": "^1.0.2",
     "imports": "^1.0.0",
     "meteor-node-stubs": "~0.2.0"
   }

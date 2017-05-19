@@ -89,7 +89,7 @@
                         <button class="btn btn-primary delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         <!-- <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3> -->
                         </br>
-                        <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                        <label ng-show="$ctrl.currentUser.profile.isAdmin == true || $ctrl.currentUser.username == request.username">
                           <input type="checkbox" ng-checked="request.checked" ng-click="$ctrl.shiftUpdateThreeShift(request, $ctrl.shifts.monTwo)" class="toggle-checked" style="transform: scale(2)"/> 3 shift
                         </label>
                     </li>
@@ -99,7 +99,7 @@
                         {{$index + 1}}. {{request.username}}
                         <button class="btn btn-primary delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.monTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         </br>
-                        <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                        <label ng-show="$ctrl.currentUser.profile.isAdmin == true || $ctrl.currentUser.username == request.username">
                           <input type="checkbox" ng-checked="request.checked" ng-click="$ctrl.shiftUpdateThreeShift(request, $ctrl.shifts.monTwo)" class="toggle-checked" style="transform: scale(2)"/> 3 shift
                         </label>
                         <!-- <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3> -->
@@ -143,7 +143,7 @@
                         {{$index + 1}}. {{request.username}}
                         <button class="btn btn-primary delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.tueTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         </br>
-                        <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                        <label ng-show="$ctrl.currentUser.profile.isAdmin == true || $ctrl.currentUser.username == request.username">
                         <input type="checkbox" ng-checked="request.checked" ng-click="$ctrl.shiftUpdateThreeShift(request, $ctrl.shifts.tueTwo)" class="toggle-checked" style="transform: scale(2)"/> 3 shift
                       </label>
                         <!-- <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3> -->
@@ -153,7 +153,7 @@
                         {{$index + 1}}. {{request.username}}
                         <button class="btn btn-primary delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.tueTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         </br>
-                        <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                        <label ng-show="$ctrl.currentUser.profile.isAdmin == true || $ctrl.currentUser.username == request.username">
                         <input type="checkbox" ng-checked="request.checked" ng-click="$ctrl.shiftUpdateThreeShift(request, $ctrl.shifts.tueTwo)" class="toggle-checked" style="transform: scale(2)"/> 3 shift
                       </label>
                         <!-- <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3> -->
@@ -200,7 +200,7 @@
                         {{$index + 1}}. {{request.username}}
                         <button class="btn btn-primary delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.wedTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         </br>
-                        <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                        <label ng-show="$ctrl.currentUser.profile.isAdmin == true || $ctrl.currentUser.username == request.username">
                         <input type="checkbox" ng-checked="request.checked" ng-click="$ctrl.shiftUpdateThreeShift(request, $ctrl.shifts.wedTwo)" class="toggle-checked" style="transform: scale(2)"/> 3 shift
                       </label>
                         <!-- <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3> -->
@@ -211,7 +211,7 @@
                         {{$index + 1}}. {{request.username}}
                         <button class="btn btn-primary delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.wedTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         </br>
-                        <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                        <label ng-show="$ctrl.currentUser.profile.isAdmin == true || $ctrl.currentUser.username == request.username">
                         <input type="checkbox" ng-checked="request.checked" ng-click="$ctrl.shiftUpdateThreeShift(request, $ctrl.shifts.wedTwo)" class="toggle-checked" style="transform: scale(2)"/> 3 shift
                       </label>
                         <!-- <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3> -->
@@ -258,7 +258,7 @@
                         {{$index + 1}}. {{request.username}}
                         <button class="btn btn-primary delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.thuTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         </br>
-                        <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                        <label ng-show="$ctrl.currentUser.profile.isAdmin == true || $ctrl.currentUser.username == request.username">
                         <input type="checkbox" ng-checked="request.checked" ng-click="$ctrl.shiftUpdateThreeShift(request, $ctrl.shifts.thuTwo)" class="toggle-checked" style="transform: scale(2)"/> 3 shift
                       </label>
                         <!-- <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3> -->
@@ -269,7 +269,7 @@
                         {{$index + 1}}. {{request.username}}
                         <button class="btn btn-primary delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.thuTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         </br>
-                        <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                        <label ng-show="$ctrl.currentUser.profile.isAdmin == true || $ctrl.currentUser.username == request.username">
                         <input type="checkbox" ng-checked="request.checked" ng-click="$ctrl.shiftUpdateThreeShift(request, $ctrl.shifts.thuTwo)" class="toggle-checked" style="transform: scale(2)"/> 3 shift
                       </label>
                         <!-- <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3> -->
@@ -316,7 +316,7 @@
                         {{$index + 1}}. {{request.username}}
                         <button class="btn btn-primary delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.friTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         </br>
-                        <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                        <label ng-show="$ctrl.currentUser.profile.isAdmin == true || $ctrl.currentUser.username == request.username">
                         <input type="checkbox" ng-checked="request.checked" ng-click="$ctrl.shiftUpdateThreeShift(request, $ctrl.shifts.friTwo)" class="toggle-checked" style="transform: scale(2)"/> 3 shift
                       </label>
                         <!-- <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3> -->
@@ -327,7 +327,7 @@
                         {{$index + 1}}. {{request.username}}
                         <button class="btn btn-primary delete" ng-click="$ctrl.removeRequest(request, $ctrl.shifts.friTwo)" ng-show="$ctrl.currentUser.username == request.username || $ctrl.currentUser.profile.isAdmin == true">&times;</button>
                         </br>
-                        <label ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                        <label ng-show="$ctrl.currentUser.profile.isAdmin == true || $ctrl.currentUser.username == request.username">
                         <input type="checkbox" ng-checked="request.checked" ng-click="$ctrl.shiftUpdateThreeShift(request, $ctrl.shifts.friTwo)" class="toggle-checked" style="transform: scale(2)"/> 3 shift
                       </label>
                         <!-- <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3> -->

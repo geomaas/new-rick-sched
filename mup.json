@@ -2,9 +2,9 @@
   // Server authentication info
   "servers": [
     {
-      "host": "198.211.110.224",
+      "host": "104.236.246.190",
       "username": "root",
-      "password": "wallchz",
+      "password": "rickshaw",
       // or pem file (ssh based authentication)
       // WARNING: Keys protected by a passphrase are not supported
       //e"pem": "~/.ssh/id_rsa"
@@ -16,7 +16,7 @@
   ],
 
   // Install MongoDB on the server. Does not destroy the local MongoDB on future setups
-  "setupMongo": true,
+  "setupMongo": false,
 
   // Application name (no spaces).
   "appName": "rickshaw-schedule",
@@ -30,7 +30,7 @@
   // ROOT_URL must be set to your correct domain (https or http)
   "env": {
     "PORT": 80,
-    "ROOT_URL": "http://198.211.110.224",
+    "ROOT_URL": "http://rideordie.life",
     "MONGO_URL": "mongodb://geomaas:wallchz@ds137760.mlab.com:37760/rickdb"
 
   },
