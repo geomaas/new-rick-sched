@@ -266,7 +266,12 @@ Meteor.methods({
     'reservation.remove' (reso) {
         check(reso, String);
         Reservations.remove(reso);
-    }
+    },
+    /*-------------------------------------------------------*/
+    'swapCompany' (company) {
+      check(company, String);
+      Meteor.users.update({_id: Meteor.userId()},{$set: {'profile.company': company}});
+    },
     /*-------------------------------------------------------*/
 
 })
