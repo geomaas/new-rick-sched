@@ -5,362 +5,365 @@ $navy: rgba(45,80,108, 1);
 $gray: rgba(119,123,126, 1);
 
 body {
-    margin: 0;
+  margin: 0;
 }
 
 .btn {
-    background-color: $navy;
-    color: $white;
+  background-color: $navy;
+  color: $white;
 }
+
 .strike {
   text-decoration: line-through;
 }
 /////////////////////small screen///////////////
 @media only screen and (max-device-width: 1023px) {
-    .label-box {
-        width: 90vw;
-        margin: 2% auto;
-        border-radius: 10px;
-        border: 3px $gray solid;
-        display: flex;
-        background: linear-gradient(to right, rgba(119,123,126, .9), rgba(119,123,126, .6)), url('gears.jpg');
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+  .label-box {
+    width: 90vw;
+    margin: 2% auto;
+    border-radius: 10px;
+    border: 3px $gray solid;
+    display: flex;
+    background: linear-gradient(to right, rgba(119,123,126, .9), rgba(119,123,126, .6)), url('gears.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-        h1 {
-            font-size: 6rem;
-            color: #333333;
-        }
-
-        h2 {
-            font-size: 5rem;
-        }
-
-        .finalize-schedule {
-            width: 100%;
-            text-align: center;
-            margin-bottom: 2%;
-        }
-
-        .logout-button {
-            font-size: 2.5rem;
-        }
-
-        .finalize-button {
-            font-size: 3rem;
-        }
-
-        .date-input {
-            font-size: 3rem;
-        }
-
-        .riders-box {
-            display: flex;
-            justify-content: flex-start;
-            flex-direction: row;
-            flex-wrap: wrap;
-            width: 100%;
-
-            .rider {
-                background-color: white;
-                text-align: center;
-                flex-wrap: wrap;
-                width: 25%;
-                margin: auto;
-                font-size: 4rem;
-                overflow-y: scroll;
-            }
-        }
+    h1 {
+      font-size: 6rem;
+      color: #333333;
     }
 
-    .week-button-container {
-        width: 80%;
-        margin: 2% auto;
-        display: flex;
-        justify-content: space-around;
-
-        button {
-            padding: 3%;
-            font-size: 4rem;
-            color: $white;
-        }
+    h2 {
+      font-size: 5rem;
     }
 
-    .week-box {
+    .finalize-schedule {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 2%;
+    }
+
+    .logout-button {
+      font-size: 2.5rem;
+    }
+
+    .finalize-button {
+      font-size: 3rem;
+    }
+
+    .date-input {
+      font-size: 3rem;
+    }
+
+    .riders-box {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+
+      .rider {
+        background-color: white;
+        text-align: center;
+        flex-wrap: wrap;
+        width: 25%;
+        margin: auto;
+        font-size: 4rem;
+        overflow-y: scroll;
+      }
+    }
+  }
+
+  .week-button-container {
+    width: 80%;
+    margin: 2% auto;
+    display: flex;
+    justify-content: space-around;
+
+    button {
+      padding: 3%;
+      font-size: 4rem;
+      color: $white;
+    }
+  }
+
+  .week-box {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    .delete-schedule {
+      width: 50vw;
+      margin: auto;
+      align-self: center;
+      font-size: 4rem;
+    }
+
+    .day-box {
+      text-align: center;
+
+      h1 {
+        font-size: 6rem;
+      }
+
+      .shift-box {
         width: 100vw;
         display: flex;
+        flex-direction: row;
         justify-content: center;
-        flex-direction: column;
-
-        .delete-schedule {
-            width: 50vw;
-            margin: auto;
-            align-self: center;
-            font-size: 4rem;
-        }
-
-        .day-box {
-            text-align: center;
-
-            h1 {
-                font-size: 6rem;
-            }
-
-            .shift-box {
-                width: 100vw;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                border-radius: 5px;
-
-                h1 {
-                    margin: 3%;
-                }
-
-                .add-shift {
-                    font-size: 4rem;
-                    margin: 2%;
-                }
-
-                .day-shift {
-                    display: flex;
-                    flex-direction: column;
-                    width: 45vw;
-                    height: 95vh;
-                    margin: auto;
-                    border-radius: 10px;
-                    background: linear-gradient(to bottom, rgba(155, 203, 190, .8), rgba(155, 203, 190, .5)), url('crank_arm.jpg');
-                    background-position: center;
-                    background-size: cover;
-                    background-repeat: no-repeat;
-                    border: 3px $gray solid;
-                    overflow-y: scroll;
-
-                    h1 {
-                        font-size: 5rem;
-                    }
-
-                    .list-group {
-                        list-style: decimal inside;
-                    }
-
-                    .list-group-item {
-                        display: flex;
-                        justify-content: space-around;
-                        font-size: 4rem;
-                    }
-
-                    .admin-select-box {
-                        display: flex;
-                        flex-direction: column;
-                        margin-top: auto;
-                        margin-top: 2%;
-                        width: 100%;
-                        background: linear-gradient(to right, rgba(119,123,126, .9), rgba(119,123,126, .6)), url('gears.jpg');
-
-                        .custom-select {
-                            font-size: 2rem;
-                            margin-top: auto;
-                            width: 100%;
-                        }
-                    }
-                }
-
-                .night-shift {
-                    display: flex;
-                    flex-direction: column;
-                    width: 45vw;
-                    height: 95vh;
-                    margin: auto;
-                    background: linear-gradient(to bottom, rgba(131, 172, 189, .8), rgba(131, 172, 189, .5)), url('brake_rotate.jpg');
-                    background-position: center;
-                    background-size: cover;
-                    background-repeat: no-repeat;
-                    border-radius: 10px;
-                    border: 3px $gray solid;
-                    overflow: scroll;
-
-                    h1 {
-                        font-size: 5rem;
-                    }
-
-                    .list-group {
-                        list-style: decimal inside;
-                    }
-
-                    .list-group-item {
-                      display: flex;
-                      justify-content: space-around;
-                      font-size: 4rem;
-                    }
-
-                    .admin-select-box {
-                        display: flex;
-                        flex-direction: column;
-                        margin-top: auto;
-                        margin-top: 2%;
-                        width: 100%;
-                        background: linear-gradient(to right, rgba(119,123,126, .9), rgba(119,123,126, .6)), url('gears.jpg');
-
-                        .custom-select {
-                            font-size: 2rem;
-                            margin-top: auto;
-                            width: 100%;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    .admin-select-box {
-        width: 90vw;
-        margin: 2% auto;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        margin-top: auto;
-        margin-top: 2%;
-        background: linear-gradient(to right, rgba(119,123,126, .9), rgba(119,123,126, .6)), url('tire_diagram.jpg');
-
-        .custom-select {
-            font-size: 2rem;
-            margin-top: auto;
-            width: 100%;
-        }
+        border-radius: 5px;
 
         h1 {
-            text-align: center;
+          margin: 3%;
         }
+
+        .add-shift {
+          font-size: 4rem;
+          margin: 2%;
+        }
+
+        .day-shift {
+          display: flex;
+          flex-direction: column;
+          width: 45vw;
+          min-height: 95vh;
+          margin: auto;
+          border-radius: 10px;
+          background: linear-gradient(to bottom, rgba(155, 203, 190, .8), rgba(155, 203, 190, .5)), url('crank_arm.jpg');
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          border: 3px $gray solid;
+          overflow-y: scroll;
+          -webkit-overflow-scrolling: touch;
+
+          h1 {
+            font-size: 5rem;
+          }
+
+          .list-group {
+            list-style: decimal inside;
+          }
+
+          .list-group-item {
+            display: flex;
+            justify-content: space-around;
+            font-size: 4rem;
+          }
+
+          .admin-select-box {
+            display: flex;
+            flex-direction: column;
+            margin-top: auto;
+            margin-top: 2%;
+            width: 100%;
+            background: linear-gradient(to right, rgba(119,123,126, .9), rgba(119,123,126, .6)), url('gears.jpg');
+
+            .custom-select {
+              font-size: 2rem;
+              margin-top: auto;
+              width: 100%;
+            }
+          }
+        }
+
+        .night-shift {
+          display: flex;
+          flex-direction: column;
+          width: 45vw;
+          min-height: 95vh;
+          margin: auto;
+          background: linear-gradient(to bottom, rgba(131, 172, 189, .8), rgba(131, 172, 189, .5)), url('brake_rotate.jpg');
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          border-radius: 10px;
+          border: 3px $gray solid;
+          overflow-y: scroll;
+          -webkit-overflow-scrolling: touch;
+
+          h1 {
+            font-size: 5rem;
+          }
+
+          .list-group {
+            list-style: decimal inside;
+          }
+
+          .list-group-item {
+            display: flex;
+            justify-content: space-around;
+            font-size: 4rem;
+          }
+
+          .admin-select-box {
+            display: flex;
+            flex-direction: column;
+            margin-top: auto;
+            margin-top: 2%;
+            width: 100%;
+            background: linear-gradient(to right, rgba(119,123,126, .9), rgba(119,123,126, .6)), url('gears.jpg');
+
+            .custom-select {
+              font-size: 2rem;
+              margin-top: auto;
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .admin-select-box {
+    width: 90vw;
+    margin: 2% auto;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    margin-top: 2%;
+    background: linear-gradient(to right, rgba(119,123,126, .9), rgba(119,123,126, .6)), url('tire_diagram.jpg');
+
+    .custom-select {
+      font-size: 2rem;
+      margin-top: auto;
+      width: 100%;
     }
 
-    .pagination-style {
-        display: flex;
-        justify-content: center;
-        width: 90vw;
-        font-size: 5rem;
+    h1 {
+      text-align: center;
     }
+  }
+
+  .pagination-style {
+    display: flex;
+    justify-content: center;
+    width: 90vw;
+    font-size: 5rem;
+  }
 }
 //////////////////// large screen///////////////
 @media only screen and (min-device-width: 1024px) {
-    .label-box {
-        width: 85vw;
-        margin: 2% auto;
-        border-radius: 10px;
-        display: flex;
+  .label-box {
+    width: 85vw;
+    margin: 2% auto;
+    border-radius: 10px;
+    display: flex;
+    background: linear-gradient(to right, rgba(119,123,126, .9), rgba(119,123,126, .6)), url('gears.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      font-size: 6rem;
+      color: #333333;
+    }
+
+    h2 {
+      font-size: 5rem;
+    }
+
+    .finalize-schedule {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 2%;
+
+      .date-input {
+        font-size: 2rem;
+      }
+    }
+
+    .riders-box {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+
+      .rider {
+        background-color: white;
+        text-align: center;
+        flex-wrap: wrap;
+        width: 25%;
+        margin: auto;
+        font-size: 4rem;
+        overflow-y: scroll;
+      }
+    }
+  }
+
+  .week-button-container {
+    display: none;
+  }
+
+  .week-box {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+
+    .day-box {
+      width: 14%;
+
+      h1 {
+        text-align: center;
+        font-size: 2.5rem;
+      }
+    }
+
+    .shift-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      h1 {
+        margin: 0;
+        text-align: center;
+      }
+
+      .add-shift {
+        width: 100%;
+        margin: 1% auto;
+        background-color: white;
+        color: #333333;
+      }
+
+      .delete {}
+
+      .admin-select-box {
+        width: 100%;
         background: linear-gradient(to right, rgba(119,123,126, .9), rgba(119,123,126, .6)), url('gears.jpg');
+      }
+
+      .day-shift {
+        height: 50vh;
+        border-radius: 5px;
+        background: linear-gradient(to bottom, rgba(155, 203, 190, .8), rgba(155, 203, 190, .5)), url('crank_arm.jpg');
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        border: 1px $gray solid;
+        overflow: scroll;
+      }
 
-        h1 {
-            font-size: 6rem;
-            color: #333333;
-        }
-
-        h2 {
-            font-size: 5rem;
-        }
-
-        .finalize-schedule {
-            width: 100%;
-            text-align: center;
-            margin-bottom: 2%;
-
-            .date-input {
-                font-size: 2rem;
-            }
-        }
-
-        .riders-box {
-            display: flex;
-            justify-content: flex-start;
-            flex-direction: row;
-            flex-wrap: wrap;
-            width: 100%;
-
-            .rider {
-                background-color: white;
-                text-align: center;
-                flex-wrap: wrap;
-                width: 25%;
-                margin: auto;
-                font-size: 4rem;
-                overflow-y: scroll;
-            }
-        }
+      .night-shift {
+        height: 90vh;
+        background: linear-gradient(to bottom, rgba(131, 172, 189, .8), rgba(131, 172, 189, .5)), url('brake_rotate.jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 5px;
+        border: 1px $gray solid;
+        overflow: scroll;
+      }
     }
-
-    .week-button-container {
-        display: none;
-    }
-
-    .week-box {
-        width: 100vw;
-        display: flex;
-        justify-content: space-around;
-
-        .day-box {
-            width: 14%;
-
-            h1 {
-                text-align: center;
-                font-size: 2.5rem;
-            }
-        }
-
-        .shift-box {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-
-            h1 {
-                margin: 0;
-                text-align: center;
-            }
-
-            .add-shift {
-                width: 100%;
-                margin: 1% auto;
-                background-color: white;
-                color: #333333;
-            }
-
-            .delete {}
-
-            .admin-select-box {
-                width: 100%;
-                background: linear-gradient(to right, rgba(119,123,126, .9), rgba(119,123,126, .6)), url('gears.jpg');
-            }
-
-            .day-shift {
-                height: 50vh;
-                border-radius: 5px;
-                background: linear-gradient(to bottom, rgba(155, 203, 190, .8), rgba(155, 203, 190, .5)), url('crank_arm.jpg');
-                background-position: center;
-                background-size: cover;
-                background-repeat: no-repeat;
-                border: 1px $gray solid;
-                overflow: scroll;
-            }
-
-            .night-shift {
-                height: 90vh;
-                background: linear-gradient(to bottom, rgba(131, 172, 189, .8), rgba(131, 172, 189, .5)), url('brake_rotate.jpg');
-                background-position: center;
-                background-size: cover;
-                background-repeat: no-repeat;
-                border-radius: 5px;
-                border: 1px $gray solid;
-                overflow: scroll;
-            }
-        }
-    }
+  }
 }

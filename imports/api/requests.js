@@ -54,11 +54,11 @@ const Collections = {
     'sunTwo': SunTwo,
 }
 /*-------------------------------------------*/
-Meteor.users.deny({
-    update: function() {
-        return true;
-    }
-});
+// Meteor.users.deny({
+//     update: function() {
+//         return true;
+//     }
+// });
 /*-------------------------------------------*/
 
 Meteor.methods({

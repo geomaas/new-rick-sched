@@ -27,7 +27,7 @@
       <h3>{{rider.username}} - {{rider.profile.numOfShifts}}</h3>
     </div>
     <div class="rider" ng-repeat="rider in $ctrl.allUsers | filter: {profile:{company:'pedicab'}}:true | filter: {profile:{isAdmin: false}} | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-      {{rider.username}} - {{rider.profile.numOfShifts}} shifts
+      <h3>{{rider.username}} - {{rider.profile.numOfShifts}} shifts</h3>
     </div>
   </div>
 </div>
