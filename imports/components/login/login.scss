@@ -6,154 +6,181 @@ $navy: rgba(45,80,108, 1);
 $gray: rgba(119,123,126, 1);
 $highlight: #fbb829;
 @media only screen and (max-device-width: 1023px) {
-    .login-page {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+  .login-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 
-        h2 {
-            font-size: 6rem;
-            color: $white;
-            margin: 3%;
-        }
-
-        img {
-            margin-top: 10vh;
-            margin-bottom: 5vh;
-            width: 60vw;
-            align-self: center;
-            background-color: $white;
-            border-radius: 100%;
-        }
-
-        h1 {
-            align-self: center;
-        }
-
-        .login,
-        .signup {
-            width: 90vw;
-            text-align: center;
-            align-self: center;
-            margin: 3% auto;
-            background-color: $navy;
-            border-radius: 10px;
-
-            .input-info {
-                display: block;
-                width: 90%;
-                margin: 1% auto;
-                padding: 2%;
-                border-radius: 5px;
-                font-size: 5rem;
-            }
-
-            .company {
-                display: inline-block;
-                border: 0;
-                width: 50%;
-                font-size: 5rem;
-            }
-
-            .button-container {
-                width: 90%;
-                margin: auto;
-                display: flex;
-                flex-direction: row;
-            }
-
-            .login-button {
-                background-color: $gray-blue;
-                width: 48%;
-                padding: 2%;
-                margin: 5% auto;
-                font-size: 5rem;
-            }
-
-            .btn-secondary {
-                background-color: $aqua;
-                color: $white;
-            }
-
-            .btn-group {
-                display: flex;
-                justify-content: center;
-                align-self: center;
-                width: 100%;
-
-                .btn {
-                    background-color: $aqua;
-                }
-            }
-            .radio{
-              color: $white;
-              font-size: 5rem;
-              margin-left: 1%;
-            }
-            input[type='radio'] {
-                transform: scale(3);
-                margin-top: 3%;
-            }
-        }
+    h2 {
+      font-size: 6rem;
+      color: $white;
+      margin: 3%;
     }
+
+    img {
+      margin-top: 10vh;
+      margin-bottom: 5vh;
+      width: 60vw;
+      align-self: center;
+      background-color: $white;
+      border-radius: 100%;
+    }
+
+    h1 {
+      align-self: center;
+    }
+
+    .login,
+    .signup {
+      width: 90vw;
+      text-align: center;
+      align-self: center;
+      margin: 3% auto;
+      background-color: $navy;
+      border-radius: 10px;
+
+      .input-info {
+        display: block;
+        width: 90%;
+        margin: 1% auto;
+        padding: 2%;
+        border-radius: 5px;
+        font-size: 5rem;
+      }
+
+      .company {
+        display: inline-block;
+        border: 0;
+        width: 50%;
+        font-size: 5rem;
+      }
+
+      .button-container {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+      }
+
+      .login-button {
+        background-color: $gray-blue;
+        width: 48%;
+        padding: 2%;
+        margin: 5% auto;
+        font-size: 5rem;
+      }
+
+      .btn-secondary {
+        background-color: $aqua;
+        color: $white;
+      }
+
+      .btn-group {
+        display: flex;
+        justify-content: center;
+        align-self: center;
+        width: 100%;
+
+        .btn {
+          background-color: $aqua;
+        }
+      }
+
+      .radio {
+        color: $white;
+        font-size: 5rem;
+        margin-left: 1%;
+      }
+
+      input[type='radio'] {
+        transform: scale(3);
+        margin-top: 3%;
+      }
+    }
+  }
 }
 @media only screen and (min-device-width: 1024px) {
-    .login-page {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        img {
-            width: 25vw;
-            align-self: center;
-            background-color: $white;
-            border-radius: 100%;
-        }
+  .login-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-        .login {
-            width: 50vw;
-            background-color: lightblue;
-            text-align: center;
-            align-self: center;
-
-            .input-info {
-                display: block;
-                width: 75%;
-                margin: 1% auto;
-                padding: 2%;
-                border-radius: 5px;
-            }
-
-            .login-button {
-                width: 80%;
-                padding: 3%;
-                margin: 1% auto;
-                font-size: 2rem;
-            }
-        }
-
-        .signup {
-            width: 50vw;
-            text-align: center;
-            background-color: lightgreen;
-            align-self: center;
-
-            .input-info {
-                display: block;
-                width: 75%;
-                margin: 1% auto;
-                padding: 2%;
-            }
-
-            .company {
-                display: inline-block;
-            }
-
-            .login-button {
-                width: 80%;
-                padding: 3%;
-                margin: 1%auto;
-                font-size: 1rem;
-            }
-        }
+    img {
+      width: 25vw;
+      align-self: center;
+      background-color: $white;
+      border-radius: 100%;
     }
+    .login-signup-box {
+      
+    }
+
+    .login {
+      width: 50vw;
+      background-color: $navy;
+      color: $white;
+      text-align: center;
+      align-self: center;
+      margin: 2% auto;
+      padding: 1%;
+      border-radius: 5px;
+
+      .input-info {
+        display: block;
+        width: 75%;
+        margin: 1% auto;
+        padding: 2%;
+        border-radius: 5px;
+      }
+
+      .login-button {
+        background-color: $gray-blue;
+        width: 35%;
+        padding: 3%;
+        margin: 3% auto;
+        font-size: 2rem;
+      }
+
+      .btn-secondary {
+        background-color: $aqua;
+        color: $white;
+      }
+      .button-container {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+      }
+    }
+
+    .signup {
+      width: 50vw;
+      text-align: center;
+      background-color: $navy;
+      color: $white;
+      align-self: center;
+      margin: 2% auto;
+      padding: 1%;
+      border-radius: 5px;
+
+      .input-info {
+        display: block;
+        width: 75%;
+        margin: 1% auto;
+        padding: 2%;
+      }
+
+      .company {
+        display: inline-block;
+      }
+
+      .login-button {
+        background-color: $gray-blue;
+        width: 80%;
+        padding: 3%;
+        margin: 2%auto;
+        font-size: 2rem;
+      }
+    }
+  }
 }

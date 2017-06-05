@@ -97,6 +97,10 @@ body {
     justify-content: center;
     flex-direction: column;
 
+    input[type='checkbox'] {
+      transform:scale(2);
+    }
+
     .delete-schedule {
       width: 50vw;
       margin: auto;
@@ -307,6 +311,7 @@ body {
 
   .week-box {
     width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: space-around;
 
@@ -332,19 +337,22 @@ body {
       .add-shift {
         width: 100%;
         margin: 1% auto;
-        background-color: white;
-        color: #333333;
+        padding: 0%;
+        color: $white;
+        background-color: $navy;
+        
       }
-
-      .delete {}
 
       .admin-select-box {
         width: 100%;
         background: linear-gradient(to right, rgba(119,123,126, .9), rgba(119,123,126, .6)), url('gears.jpg');
+        .custom-select{
+          margin: 0 auto;
+        }
       }
 
       .day-shift {
-        height: 50vh;
+        height: 40vh;
         border-radius: 5px;
         background: linear-gradient(to bottom, rgba(155, 203, 190, .8), rgba(155, 203, 190, .5)), url('crank_arm.jpg');
         background-position: center;
@@ -352,10 +360,13 @@ body {
         background-repeat: no-repeat;
         border: 1px $gray solid;
         overflow: scroll;
+        h1{
+          font-size: 2rem;
+        }
       }
 
       .night-shift {
-        height: 90vh;
+        height: 60vh;
         background: linear-gradient(to bottom, rgba(131, 172, 189, .8), rgba(131, 172, 189, .5)), url('brake_rotate.jpg');
         background-position: center;
         background-size: cover;
@@ -363,6 +374,29 @@ body {
         border-radius: 5px;
         border: 1px $gray solid;
         overflow: scroll;
+        h1{
+          font-size: 2rem;
+        }
+      }
+    }
+    .list-group-item {
+      font-size: 1rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 0;
+      padding: 0;
+      .delete {
+        padding: 0;
+        font-size: 1rem;
+      }
+      label {
+
+        padding: 0;
+      }
+      input[type='checkbox'] {
+        transform:scale(1);
+        padding: 0;
       }
     }
   }
