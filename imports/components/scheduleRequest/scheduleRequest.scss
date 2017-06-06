@@ -98,7 +98,7 @@ body {
     flex-direction: column;
 
     input[type='checkbox'] {
-      transform:scale(2);
+      transform: scale(2);
     }
 
     .delete-schedule {
@@ -254,53 +254,63 @@ body {
 }
 //////////////////// large screen///////////////
 @media only screen and (min-device-width: 1024px) {
-  .label-box {
-    width: 85vw;
-    margin: 2% auto;
-    border-radius: 10px;
+  .label-box-container {
     display: flex;
-    background: linear-gradient(to right, rgba(119,123,126, .9), rgba(119,123,126, .6)), url('gears.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    h1 {
-      font-size: 6rem;
-      color: #333333;
-    }
-
-    h2 {
-      font-size: 5rem;
-    }
-
-    .finalize-schedule {
-      width: 100%;
-      text-align: center;
-      margin-bottom: 2%;
-
-      .date-input {
-        font-size: 2rem;
+    flex-direction: row;
+    .company-box{
+      width: 35vw;
+      h1{
+        font-size: 4rem;
       }
     }
-
-    .riders-box {
+    .admin-box{
+      width: 55vw;
+      h2{
+        font-size: 3rem;
+      }
+      h3{
+        font-size: 1.5rem;
+      }
+    }
+    .label-box {
+      margin: 2% auto;
+      border-radius: 10px;
       display: flex;
-      justify-content: flex-start;
-      flex-direction: row;
-      flex-wrap: wrap;
-      width: 100%;
+      background: linear-gradient(to right, rgba(119,123,126, .9), rgba(119,123,126, .6)), url('gears.jpg');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border: 1px $gray solid;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
-      .rider {
-        background-color: white;
+      .finalize-schedule {
+        width: 100%;
         text-align: center;
+        margin-bottom: 2%;
+
+        .date-input {
+          font-size: 2rem;
+        }
+      }
+
+      .riders-box {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
         flex-wrap: wrap;
-        width: 25%;
-        margin: auto;
-        font-size: 4rem;
-        overflow-y: scroll;
+        width: 100%;
+
+        .rider {
+          background-color: white;
+          text-align: center;
+          flex-wrap: wrap;
+          width: 25%;
+          margin: auto;
+          font-size: 4rem;
+          overflow-y: scroll;
+        }
       }
     }
   }
@@ -337,22 +347,22 @@ body {
       .add-shift {
         width: 100%;
         margin: 1% auto;
-        padding: 0%;
+        padding: 0;
         color: $white;
         background-color: $navy;
-        
       }
 
       .admin-select-box {
         width: 100%;
         background: linear-gradient(to right, rgba(119,123,126, .9), rgba(119,123,126, .6)), url('gears.jpg');
-        .custom-select{
+
+        .custom-select {
           margin: 0 auto;
         }
       }
 
       .day-shift {
-        height: 40vh;
+        height: 35vh;
         border-radius: 5px;
         background: linear-gradient(to bottom, rgba(155, 203, 190, .8), rgba(155, 203, 190, .5)), url('crank_arm.jpg');
         background-position: center;
@@ -360,13 +370,14 @@ body {
         background-repeat: no-repeat;
         border: 1px $gray solid;
         overflow: scroll;
-        h1{
+
+        h1 {
           font-size: 2rem;
         }
       }
 
       .night-shift {
-        height: 60vh;
+        height: 65vh;
         background: linear-gradient(to bottom, rgba(131, 172, 189, .8), rgba(131, 172, 189, .5)), url('brake_rotate.jpg');
         background-position: center;
         background-size: cover;
@@ -374,28 +385,32 @@ body {
         border-radius: 5px;
         border: 1px $gray solid;
         overflow: scroll;
-        h1{
+
+        h1 {
           font-size: 2rem;
         }
       }
     }
+
     .list-group-item {
       font-size: 1rem;
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: space-around;
       margin: 0;
       padding: 0;
+
       .delete {
         padding: 0;
         font-size: 1rem;
       }
-      label {
 
+      label {
         padding: 0;
       }
+
       input[type='checkbox'] {
-        transform:scale(1);
+        transform: scale(1);
         padding: 0;
       }
     }
