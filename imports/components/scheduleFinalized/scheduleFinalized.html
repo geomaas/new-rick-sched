@@ -736,4 +736,4 @@
     </div>
   </div>
 </div>
-<dir-pagination-controls on-page-change="$ctrl.pageChanged(newPageNumber)" class="pagination-style"></dir-pagination-controls>
+<dir-pagination-controls on-page-change="$ctrl.pageChanged(newPageNumber)" class="pagination-style" ng-show="$ctrl.currentUser.profile.isAdmin == true"></dir-pagination-controls>
