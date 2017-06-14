@@ -32,6 +32,7 @@ export const SunOne = new Mongo.Collection('sunOne');
 export const SunTwo = new Mongo.Collection('sunTwo');
 
 export const Requests = new Mongo.Collection('requests');
+export const UnEditedRequests = new Mongo.Collection('unEditedRequests');
 export const Reservations = new Mongo.Collection('reservations');
 
 // Requests.attachSchema(RequestSchema);
@@ -54,11 +55,11 @@ const Collections = {
     'sunTwo': SunTwo,
 }
 /*-------------------------------------------*/
-// Meteor.users.deny({
-//     update: function() {
-//         return true;
-//     }
-// });
+Meteor.users.deny({
+    update: function() {
+        return true;
+    }
+});
 /*-------------------------------------------*/
 
 Meteor.methods({

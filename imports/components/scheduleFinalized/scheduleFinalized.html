@@ -1,71 +1,73 @@
 <header>
 </header>
-<div class="label-box">
-    <h1 ng-show="$ctrl.currentUser.profile.company == 'pedicab'">Finalized Pedicab Schedule</h1>
-    <h1 ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">Finalized Rickshaw Schedule</h1>
+<div class="label-box-container">
+  <div class="label-box company-box">
+    <h1 ng-show="$ctrl.currentUser.profile.company == 'pedicab'">Pedicab Schedule</h1>
+    <h1 ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">Rickshaw Schedule</h1>
     <h2>{{$ctrl.currentUser.username}} <button ng-show="$ctrl.currentUser" class="btn btn-primary logout-button"ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h2>
+  </div>
+
 </div>
 <div class="week-button-container">
-    <button ng-click="$ctrl.day = 1" type="button" class="btn btn-secondary">M</button>
-    <button ng-click="$ctrl.day = 2" type="button" class="btn btn-secondary">T</button>
-    <button ng-click="$ctrl.day = 3" type="button" class="btn btn-secondary">W</button>
-    <button ng-click="$ctrl.day = 4" type="button" class="btn btn-secondary">T</button>
-    <button ng-click="$ctrl.day = 5" type="button" class="btn btn-secondary">F</button>
-    <button ng-click="$ctrl.day = 6" type="button" class="btn btn-secondary">S</button>
-    <button ng-click="$ctrl.day = 7" type="button" class="btn btn-secondary">S</button>
-    <button ng-click="$ctrl.day = 8" type="button" class="btn btn-secondary">All</button>
+  <button ng-click="$ctrl.day = 1" type="button" class="btn btn-secondary">M</button>
+  <button ng-click="$ctrl.day = 2" type="button" class="btn btn-secondary">T</button>
+  <button ng-click="$ctrl.day = 3" type="button" class="btn btn-secondary">W</button>
+  <button ng-click="$ctrl.day = 4" type="button" class="btn btn-secondary">T</button>
+  <button ng-click="$ctrl.day = 5" type="button" class="btn btn-secondary">F</button>
+  <button ng-click="$ctrl.day = 6" type="button" class="btn btn-secondary">S</button>
+  <button ng-click="$ctrl.day = 7" type="button" class="btn btn-secondary">S</button>
+  <button ng-click="$ctrl.day = 8" type="button" class="btn btn-secondary">All</button>
 </div>
 
-<div class="week-box" dir-paginate="week in $ctrl.requests | itemsPerPage: $ctrl.perPage">
-    <button type="button" class="btn btn-primary delete-schedule" name="button" ng-click="$ctrl.deleteSchedule(week._id)" ng-show="$ctrl.currentUser.profile.isAdmin == true">delete schedule</button>
+
+
+<div class="week-box-container" dir-paginate="week in $ctrl.requests | itemsPerPage: $ctrl.perPage">
+  <button type="button" class="btn btn-primary delete-schedule" name="button" ng-click="$ctrl.deleteSchedule(week._id)" ng-show="$ctrl.currentUser.profile.isAdmin == true">Delete Schedule</button>
+  <div class="week-box">
     <!--- MONDAY   ----->
     <div class="day-box" ng-show="$ctrl.day == 1 || $ctrl.day == 8">
-        <h1>Monday</h1>
-        <h1>{{week.weekStart}}</h1>
-        <div class="shift-box">
-            <div class="day-shift">
-                <h1>Day Shift</h1>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'monOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+      <h1>Monday</h1>
+      <h1>{{week.weekStart}}</h1>
+      <div class="shift-box">
+        <div class="day-shift">
+          <h1>Day Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'monOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
-                </div>
-                <ol class="list-group">
-                    <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'monOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                    </li>
-                    <!-- Pedicab list  -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'monOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                    </li>
-                </ol>
-            </div>
-            <div class="night-shift">
-                <h1>Night Shift</h1>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'monTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
-                    </select>
-                </div>
-                <ol class="list-group">
-                    <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'monTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                        <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
-                    </li>
-                    <!-- Pedicab List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'monTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                        <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
-                    </li>
-                </ol>
-            </div>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'monOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+            </li>
+            <!-- Pedicab list  -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'monOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+            </li>
+          </ol>
         </div>
-        <!-- reservation repeat section -->
-        <!-- <div class="reservations-list" ng-repeat="reso in $ctrl.reservations | itemsPerPage: $ctrl.perPage | orderBy: ['resoDate','resoTime'] | filter: {resoCompany:'rickshaw'}:currentUser.profile.company" ng-show="reso.resoDate == week.weekStart">
+        <div class="night-shift">
+          <h1>Night Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'monTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'monTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+              <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30</h3>
+            </li>
+            <!-- Pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'monTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+              <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30</h3>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <!-- reservation repeat section -->
+      <!-- <div class="reservations-list" ng-repeat="reso in $ctrl.reservations | itemsPerPage: $ctrl.perPage | orderBy: ['resoDate','resoTime'] | filter: {resoCompany:'rickshaw'}:currentUser.profile.company" ng-show="reso.resoDate == week.weekStart">
           <div class="reso-by">
             <h3>Made by: {{reso.createdBy}}</h3>
             <button ng-click="$ctrl.deleteReservation(reso)" type="button" class="btn btn-primary">&times;</button>
@@ -87,60 +89,60 @@
               <h3>Notes: {{reso.resoNotes}}</h3>
             </div>
         </div> -->
-        <!-- end reso repeat -->
+      <!-- end reso repeat -->
     </div>
     <!-- TUESDAY -->
     <div class="day-box" ng-show="$ctrl.day == 2 || $ctrl.day == 8">
-        <h1>Tuesday</h1>
-        <h1>{{week.tueDate}}</h1>
-        <div class="shift-box">
-            <div class="day-shift">
-                <h1>Day Shift</h1>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'tueOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
+      <h1>Tuesday</h1>
+      <h1>{{week.tueDate}}</h1>
+      <div class="shift-box">
+        <div class="day-shift">
+          <h1>Day Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'tueOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
-                </div>
-                <ol class="list-group">
-                    <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.tueOne | filter: {company:'rickshaw'}:true"
-                        ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'tueOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                    </li>
-                    <!-- Pedicab List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.tueOne | filter: {company:'pedicab'}:true"
-                        ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'tueOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                    </li>
-                </ol>
-            </div>
-            <div class="night-shift">
-                <h1>Night Shift</h1>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'tueTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
-                    </select>
-                </div>
-                <ol class="list-group">
-                    <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.tueTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true"
-                        ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'tueTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                        <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
-                    </li>
-                    <!-- pedicab List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.tueTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true"
-                        ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'tueTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                        <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
-                    </li>
-                </ol>
-            </div>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.tueOne | filter: {company:'rickshaw'}:true"
+              ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'tueOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+            </li>
+            <!-- Pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.tueOne | filter: {company:'pedicab'}:true"
+              ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'tueOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+            </li>
+          </ol>
         </div>
-        <!-- reservation repeat section -->
-        <!-- <div class="reservations-list" ng-repeat="reso in $ctrl.reservations | itemsPerPage: $ctrl.perPage | orderBy: ['resoDate','resoTime'] | filter: {resoCompany:'rickshaw'}:currentUser.profile.company" ng-show="reso.resoDate == week.weekStart">
+        <div class="night-shift">
+          <h1>Night Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'tueTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.tueTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true"
+              ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'tueTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+              <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30</h3>
+            </li>
+            <!-- pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.tueTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true"
+              ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'tueTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+              <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30</h3>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <!-- reservation repeat section -->
+      <!-- <div class="reservations-list" ng-repeat="reso in $ctrl.reservations | itemsPerPage: $ctrl.perPage | orderBy: ['resoDate','resoTime'] | filter: {resoCompany:'rickshaw'}:currentUser.profile.company" ng-show="reso.resoDate == week.weekStart">
           <div class="reso-by">
             <h3>Made by: {{reso.createdBy}}</h3>
             <button ng-click="$ctrl.deleteReservation(reso)" type="button" class="btn btn-primary">&times;</button>
@@ -162,239 +164,576 @@
               <h3>Notes: {{reso.resoNotes}}</h3>
             </div>
         </div> -->
-        <!-- end reso repeat -->
+      <!-- end reso repeat -->
     </div>
     <!-- WEDNESDAY -->
     <div class="day-box" ng-show="$ctrl.day == 3 || $ctrl.day == 8">
-        <h1>Wednesday</h1>
-        <h1>{{week.wedDate}}</h1>
-        <div class="shift-box">
-            <div class="day-shift">
-                <h1>Day Shift</h1>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'wedOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
+      <h1>Wednesday</h1>
+      <h1>{{week.wedDate}}</h1>
+      <div class="shift-box">
+        <div class="day-shift">
+          <h1>Day Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'wedOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
-                </div>
-                <ol class="list-group">
-                    <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.wedOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'wedOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                    </li>
-                    <!-- Pedicab List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.wedOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'wedOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                    </li>
-                </ol>
-            </div>
-            <div class="night-shift">
-                <h1>Night Shift</h1>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'wedTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
-                    </select>
-                </div>
-                <ol class="list-group">
-                    <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.wedTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'wedTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                        <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
-                    </li>
-                    <!-- pedicab List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.wedTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'wedTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                        <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
-                    </li>
-                </ol>
-            </div>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.wedOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'wedOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+            </li>
+            <!-- Pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.wedOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'wedOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+            </li>
+          </ol>
         </div>
+        <div class="night-shift">
+          <h1>Night Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'wedTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.wedTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'wedTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+              <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30</h3>
+            </li>
+            <!-- pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.wedTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'wedTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+              <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30</h3>
+            </li>
+          </ol>
+        </div>
+      </div>
     </div>
     <!-- THURSDAY -->
     <div class="day-box" ng-show="$ctrl.day == 4 || $ctrl.day == 8">
-        <h1>Thursday</h1>
-        <h1>{{week.thuDate}}</h1>
-        <div class="shift-box">
-            <div class="day-shift">
-                <h1>Day Shift</h1>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'thuOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
+      <h1>Thursday</h1>
+      <h1>{{week.thuDate}}</h1>
+      <div class="shift-box">
+        <div class="day-shift">
+          <h1>Day Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'thuOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
-                </div>
-                <ol class="list-group">
-                    <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.thuOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'thuOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                    </li>
-                    <!-- pedicab List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.thuOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'thuOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                    </li>
-                </ol>
-            </div>
-            <div class="night-shift">
-                <h1>Night Shift</h1>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'thuTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
-                    </select>
-                </div>
-                <ol class="list-group">
-                    <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.thuTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'thuTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                        <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
-                    </li>
-                    <!-- pedicab List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.thuTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'thuTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                        <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
-                    </li>
-                </ol>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.thuOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
 
-            </div>
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'thuOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+            </li>
+            <!-- pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.thuOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'thuOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+            </li>
+          </ol>
         </div>
+        <div class="night-shift">
+          <h1>Night Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'thuTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.thuTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'thuTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+              <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30</h3>
+            </li>
+            <!-- pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.thuTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'thuTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+              <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30</h3>
+            </li>
+          </ol>
+
+        </div>
+      </div>
     </div>
     <!-- FRIDAY -->
     <div class="day-box" ng-show="$ctrl.day == 5 || $ctrl.day == 8">
-        <h1>Friday</h1>
-        <h1>{{week.friDate}}</h1>
-        <div class="shift-box">
-            <div class="day-shift">
-                <h1>Day Shift</h1>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'friOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
+      <h1>Friday</h1>
+      <h1>{{week.friDate}}</h1>
+      <div class="shift-box">
+        <div class="day-shift">
+          <h1>Day Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'friOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
-                </div>
-                <ol class="list-group">
-                    <!-- pedicab List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.friOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'friOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                    </li>
-                    <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.friOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'friOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                    </li>
-                </ol>
-            </div>
-            <div class="night-shift">
-                <h1>Night Shift</h1>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'friTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
-                    </select>
-                </div>
-                <ol class="list-group">
-                    <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.friTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'friTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                        <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
-                    </li>
-                    <!-- pedicab List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.friTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'friTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                        <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30 Shift</h3>
-                    </li>
-                </ol>
-            </div>
+          </div>
+          <ol class="list-group">
+            <!-- pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.friOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'friOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+            </li>
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.friOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'friOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+            </li>
+          </ol>
         </div>
+        <div class="night-shift">
+          <h1>Night Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'friTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.friTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'friTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+              <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30</h3>
+            </li>
+            <!-- pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.friTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'friTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+              <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30</h3>
+            </li>
+          </ol>
+        </div>
+      </div>
     </div>
     <!-- SATURDAY -->
     <div class="day-box" ng-show="$ctrl.day == 6 || $ctrl.day == 8">
-        <h1>Saturday</h1>
-        <h1>{{week.satDate}}</h1>
-        <div class="shift-box">
-            <div class="day-shift">
-                <h1>Day Shift</h1>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'satOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
+      <h1>Saturday</h1>
+      <h1>{{week.satDate}}</h1>
+      <div class="shift-box">
+        <div class="day-shift">
+          <h1>Day Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'satOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
-                </div>
-                <ol class="list-group">
-                    <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.satOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'satOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                    </li>
-                    <!-- pedicab List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.satOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'satOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                    </li>
-                </ol>
-            </div>
-            <div class="night-shift">
-                <h1>Night Shift</h1>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'satTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
-                    </select>
-                </div>
-                <ol class="list-group">
-                    <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.satTwo | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'satTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                    </li>
-                    <!-- pedicab List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.satTwo | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'satTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                    </li>
-                </ol>
-            </div>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.satOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'satOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+            </li>
+            <!-- pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.satOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'satOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+            </li>
+          </ol>
         </div>
+        <div class="night-shift">
+          <h1>Night Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'satTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.satTwo | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'satTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+            </li>
+            <!-- pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.satTwo | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'satTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+            </li>
+          </ol>
+        </div>
+      </div>
     </div>
     <!-- SUNDAY -->
     <div class="day-box" ng-show="$ctrl.day == 7 || $ctrl.day == 8">
-        <h1>Sunday</h1>
-        <h1>{{week.sunDate}}</h1>
-        <div class="shift-box">
-            <div class="day-shift">
-                <h1>Day Shift</h1>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'sunOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
+      <h1>Sunday</h1>
+      <h1>{{week.sunDate}}</h1>
+      <div class="shift-box">
+        <div class="day-shift">
+          <h1>Day Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'sunOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
                     </select>
-                </div>
-                <ol class="list-group">
-                    <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.sunOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'sunOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                    </li>
-                    <!-- pedicab List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.sunOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'sunOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                    </li>
-                </ol>
-            </div>
-            <div class="night-shift">
-                <h1>Night Shift</h1>
-                <div class="admin-select-box">
-                    <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'sunTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'"ng-show="$ctrl.currentUser.profile.isAdmin == true">
-                    </select>
-                </div>
-                <ol class="list-group">
-                    <!-- Rickshaw List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.sunTwo | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'sunTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                    </li>
-                    <!-- pedicab List -->
-                    <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.sunTwo | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-                        {{$index + 1}}. {{day.username}}
-                        <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'sunTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button>
-                    </li>
-                </ol>
-            </div>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.sunOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'sunOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+            </li>
+            <!-- pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.sunOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'sunOne', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+            </li>
+          </ol>
         </div>
+        <div class="night-shift">
+          <h1>Night Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'sunTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.sunTwo | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'sunTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+            </li>
+            <!-- pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.sunTwo | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+
+              <button class="btn btn-primary delete" ng-click="$ctrl.removeFromSchedule(week, 'sunTwo', day)" ng-show="$ctrl.currentUser.profile.isAdmin == true">&times;</button> {{$index + 1}}. {{day.username}}
+            </li>
+          </ol>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
+<dir-pagination-controls on-page-change="$ctrl.pageChanged(newPageNumber)" class="pagination-style"></dir-pagination-controls>
+
+
+<!--  -->
+<!--  -->
+
+
+<div class="week-box-container unedited" dir-paginate="week in $ctrl.unEditedRequests | itemsPerPage: $ctrl.perPage" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+  <h1>Original Requests</h1>
+  <button type="button" class="btn btn-primary delete-schedule" name="button" ng-click="$ctrl.deleteUneditedRequests(week._id)" ng-show="$ctrl.currentUser.profile.isAdmin == true">Delete Schedule</button>
+  <div class="week-box">
+    <!--- MONDAY   ----->
+    <div class="day-box" ng-show="$ctrl.day == 1 || $ctrl.day == 8">
+      <h1>Monday</h1>
+      <h1>{{week.weekStart}}</h1>
+      <div class="shift-box">
+        <div class="day-shift">
+          <h1>Day Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'monOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+              {{$index + 1}}. {{day.username}}
+            </li>
+            <!-- Pedicab list  -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+              {{$index + 1}}. {{day.username}}
+            </li>
+          </ol>
+        </div>
+        <div class="night-shift">
+          <h1>Night Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'monTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+              {{$index + 1}}. {{day.username}}
+              <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30</h3>
+            </li>
+            <!-- Pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.monTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+              {{$index + 1}}. {{day.username}}
+              <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30</h3>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+    </div>
+    <!-- TUESDAY -->
+    <div class="day-box" ng-show="$ctrl.day == 2 || $ctrl.day == 8">
+      <h1>Tuesday</h1>
+      <h1>{{week.tueDate}}</h1>
+      <div class="shift-box">
+        <div class="day-shift">
+          <h1>Day Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'tueOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.tueOne | filter: {company:'rickshaw'}:true"
+              ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+              {{$index + 1}}. {{day.username}}
+            </li>
+            <!-- Pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.tueOne | filter: {company:'pedicab'}:true"
+              ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+              {{$index + 1}}. {{day.username}}
+            </li>
+          </ol>
+        </div>
+        <div class="night-shift">
+          <h1>Night Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'tueTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.tueTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true"
+              ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+
+              {{$index + 1}}. {{day.username}}
+              <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30</h3>
+            </li>
+            <!-- pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.tueTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true"
+              ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+
+              {{$index + 1}}. {{day.username}}
+              <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30</h3>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- WEDNESDAY -->
+    <div class="day-box" ng-show="$ctrl.day == 3 || $ctrl.day == 8">
+      <h1>Wednesday</h1>
+      <h1>{{week.wedDate}}</h1>
+      <div class="shift-box">
+        <div class="day-shift">
+          <h1>Day Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'wedOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.wedOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+
+              {{$index + 1}}. {{day.username}}
+            </li>
+            <!-- Pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.wedOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+
+              {{$index + 1}}. {{day.username}}
+            </li>
+          </ol>
+        </div>
+        <div class="night-shift">
+          <h1>Night Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'wedTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.wedTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+
+              {{$index + 1}}. {{day.username}}
+              <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30</h3>
+            </li>
+            <!-- pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.wedTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+
+              {{$index + 1}}. {{day.username}}
+              <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30</h3>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- THURSDAY -->
+    <div class="day-box" ng-show="$ctrl.day == 4 || $ctrl.day == 8">
+      <h1>Thursday</h1>
+      <h1>{{week.thuDate}}</h1>
+      <div class="shift-box">
+        <div class="day-shift">
+          <h1>Day Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'thuOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.thuOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+
+              {{$index + 1}}. {{day.username}}
+            </li>
+            <!-- pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.thuOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+
+              {{$index + 1}}. {{day.username}}
+            </li>
+          </ol>
+        </div>
+        <div class="night-shift">
+          <h1>Night Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'thuTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.thuTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+
+              {{$index + 1}}. {{day.username}}
+              <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30</h3>
+            </li>
+            <!-- pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.thuTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+
+              {{$index + 1}}. {{day.username}}
+              <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30</h3>
+            </li>
+          </ol>
+
+        </div>
+      </div>
+    </div>
+    <!-- FRIDAY -->
+    <div class="day-box" ng-show="$ctrl.day == 5 || $ctrl.day == 8">
+      <h1>Friday</h1>
+      <h1>{{week.friDate}}</h1>
+      <div class="shift-box">
+        <div class="day-shift">
+          <h1>Day Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'friOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+          </div>
+          <ol class="list-group">
+            <!-- pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.friOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+
+              {{$index + 1}}. {{day.username}}
+            </li>
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.friOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+
+              {{$index + 1}}. {{day.username}}
+            </li>
+          </ol>
+        </div>
+        <div class="night-shift">
+          <h1>Night Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'friTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.friTwo | orderBy: 'checked' | filter: {company:'rickshaw'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+
+              {{$index + 1}}. {{day.username}}
+              <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30</h3>
+            </li>
+            <!-- pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.friTwo | orderBy: 'checked' | filter: {company:'pedicab'}:true" ng-class="{'checked': request.checked}" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+
+              {{$index + 1}}. {{day.username}}
+              <h3 ng-if="$index>3" style="background-color:rgba(119,123,126, .7);">6:30</h3>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- SATURDAY -->
+    <div class="day-box" ng-show="$ctrl.day == 6 || $ctrl.day == 8">
+      <h1>Saturday</h1>
+      <h1>{{week.satDate}}</h1>
+      <div class="shift-box">
+        <div class="day-shift">
+          <h1>Day Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'satOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.satOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+
+              {{$index + 1}}. {{day.username}}
+            </li>
+            <!-- pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.satOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+
+              {{$index + 1}}. {{day.username}}
+            </li>
+          </ol>
+        </div>
+        <div class="night-shift">
+          <h1>Night Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'satTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.satTwo | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+
+              {{$index + 1}}. {{day.username}}
+            </li>
+            <!-- pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.satTwo | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+
+              {{$index + 1}}. {{day.username}}
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- SUNDAY -->
+    <div class="day-box" ng-show="$ctrl.day == 7 || $ctrl.day == 8">
+      <h1>Sunday</h1>
+      <h1>{{week.sunDate}}</h1>
+      <div class="shift-box">
+        <div class="day-shift">
+          <h1>Day Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'sunOne')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.sunOne | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+
+              {{$index + 1}}. {{day.username}}
+            </li>
+            <!-- pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.sunOne | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+
+              {{$index + 1}}. {{day.username}}
+            </li>
+          </ol>
+        </div>
+        <div class="night-shift">
+          <h1>Night Shift</h1>
+          <div class="admin-select-box">
+            <select class="custom-select" ng-change="$ctrl.adminUpdateUser(week, 'sunTwo')" ng-model="$ctrl.adminUserChoice" ng-options="user.username for user in $ctrl.allUsers | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+                    </select>
+          </div>
+          <ol class="list-group">
+            <!-- Rickshaw List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.sunTwo | filter: {company:'rickshaw'}:true" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
+              {{$index + 1}}. {{day.username}}
+            </li>
+            <!-- pedicab List -->
+            <li class="list-group-item" ng-style="{'background-color':(day.username == $ctrl.currentUser.username?'#fbb829':'none')}" ng-repeat="day in week.sunTwo | filter: {company:'pedicab'}:true" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
+
+              {{$index + 1}}. {{day.username}}
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <dir-pagination-controls on-page-change="$ctrl.pageChanged(newPageNumber)" class="pagination-style"></dir-pagination-controls>

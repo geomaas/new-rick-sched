@@ -2,8 +2,8 @@
 </header>
 <div class="label-box-container">
   <div class="label-box company-box">
-    <h1 ng-show="$ctrl.currentUser.profile.company == 'pedicab'">Pedicab Schedule</h1>
-    <h1 ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">Rickshaw Schedule</h1>
+    <h1 ng-show="$ctrl.currentUser.profile.company == 'pedicab'">Pedicab Requests</h1>
+    <h1 ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">Rickshaw Requests</h1>
     <h2>{{$ctrl.currentUser.username}} <button ng-show="$ctrl.currentUser" class="btn btn-primary logout-button"ng-click="$ctrl.logOutUser()" type="button" name="button">Logout</button></h2>
 
   </div>
@@ -13,16 +13,17 @@
         <span><input ng-model="$ctrl.weekStart" class="date-input" type="date" name="" value=""></span>
       </h2>
       <button type="button" class="btn btn-primary finalize-button" name="button" ng-click="$ctrl.swapCompany()">Change Company</button>
+      <button type="button" class="btn btn-primary finalize-button" name="button" ng-click="$ctrl.saveAllRequests($ctrl.weekStart)">Save All Requests</button>
       <button type="button" class="btn btn-primary finalize-button" name="button" ng-click="$ctrl.finalizeSchedule($ctrl.weekStart)">Finalize schedule</button>
       <button type="button" class="btn btn-primary finalize-button" name="button" ng-click="$ctrl.deleteAllRequests()">Delete All Requests</button>
     </div>
     <h2>Rider Shift Count</h2>
     <div class="riders-box">
       <div class="rider" ng-repeat="rider in $ctrl.allUsers | filter: {profile:{company:'rickshaw'}}:true | filter: {profile:{isAdmin: false}} | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.company == 'rickshaw'">
-        <h3>{{rider.username}} - {{rider.profile.numOfShifts}}</h3>
+        <h3>{{rider.username | limitTo: 10}} - {{rider.profile.numOfShifts}}</h3>
       </div>
       <div class="rider" ng-repeat="rider in $ctrl.allUsers | filter: {profile:{company:'pedicab'}}:true | filter: {profile:{isAdmin: false}} | orderBy: 'username'" ng-show="$ctrl.currentUser.profile.company == 'pedicab'">
-        <h3>{{rider.username}} - {{rider.profile.numOfShifts}}</h3>
+        <h3>{{rider.username | limitTo: 10}} - {{rider.profile.numOfShifts}}</h3>
       </div>
     </div>
   </div>
