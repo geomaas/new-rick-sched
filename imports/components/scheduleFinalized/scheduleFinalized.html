@@ -22,8 +22,10 @@
 
 
 <div class="week-box-container" dir-paginate="week in $ctrl.requests | itemsPerPage: $ctrl.perPage">
-  <button type="button" class="btn btn-primary delete-schedule" name="button" ng-click="$ctrl.viewRequests()" ng-show="$ctrl.currentUser.profile.isAdmin == true">All Requests</button>
-  <button type="button" class="btn btn-primary delete-schedule" name="button" ng-click="$ctrl.deleteSchedule(week._id)" ng-show="$ctrl.currentUser.profile.isAdmin == true">Delete Schedule</button>
+  <div class="button-container" ng-show="$ctrl.currentUser.profile.isAdmin == true">
+    <button type="button" class="btn btn-primary delete-schedule" name="button" ng-click="$ctrl.viewRequests()" >All Requests</button>
+    <button type="button" class="btn btn-primary delete-schedule" name="button" ng-click="$ctrl.deleteSchedule(week._id)">Delete Schedule</button>
+  </div>
   <div class="week-box">
     <!--- MONDAY   ----->
     <div class="day-box" ng-show="$ctrl.day == 1 || $ctrl.day == 8">
