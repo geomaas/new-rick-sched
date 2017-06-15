@@ -199,44 +199,44 @@ class ScheduleRequestCtrl {
   /*-----------------------------------------------------------------------*/
   ////// Must reformat these two  functions for better security///////////
   /*-----------------------------------------------------------------------*/
-  saveAllRequests(weekStart) {
-    console.log("save all requests");
-    let scheduleFinal = {
-      createdAt: new Date,
-      weekStart: moment(weekStart).format('l'),
-      monOne: angular.copy(this.monOne),
-      monTwo: angular.copy(this.monTwo),
-      tueDate: moment(weekStart).add(1, 'days').format('l'),
-      tueOne: angular.copy(this.tueOne),
-      tueTwo: angular.copy(this.tueTwo),
-      wedDate: moment(weekStart).add(2, 'days').format('l'),
-      wedOne: angular.copy(this.wedOne),
-      wedTwo: angular.copy(this.wedTwo),
-      thuDate: moment(weekStart).add(3, 'days').format('l'),
-      thuOne: angular.copy(this.thuOne),
-      thuTwo: angular.copy(this.thuTwo),
-      friDate: moment(weekStart).add(4, 'days').format('l'),
-      friOne: angular.copy(this.friOne),
-      friTwo: angular.copy(this.friTwo),
-      satDate: moment(weekStart).add(5, 'days').format('l'),
-      satOne: angular.copy(this.satOne),
-      satTwo: angular.copy(this.satTwo),
-      sunDate: moment(weekStart).add(6, 'days').format('l'),
-      sunOne: angular.copy(this.sunOne),
-      sunTwo: angular.copy(this.sunTwo),
-    };
-    if (confirm('Are all requests submitted?')) {
-      if (!UnEditedRequests.findOne({
-          weekStart: moment(weekStart).format('l')
-        })) {
-        UnEditedRequests.insert(scheduleFinal);
-        alert('Success in saving requests!')
-        // Meteor.call('schedule.insert', weekStart, scheduleFinal)
-      } else {
-        alert("Schedule already submitted!")
-      }
-    }
-  }
+  // saveAllRequests(weekStart) {
+  //   console.log("save all requests");
+  //   let scheduleFinal = {
+  //     createdAt: new Date,
+  //     weekStart: moment(weekStart).format('l'),
+  //     monOne: angular.copy(this.monOne),
+  //     monTwo: angular.copy(this.monTwo),
+  //     tueDate: moment(weekStart).add(1, 'days').format('l'),
+  //     tueOne: angular.copy(this.tueOne),
+  //     tueTwo: angular.copy(this.tueTwo),
+  //     wedDate: moment(weekStart).add(2, 'days').format('l'),
+  //     wedOne: angular.copy(this.wedOne),
+  //     wedTwo: angular.copy(this.wedTwo),
+  //     thuDate: moment(weekStart).add(3, 'days').format('l'),
+  //     thuOne: angular.copy(this.thuOne),
+  //     thuTwo: angular.copy(this.thuTwo),
+  //     friDate: moment(weekStart).add(4, 'days').format('l'),
+  //     friOne: angular.copy(this.friOne),
+  //     friTwo: angular.copy(this.friTwo),
+  //     satDate: moment(weekStart).add(5, 'days').format('l'),
+  //     satOne: angular.copy(this.satOne),
+  //     satTwo: angular.copy(this.satTwo),
+  //     sunDate: moment(weekStart).add(6, 'days').format('l'),
+  //     sunOne: angular.copy(this.sunOne),
+  //     sunTwo: angular.copy(this.sunTwo),
+  //   };
+  //   if (confirm('Are all requests submitted?')) {
+  //     if (!UnEditedRequests.findOne({
+  //         weekStart: moment(weekStart).format('l')
+  //       })) {
+  //       UnEditedRequests.insert(scheduleFinal);
+  //       alert('Success in saving requests!')
+  //       // Meteor.call('schedule.insert', weekStart, scheduleFinal)
+  //     } else {
+  //       alert("Schedule already submitted!")
+  //     }
+  //   }
+  // }
 
   finalizeSchedule(weekStart) {
     let scheduleFinal = {

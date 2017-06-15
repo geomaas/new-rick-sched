@@ -60,6 +60,10 @@ class ScheduleFinalizedCtrl {
       },
     })
   }
+  viewRequests() {
+    console.log('view all requests', this.hiddenRequests);
+    this.hiddenRequests = this.hiddenRequests === false?true:false;
+  }
   removeFromSchedule(week, shift, day) {
     Meteor.call('admin.remove', week._id, shift, day);
   }
